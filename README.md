@@ -7,4 +7,5 @@ At Kitsun, every drink is made with carefully selected ingredients, favoring nat
 🍵ᆞBubble Tea & Anime
 Kitsun is much more than just a Bubble Tea. Thanks to our exclusive partnerships with iconic anime franchises like One Piece, we offer drinks and experiences inspired by the characters and worlds you love. Every month, discover new special editions and exclusive creations that pay tribute to your favorite heroes!
 
-![Aperçu de kitsun](Kitsun/imgrepo/2.png)
+![Aperçu de kitsun](Kitsun/imgrepo/1.png)
+(Kitsun/imgrepo/2.png)
