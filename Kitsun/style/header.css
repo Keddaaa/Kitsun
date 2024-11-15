@@ -1,0 +1,425 @@
+.entete {
+	position: sticky;
+	width: 100%;
+	z-index: 999;
+	top: 0;
+	left: 0;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 3vh 10vw 3vh 10vw;
+	width: 100%;
+	z-index: 1;
+	background-color: white;
+}
+
+header .header_left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1vw;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+header .header_left .header_left img {
+	width: 1.3vw;
+	height: auto;
+	margin-top: -0.8vh;
+}
+
+header .header_left i {
+	font-size: 1.5vw;
+}
+
+header .header_left .logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1vw;
+}
+
+header .header_left .logo img {
+	width: 3vw;
+	height: auto;
+	border-radius: 50%;
+}
+
+header .header_left:hover {
+	cursor: url(../img/main.svg) 10 10, auto;
+}
+
+header .header_left p {
+	font-size: 1.5vw;
+	font-weight: lighter;
+}
+
+header .header_left i {
+	font-size: 1.5vw;
+	margin-top: -0.5vh;
+	font-weight: bold;
+}
+
+header .header_right {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: auto;
+}
+
+header .header_right .icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header .header_right .icons_right {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	width: 10vw;
+	gap: 1vw;
+	margin-right: 1vw;
+}
+
+header .header_right .icons_right i {
+	font-size: 1.5vw;
+}
+
+header .header_right .icons_right i:hover {
+	cursor: url(../img/main.svg) 10 10, auto;
+}
+
+header .header_right .icons_right #search_btn {
+	border: none;
+	background-color: transparent;
+	width: auto;
+	height: auto;
+}
+
+header .header_right .icons_right .searchInput {
+	display: none;
+	border: none;
+	color: #535353;
+	outline: none;
+	background-color: #e6e6e6;
+	border-radius: 0.5vw;
+	padding: 1vh 1vw;
+	width: 15vw;
+	font-size: 1vw;
+}
+
+header .header_right .btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1vw;
+}
+
+header .header_right .btn .btn_click {
+	font-size: 1vw;
+	padding: 1vh 1vw;
+	border-radius: 0.7vw;
+	border: none;
+	color: white;
+	background-color: #e52e20;
+	font-family: "Marine Sikona", sans-serif;
+}
+
+header .header_right .btn .btn_click:hover {
+	transform: scale(1.05);
+	cursor: url(../img/main.svg) 10 10, auto;
+}
+
+.menu {
+	display: none;
+	justify-content: left;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	padding: 0 0 5vh 14vw;
+	background-color: white;
+}
+
+.menu ul {
+	display: flex;
+	flex-direction: column;
+	gap: 5vh;
+	list-style: none;
+}
+
+.menu ul li {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	gap: 1vw;
+}
+
+.menu ul li a {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	font-size: 1.5vw;
+	cursor: url(../img/main.svg) 10 10, auto;
+	font-family: "segoe ui";
+}
+
+.bx-x {
+	display: none;
+}
+
+.bx {
+	font-size: 3vw;
+}
+
+.lien {
+	height: auto;
+	display: flex;
+	background-color: #ede6de;
+	justify-content: left;
+	align-items: flex-end;
+	padding: 1vh 10vw;
+}
+
+.lien p {
+	font-size: 1vw;
+	font-family: "segoe ui", sans-serif;
+}
+
+/* panier */
+.panier {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 30%;
+	height: auto;
+	min-height: 100%;
+	padding: 5vh 2vw;
+	position: absolute;
+	background-color: white;
+	right: 0;
+	top: 0;
+	z-index: 999;
+	border-top-left-radius: 2.5vw;
+	border-bottom-left-radius: 2.5vw;
+	border-left: 0.1vw solid #e6e6e6;
+	transition: all 0.5s ease;
+	transform: translateX(100%);
+}
+
+.panier_top {
+	width: 100%;
+}
+
+.panier hr {
+	border: 0.1vw solid #000000;
+	width: 100%;
+	margin: 2vh 0;
+	/* color: #000000; */
+}
+
+.panier .panier_entete {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: auto;
+}
+
+.panier .panier_entete p {
+	font-size: 1.5vw;
+}
+
+.panier .panier_entete img {
+	width: 1.5vw;
+	cursor: url(../img/main.svg) 10 10, auto;
+}
+
+.panier .panier_produit_container {
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	gap: 1vw;
+}
+
+.panier .panier_produit_container .panier_produit {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 100%;
+	height: 25%;
+	gap: 1vw;
+	border-radius: 0.5vw;
+	/* background-color: #e6e6e6; */
+}
+
+.panier .panier_produit_container .panier_produit img {
+	width: 5vw;
+	height: auto;
+	border-radius: 0.5vw;
+}
+
+.panier .panier_produit_container .panier_produit .panier_produit_infos {
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+	gap: 0.5vh;
+	width: 100%;
+}
+
+.panier .panier_produit_container .panier_produit .panier_produit_infos .nom {
+	font-size: 1.5vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+}
+
+.panier
+	.panier_produit_container
+	.panier_produit
+	.panier_produit_infos
+	.nom
+	img {
+	width: 1vw;
+	cursor: url(../img/main.svg) 10 10, auto;
+	font-weight: 100;
+}
+
+.panier
+	.panier_produit_container
+	.panier_produit
+	.panier_produit_infos
+	.category {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 69%;
+	font-family: "segoe ui", sans-serif;
+	margin-bottom: 2vh;
+}
+
+.panier
+	.panier_produit_container
+	.panier_produit
+	.panier_produit_infos
+	.category
+	h3 {
+	font-weight: 400;
+	font-size: 1.2vw;
+}
+
+.panier
+	.panier_produit_container
+	.panier_produit
+	.panier_produit_infos
+	.category
+	.type {
+	font-size: 1vw;
+	font-weight: 100;
+}
+
+.panier .panier_produit_container .panier_produit .panier_produit_infos .price {
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	width: 100%;
+	font-family: "segoe ui", sans-serif;
+	gap: 2vw;
+	/* margin-right: 5vw; */
+}
+
+.panier
+	.panier_produit_container
+	.panier_produit
+	.panier_produit_infos
+	.price
+	.nb_article {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 35%;
+	font-size: 1vw;
+	border: 0.1vw solid #000000;
+	padding: 0.5vh 1vw;
+	border-radius: 25vw;
+}
+
+.panier
+	.panier_produit_container
+	.panier_produit
+	.panier_produit_infos
+	.price
+	.prix {
+	font-size: 1.5vw;
+	font-family: "Marine Sikona", sans-serif;
+}
+
+.panier
+	.panier_produit_container
+	.panier_produit
+	.panier_produit_infos
+	.price
+	.nb_article
+	button {
+	font-size: 1.5vw;
+	cursor: url(../img/main.svg) 10 10, auto;
+	border: none;
+	background-color: transparent;
+}
+
+.panier_bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: auto;
+}
+
+.panier_bottom .panier_total {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	font-size: 1.5vw;
+}
+
+.panier_bottom .panier_total .panier_btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	font-size: 1.5vw;
+	font-family: "segoe ui", sans-serif;
+}
+
+.panier_bottom .panier_total .panier_btn hr {
+	width: 100%;
+	height: 0.1vw;
+	background-color: #000000;
+	border: none;
+}
+
+.panier_bottom .panier_btn button {
+	font-size: 1vw;
+	cursor: url(../img/main.svg) 10 10, auto;
+	border: none;
+	background-color: #2f2e2e;
+	color: white;
+	padding: 2vh 4vw;
+	border-radius: 25vw;
+}
+
+.panier_bottom .panier_btn button:hover {
+	background-color: #000000;
+}
