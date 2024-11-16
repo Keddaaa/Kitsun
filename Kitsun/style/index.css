@@ -377,7 +377,7 @@
 /* after */
 /* ================================= */
 .bon_plan .mint_tea::after {
-	content: "8.50$";
+	content: "5.50$";
 	display: block;
 	width: 3.5vw;
 	height: 3.5vw;
@@ -394,7 +394,7 @@
 }
 
 .bon_plan .special::after {
-	content: "7.50$";
+	content: "5.50$";
 	display: block;
 	width: 3.5vw;
 	height: 3.5vw;
@@ -411,7 +411,7 @@
 }
 
 .bon_plan .blueberies::after {
-	content: "8.50$";
+	content: "6.50$";
 	display: block;
 	width: 3.5vw;
 	height: 3.5vw;
@@ -428,7 +428,7 @@
 }
 
 .bon_plan .red::after {
-	content: "9.99$";
+	content: "4.99$";
 	display: block;
 	width: 3.5vw;
 	height: 3.5vw;
@@ -445,7 +445,7 @@
 }
 
 .bon_plan .pure::after {
-	content: "7.80$";
+	content: "5.80$";
 	display: block;
 	width: 3.5vw;
 	height: 3.5vw;
@@ -462,7 +462,7 @@
 }
 
 .bon_plan .fruit_series::after {
-	content: "9.99$";
+	content: "4.99$";
 	display: block;
 	width: 3.5vw;
 	height: 3.5vw;
@@ -479,3 +479,84 @@
 }
 
 /* ================================= */
+.hero_left {
+	position: absolute;
+	bottom: 85px;
+	left: 350px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.btn_commander {
+	position: absolute;
+	bottom: 155px;
+	left: 100px;
+	gap: 1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2vw;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 15px;
+	padding: 1.5vh 1.5vw;
+	color: black;
+	background-color: #c8e2fb;
+}
+.hero_right h1 {
+	position: absolute;
+	bottom: 748px;
+	right: 240px;
+	display: flex;
+	font-weight: lighter;
+	justify-content: right;
+	align-items: center;
+	font-size: 40px;
+}
+.btn_collab {
+	position: absolute;
+	bottom: 650px;
+	right: 400px;
+	gap: 1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2vw;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 15px;
+	padding: 1.5vh 1.5vw;
+	color: black;
+	background-color: #c8e2fb;
+}
+.img_collab {
+	position: relative;
+	left: 400px;
+	top: 100px;
+}
+.desc_collab {
+	position: absolute;
+	bottom: 160px;
+	font-weight: lighter;
+	right: 530px;
+	font-size: 25px;
+}
+
+.img_collab::after {
+	content: "5.99$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: 30%;
+	right: -5%;
+}
