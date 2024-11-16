@@ -226,9 +226,6 @@
 	background-color: #ffc9cc;
 	color: white;
 	position: relative;
-	/* background-image: url("../img/decouvrir/coockie.png");
-	background-repeat: no-repeat;
-	background-position: center; */
 }
 
 .decouvrir .mochi {
@@ -482,7 +479,7 @@
 .hero_left {
 	position: absolute;
 	bottom: 85px;
-	left: 350px;
+	right: -240px;
 	display: flex;
 	justify-content: left;
 	align-items: center;
