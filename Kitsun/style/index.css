@@ -479,7 +479,6 @@
 .hero_left {
 	position: absolute;
 	bottom: 85px;
-	right: -240px;
 	display: flex;
 	justify-content: left;
 	align-items: center;
