@@ -1,3 +1,34 @@
+<?php
+// Connexion à la base de données
+$host = 'localhost';
+$dbname = 'kitsun';
+$user = 'root';
+$password = 'root';
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erreur de connexion à la base de données : " . $e->getMessage());
+}
+
+// Récupérer la catégorie depuis l'URL
+$categorie = isset($_GET['categorie']) ? $_GET['categorie'] : 'bubbletea';  // Valeur par défaut 'bubbletea'
+
+// Validation de la catégorie (pour éviter des problèmes de sécurité)
+$categories_valides = ['bubbletea', 'Fruits', 'Tea', 'Cookies', 'Mochi'];
+if (!in_array($categorie, $categories_valides)) {
+    $categorie = 'bubbletea';  // Valeur par défaut si la catégorie est invalide
+}
+
+// Sélectionner les produits de la catégorie spécifique dans la base de données
+$sql = "SELECT nom, img, description, prix, disponible FROM $categorie WHERE disponible = 1";
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$produits = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -20,17 +51,21 @@
 			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 			rel="stylesheet"
 		/>
-
-		<link rel="stylesheet" href="https://path.to/font/MarineSikona.css" />
+		<link rel="icon" type="image/png" href="img/logo.jpg" />
 		<link rel="stylesheet" href="style/footer.css" />
+		<link rel="stylesheet" href="https://path.to/font/MarineSikona.css" />
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="stylesheet" href="style/header.css" />
-		<link rel="stylesheet" href="style/index.css" />
-		<link rel="icon" type="image/png" href="img/logo.png" />
+		<link rel="stylesheet" href="style/connexion.css" />
+		<link rel="stylesheet" href="style/menu.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+		/>
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 		<link rel="icon" href="logo.png" />
-		<title>Kitsun</title>
+		<title>Document</title>
 	</head>
 	<body>
 		<div class="entete">
@@ -38,7 +73,7 @@
 				<div class="header_left">
 					<div class="logo">
 						<img
-							src="img/logo.png"
+							src="img/logo.jpg"
 							alt=""
 							onclick="location.href='index.html'"
 						/>
@@ -58,7 +93,7 @@
 							class="searchInput"
 						/>
 						<i class="bx bx-search" id="search_btn"></i>
-						<i class="bx bx-basket"></i>
+						<i class="bx bx-basket" id="panier_btn"></i>
 						<i class="bx bx-user"></i>
 					</div>
 					<div class="btn">
@@ -66,7 +101,6 @@
 					</div>
 				</div>
 			</header>
-
 			<div class="menu">
 				<nav>
 					<ul>
@@ -78,7 +112,7 @@
 				</nav>
 			</div>
 		</div>
-		<section class="panier" id="panier">
+		<!-- <section class="panier" id="panier">
 			<div class="panier_top">
 				<div class="panier_entete">
 					<p>Panier d'achat</p>
@@ -173,179 +207,50 @@
 					<button class="panier_btn_click">PAYER</button>
 				</div>
 			</div>
-		</section>
+		</section> -->
+		<div class="lien">
+			<p>
+				Accueil / Menu /
+				<strong class="actual_page" id="actual_page">Mochi</strong>
+			</p>
+		</div>
 		<main>
-			<section class="hero">
-				<div class="hero_left">
-					<img src="img/yamato.png" alt="Yamato" />
-					<a class="btn_commander" href="menu.html"
-						>Commander
-						<svg
-							width="20"
-							height="10"
-							viewBox="0 0 20 10"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M15 5H1"
-								stroke="black"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-							<path
-								d="M19.7152 4.79657L14.265 0.903565C13.7355 0.525354 13 0.903853 13 1.55455V8.44545C13 9.09615 13.7355 9.47465 14.265 9.09644L19.7152 5.20343C19.8548 5.10373 19.8548 4.89627 19.7152 4.79657Z"
-								fill="black"
-							/>
-						</svg>
-					</a>
-				</div>
-				<div class="hero_right">
-					<h1>Un Bubble Tea digne d’un pirate !</h1>
-					<a class="btn_collab" href="menu.html"
-						>One piece x Kitsun
-						<svg
-							width="20"
-							height="10"
-							viewBox="0 0 20 10"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M15 5H1"
-								stroke="black"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-							<path
-								d="M19.7152 4.79657L14.265 0.903565C13.7355 0.525354 13 0.903853 13 1.55455V8.44545C13 9.09615 13.7355 9.47465 14.265 9.09644L19.7152 5.20343C19.8548 5.10373 19.8548 4.89627 19.7152 4.79657Z"
-								fill="black"
-							/>
-						</svg>
-					</a>
-					<div class="img_collab">
-						<img src="img/teacollab.png" alt="tea collab" />
-					</div>
-					<h3 class="desc_collab">Pirate Pearl Tea</h3>
-				</div>
-			</section>
-			<h1 class="title">Nos Bons Plans</h1>
-			<section class="bon_plan">
-				<article class="card mint_tea">
-					<div class="image_container">
-						<img
-							src="img/mint_tea.png"
-							alt=""
-							class="non-selectable"
-						/>
-					</div>
-					<p>Mint tea Kitsun</p>
+			<section class="categorie_container">
+				<article class="categorie_left">
+					<p>Categorie</p>
+						<ul id="list_cat">
+							<li><a href="?categorie=bubbletea" onclick="updateBreadcrumb(this, 'bubbletea')">Bubble Tea</a></li>
+							<li><a href="?categorie=Fruits" onclick="updateBreadcrumb(this, 'Fruits')">Kitsun Fruits</a></li>
+							<li><a href="?categorie=Tea" onclick="updateBreadcrumb(this, 'Tea')">Kitsun Tea</a></li>
+							<li><a href="?categorie=Cookies" onclick="updateBreadcrumb(this, 'Cookies')">Cookies</a></li>
+							<li><a href="?categorie=Mochi" onclick="updateBreadcrumb(this, 'Mochi')">Mochi Mochi</a></li>
+						</ul>
 				</article>
-				<article class="card special">
-					<div class="image_container">
-						<img
-							src="img/special.png"
-							alt=""
-							class="non-selectable"
-						/>
-					</div>
-					<p>Kitsun Special</p>
+				<article class="categorie_right">
+					<p
+						class="title_cat_right non-selectable"
+						id="title_cat_right"
+					>
+						Mochi Mochi
+					</p>
+					<hr />
+						<section class="card_menu_container">
+												<section class="card_menu_container">
+											<?php foreach ($produits as $produit): ?>
+							<article class="card_menu">
+								<i class="bx bx-bookmark favory-icon" onclick="favory(this)"></i>
+								<img src="<?= htmlspecialchars($produit['img']); ?>" alt="<?= htmlspecialchars($produit['nom']); ?>" />
+								<p><?= htmlspecialchars($produit['description']); ?></p>
+							</article>
+						<?php endforeach; ?>
+						</section>
+
+					</section>
 				</article>
-				<article class="card blueberies">
-					<div class="image_container">
-						<img
-							src="img/blueberies.png"
-							alt=""
-							class="img_petit"
-						/>
-					</div>
-					<p>Kitsun blueberries</p>
-				</article>
-				<article class="card red">
-					<div class="image_container">
-						<img
-							src="img/red.png"
-							alt=""
-							class="img_petit"
-							class="non-selectable"
-						/>
-					</div>
-					<p>The red kitsun</p>
-				</article>
-				<article class="card pure">
-					<div class="image_container">
-						<img src="img/pure.png" alt="" />
-					</div>
-					<p>Pure tea</p>
-				</article>
-				<article class="card fruit_series">
-					<div class="image_container">
-						<img
-							src="img/fruit_series.png"
-							alt=""
-							class="img_petit"
-						/>
-					</div>
-					<p>Fruit Kitsun series</p>
-				</article>
-			</section>
-			<button class="btn_bon_plan">Tout voir</button>
-			<section class="decouvrir">
-				<div class="decouvrir_left">
-					<div class="decouvrir_card">
-						<article class="crepes">
-							<p>Crepes</p>
-							<img
-								src="img/decouvrir/Crepes.png"
-								alt=""
-								class="non-selectable"
-							/>
-						</article>
-						<article class="coockies">
-							<img
-								src="img/decouvrir/coockie.png"
-								alt=""
-								class="non-selectable"
-							/>
-							<p>Coockies</p>
-						</article>
-					</div>
-					<div class="decalage">
-						<article class="mochi">
-							<img
-								src="img/decouvrir/mochi.png"
-								alt=""
-								class="non-selectable"
-							/>
-							<p>
-								Mochi
-								<br />
-								Mochi
-							</p>
-						</article>
-						<article class="bubble_tea">
-							<img
-								src="img/decouvrir/bubble_tea.png"
-								alt=""
-								class="non-selectable"
-							/>
-							<p>Bubble Tea</p>
-						</article>
-					</div>
-				</div>
-				<div class="decouvrir_right">
-					<h2>
-						Decouvrir plus de <br />
-						produit de Kitsun
-					</h2>
-					<img src="img/fleche.png" alt="" class="non-selectable" />
-				</div>
 			</section>
 		</main>
 		<footer class="footer">
-			<img src="img/logo.png" alt="" />
+			<img src="img/logo.jpg" alt="" />
 			<div class="footer_container">
 				<ul>
 					<li>
@@ -399,10 +304,9 @@
 				var menu = document.querySelector(".menu");
 				var menu_btn = document.getElementById("menu_btn");
 				var menu_close = document.querySelector(".bx-x");
-
 				search_btn.addEventListener("click", function () {
 					if (searchInput.style.display === "flex") {
-						// on recupere la valeur de l'input et le mettre dans la barre de recherche
+						//recuperer la valeur de l'input et le mettre dans la barre de recherche
 						value = searchInput.value;
 						if (value == "") {
 							location.href = "";
@@ -425,15 +329,11 @@
 					}
 				});
 
-				// quand on click sur entrer meme quand on click sur la barre de recherche on cache la barre de recherche
+				// quand on click sur entrer meme quand on click sur la barre de recherche, on cache la barre de recherche
 				searchInput.addEventListener("keydown", function (event) {
 					if (event.key === "Enter") {
 						value = searchInput.value;
-						if (value == "") {
-							location.href = "";
-						} else {
-							location.href = "#" + value;
-						}
+						location.href = "#" + value;
 						searchInput.value = "";
 						searchInput.style.display = "none";
 					}
@@ -451,5 +351,6 @@
 				});
 			});
 		</script>
+		<script src="script/script.js" defer></script>
 	</body>
 </html>

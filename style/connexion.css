@@ -51,6 +51,7 @@ main h1 {
 	color: #0866ff;
 	transform: scale(1.04);
 	filter: drop-shadow(1vh 1vh 1vw #0000006e);
+	cursor: url(../img/main.svg) 10 10, auto;
 }
 
 .form .fb:hover > .fa-facebook-f {
@@ -67,6 +68,7 @@ main h1 {
 	transform: scale(1.04);
 	filter: drop-shadow(1vh 1vh 1vw #0000006e);
 	transition: all 0.5s ease-in-out;
+	cursor: url(../img/main.svg) 10 10, auto;
 }
 
 .form .google:hover > .fa-google {
@@ -85,6 +87,7 @@ main h1 {
 	transform: scale(1.04);
 	filter: drop-shadow(1vh 1vh 1vw #0000006e);
 	transition: all 0.5s ease-in-out;
+	cursor: url(../img/main.svg) 10 10, auto;
 }
 
 .form .mail:hover > .mail {

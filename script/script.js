@@ -82,3 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	calculerTotal();
 });
+
+// Script de validation de l'adresse email
+document.querySelector(".btn_soumettre").addEventListener("click", function () {
+	const email = document.getElementById("email").value;
+	if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+		alert("Veuillez entrer une adresse email valide.");
+	}
+});

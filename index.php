@@ -20,21 +20,17 @@
 			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 			rel="stylesheet"
 		/>
-		<link rel="icon" type="image/png" href="img/logo.png" />
-		<link rel="stylesheet" href="style/footer.css" />
+
 		<link rel="stylesheet" href="https://path.to/font/MarineSikona.css" />
+		<link rel="stylesheet" href="style/footer.css" />
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="stylesheet" href="style/header.css" />
-		<link rel="stylesheet" href="style/connexion.css" />
-		<link rel="stylesheet" href="style/menu.css" />
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
-		/>
+		<link rel="stylesheet" href="style/index.css" />
+		<link rel="icon" type="image/png" href="img/logo.png" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 		<link rel="icon" href="logo.png" />
-		<title>Document</title>
+		<title>Kitsun</title>
 	</head>
 	<body>
 		<div class="entete">
@@ -44,7 +40,7 @@
 						<img
 							src="img/logo.png"
 							alt=""
-							onclick="location.href='index.html'"
+							onclick="location.href='index.php'"
 						/>
 					</div>
 					<div class="header_left" id="header_left">
@@ -62,7 +58,7 @@
 							class="searchInput"
 						/>
 						<i class="bx bx-search" id="search_btn"></i>
-						<i class="bx bx-basket" id="panier_btn"></i>
+						<i class="bx bx-basket"></i>
 						<i class="bx bx-user"></i>
 					</div>
 					<div class="btn">
@@ -70,13 +66,14 @@
 					</div>
 				</div>
 			</header>
+
 			<div class="menu">
 				<nav>
 					<ul>
-						<li><a href="menu.html">Menu</a></li>
-						<li><a href="localisation.html">Localisation</a></li>
-						<li><a href="about.html">A propos</a></li>
-						<li><a href="connexion.html">Mon compte</a></li>
+						<li><a href="menu.php">Menu</a></li>
+						<li><a href="localisation.php">Localisation</a></li>
+						<li><a href="about.php">A propos</a></li>
+						<li><a href="connexion.php">Mon compte</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -177,135 +174,174 @@
 				</div>
 			</div>
 		</section>
-		<div class="lien">
-			<p>
-				Accueil / Menu /
-				<strong class="actual_page" id="actual_page">Mochi</strong>
-			</p>
-		</div>
 		<main>
-			<section class="categorie_container">
-				<article class="categorie_left">
-					<p>Categorie</p>
-					<ul id="list_cat">
-						<li>
-							<a
-								href="#"
-								onclick="updateBreadcrumb(this, 'Specials')"
-								>Kitsun Specials</a
-							>
-						</li>
-						<li>
-							<a
-								href="#"
-								onclick="updateBreadcrumb(this, 'Fruits')"
-								>Kitsun Fruits</a
-							>
-						</li>
-						<li>
-							<a href="#" onclick="updateBreadcrumb(this, 'Tea')"
-								>Kitsun Tea</a
-							>
-						</li>
-						<li>
-							<a
-								href="#"
-								onclick="updateBreadcrumb(this, 'Cookies')"
-								>Cookies</a
-							>
-						</li>
-						<li>
-							<a
-								href="#"
-								onclick="updateBreadcrumb(this, 'Mochi')"
-								>Mochi Mochi</a
-							>
-						</li>
-					</ul>
+			<section class="hero">
+				<div class="hero_left">
+					<img src="img/yamato.png" alt="Yamato" />
+					<a class="btn_commander" href="menu.php"
+						>Commander
+						<svg
+							width="20"
+							height="10"
+							viewBox="0 0 20 10"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M15 5H1"
+								stroke="black"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+							<path
+								d="M19.7152 4.79657L14.265 0.903565C13.7355 0.525354 13 0.903853 13 1.55455V8.44545C13 9.09615 13.7355 9.47465 14.265 9.09644L19.7152 5.20343C19.8548 5.10373 19.8548 4.89627 19.7152 4.79657Z"
+								fill="black"
+							/>
+						</svg>
+					</a>
+				</div>
+				<div class="hero_right">
+					<h1>Un Bubble Tea digne d’un pirate !</h1>
+					<a class="btn_collab" href="menu.php"
+						>One piece x Kitsun
+						<svg
+							width="20"
+							height="10"
+							viewBox="0 0 20 10"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M15 5H1"
+								stroke="black"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+							<path
+								d="M19.7152 4.79657L14.265 0.903565C13.7355 0.525354 13 0.903853 13 1.55455V8.44545C13 9.09615 13.7355 9.47465 14.265 9.09644L19.7152 5.20343C19.8548 5.10373 19.8548 4.89627 19.7152 4.79657Z"
+								fill="black"
+							/>
+						</svg>
+					</a>
+					<div class="img_collab">
+						<img src="img/teacollab.png" alt="tea collab" />
+					</div>
+					<h3 class="desc_collab">Pirate Pearl Tea</h3>
+				</div>
+			</section>
+			<h1 class="title">Nos Bons Plans</h1>
+			<section class="bon_plan">
+				<article class="card mint_tea">
+					<div class="image_container">
+						<img
+							src="img/mint_tea.png"
+							alt=""
+							class="non-selectable"
+						/>
+					</div>
+					<p>Mint tea Kitsun</p>
 				</article>
-				<article class="categorie_right">
-					<p
-						class="title_cat_right non-selectable"
-						id="title_cat_right"
-					>
-						Mochi Mochi
-					</p>
-					<hr />
-					<section class="card_menu_container">
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Fraise.png" alt="" />
-							<p>Mo'Passion</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Fraise.png" alt="" />
-							<p>Mo'Fraise</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Menthe.png" alt="" />
-							<p>Mo'Menthe</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Framboise.png" alt="" />
-							<p>Mo'Framboise</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Chocolat.png" alt="" />
-							<p>Mo'Chocolat</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Caramel.png" alt="" />
-							<p>Mo'Caramel</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Caramel.png" alt="" />
-							<p>Mo'Coco</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Pitaya.png" alt="" />
-							<p>Mo'Pitaya</p>
-						</article>
-						<article class="card_menu">
-							<i
-								class="bx bx-bookmark favory-icon"
-								onclick="favory(this)"
-							></i>
-							<img src="img/menu_img/Mo'Mystère.png" alt="" />
-							<p>Mo'Mystère</p>
-						</article>
-					</section>
+				<article class="card special">
+					<div class="image_container">
+						<img
+							src="img/special.png"
+							alt=""
+							class="non-selectable"
+						/>
+					</div>
+					<p>Kitsun Special</p>
 				</article>
+				<article class="card blueberies">
+					<div class="image_container">
+						<img
+							src="img/blueberies.png"
+							alt=""
+							class="img_petit"
+						/>
+					</div>
+					<p>Kitsun blueberries</p>
+				</article>
+				<article class="card red">
+					<div class="image_container">
+						<img
+							src="img/red.png"
+							alt=""
+							class="img_petit"
+							class="non-selectable"
+						/>
+					</div>
+					<p>The red kitsun</p>
+				</article>
+				<article class="card pure">
+					<div class="image_container">
+						<img src="img/pure.png" alt="" />
+					</div>
+					<p>Pure tea</p>
+				</article>
+				<article class="card fruit_series">
+					<div class="image_container">
+						<img
+							src="img/fruit_series.png"
+							alt=""
+							class="img_petit"
+						/>
+					</div>
+					<p>Fruit Kitsun series</p>
+				</article>
+			</section>
+			<button class="btn_bon_plan">Tout voir</button>
+			<section class="decouvrir">
+				<div class="decouvrir_left">
+					<div class="decouvrir_card">
+						<article class="crepes">
+							<p>Crepes</p>
+							<img
+								src="img/decouvrir/Crepes.png"
+								alt=""
+								class="non-selectable"
+							/>
+						</article>
+						<article class="coockies">
+							<img
+								src="img/decouvrir/coockie.png"
+								alt=""
+								class="non-selectable"
+							/>
+							<p>Coockies</p>
+						</article>
+					</div>
+					<div class="decalage">
+						<article class="mochi">
+							<img
+								src="img/decouvrir/mochi.png"
+								alt=""
+								class="non-selectable"
+							/>
+							<p>
+								Mochi
+								<br />
+								Mochi
+							</p>
+						</article>
+						<article class="bubble_tea">
+							<img
+								src="img/decouvrir/bubble_tea.png"
+								alt=""
+								class="non-selectable"
+							/>
+							<p>Bubble Tea</p>
+						</article>
+					</div>
+				</div>
+				<div class="decouvrir_right">
+					<h2>
+						Decouvrir plus de <br />
+						produit de Kitsun
+					</h2>
+					<img src="img/fleche.png" alt="" class="non-selectable" />
+				</div>
 			</section>
 		</main>
 		<footer class="footer">
@@ -313,12 +349,12 @@
 			<div class="footer_container">
 				<ul>
 					<li>
-						<a class="title_footer" href="index.html">Accueil</a>
+						<a class="title_footer" href="index.php">Accueil</a>
 					</li>
-					<li><a href="menu.html">Menu</a></li>
-					<li><a href="localisation.html">Localisation</a></li>
+					<li><a href="menu.php">Menu</a></li>
+					<li><a href="localisation.php">Localisation</a></li>
 					<li>
-						<a href="localisation.html"
+						<a href="localisation.php"
 							>Politique de confidentialité</a
 						>
 					</li>
@@ -326,18 +362,18 @@
 
 				<ul>
 					<li>
-						<a class="title_footer" href="index.html">Contact</a>
+						<a class="title_footer" href="index.php">Contact</a>
 					</li>
 
-					<li><a href="menu.html">+33 1 23 45 67 90</a></li>
+					<li><a href="menu.php">+33 1 23 45 67 90</a></li>
 					<li>
-						<a href="localisation.html">Kitsun.pro@gmail.com</a>
+						<a href="localisation.php">Kitsun.pro@gmail.com</a>
 					</li>
 				</ul>
 
 				<ul>
 					<li>
-						<a class="title_footer" href="index.html"
+						<a class="title_footer" href="index.php"
 							>Inscrivez vous a notre newlettter</a
 						>
 					</li>
@@ -363,9 +399,10 @@
 				var menu = document.querySelector(".menu");
 				var menu_btn = document.getElementById("menu_btn");
 				var menu_close = document.querySelector(".bx-x");
+
 				search_btn.addEventListener("click", function () {
 					if (searchInput.style.display === "flex") {
-						//recuperer la valeur de l'input et le mettre dans la barre de recherche
+						// on recupere la valeur de l'input et le mettre dans la barre de recherche
 						value = searchInput.value;
 						if (value == "") {
 							location.href = "";
@@ -388,11 +425,15 @@
 					}
 				});
 
-				// quand on click sur entrer meme quand on click sur la barre de recherche, on cache la barre de recherche
+				// quand on click sur entrer meme quand on click sur la barre de recherche on cache la barre de recherche
 				searchInput.addEventListener("keydown", function (event) {
 					if (event.key === "Enter") {
 						value = searchInput.value;
-						location.href = "#" + value;
+						if (value == "") {
+							location.href = "";
+						} else {
+							location.href = "#" + value;
+						}
 						searchInput.value = "";
 						searchInput.style.display = "none";
 					}
@@ -410,6 +451,6 @@
 				});
 			});
 		</script>
-		<script src="script/script.js" defer></script>
 	</body>
 </html>
+

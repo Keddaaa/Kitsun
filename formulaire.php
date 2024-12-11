@@ -25,7 +25,7 @@
 		<link rel="stylesheet" href="https://path.to/font/MarineSikona.css" />
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="stylesheet" href="style/header.css" />
-		<link rel="stylesheet" href="style/connexion.css" />
+		<link rel="stylesheet" href="style/formulaire.css" />
 		<link
 			rel="stylesheet"
 			href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
@@ -33,7 +33,7 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 		<link rel="icon" href="logo.png" />
-		<title>Document</title>
+		<title>Formulaire</title>
 	</head>
 	<body>
 		<div class="entete">
@@ -43,7 +43,7 @@
 						<img
 							src="img/logo.png"
 							alt=""
-							onclick="location.href='index.html'"
+							onclick="location.href='index.php'"
 						/>
 					</div>
 					<div class="header_left" id="header_left">
@@ -72,10 +72,10 @@
 			<div class="menu">
 				<nav>
 					<ul>
-						<li><a href="menu.html">Menu</a></li>
-						<li><a href="localisation.html">Localisation</a></li>
-						<li><a href="about.html">A propos</a></li>
-						<li><a href="connexion.html">Mon compte</a></li>
+						<li><a href="menu.php">Menu</a></li>
+						<li><a href="localisation.php">Localisation</a></li>
+						<li><a href="about.php">A propos</a></li>
+						<li><a href="connexion.php">Mon compte</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -84,36 +84,39 @@
 			<p>Accueil / <strong>Connexion</strong></p>
 		</div>
 		<main>
-			<h1>Inscription ou connexion</h1>
-			<section class="form">
-				<button class="fb">
-					<i class="fab fa-facebook-f"></i> Facebook
-				</button>
-				<button class="google">
-					<i class="fab fa-google"></i> Google
-				</button>
-				<h3>ou</h3>
-				<button class="mail">E-mail</button>
-				<p>
-					En continuant, vous acceptez nos conditions générales et
-					notre politique de confidentialité. Nous utilisons vos
-					données personnelles pour vous offrir une expérience
-					personnalisée, ainsi que pour mieux comprendre et améliorer
-					notre service. Pour plus de détails, cliquez ici.
-				</p>
-			</section>
+			
+		<div class="container">
+            <form action="login.php" method="POST" class="form">
+                <h1>Connexion</h1>
+                <label for="email"></label>
+                <input  class="email" type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                
+                <label for="password"></label>
+                <input class="mdp" type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                
+                <button  type="submit" class="submit-btn">Se connecter</button>
+                <p class="terms">
+                    En continuant, vous acceptez nos <a href="#">Conditions générales</a> et notre
+                    <a href="#">Politique de confidentialité</a>.
+					Nous utilisons vos données personnelles pour vous offrir une expérience personnalisée, ainsi que pour mieux comprendre et améliorer notre service. Pour plus de détails, cliquez ici.
+                </p>
+            </form>
+        </div>
+
+			</div>
+			<script type="module" src="/main.js"></script>
 		</main>
 		<footer class="footer">
 			<img src="img/logo.png" alt="" />
 			<div class="footer_container">
 				<ul>
 					<li>
-						<a class="title_footer" href="index.html">Accueil</a>
+						<a class="title_footer" href="index.php">Accueil</a>
 					</li>
-					<li><a href="menu.html">Menu</a></li>
-					<li><a href="localisation.html">Localisation</a></li>
+					<li><a href="menu.php">Menu</a></li>
+					<li><a href="localisation.php">Localisation</a></li>
 					<li>
-						<a href="localisation.html"
+						<a href="localisation.php"
 							>Politique de confidentialité</a
 						>
 					</li>
@@ -121,18 +124,18 @@
 
 				<ul>
 					<li>
-						<a class="title_footer" href="index.html">Contact</a>
+						<a class="title_footer" href="index.php">Contact</a>
 					</li>
 
-					<li><a href="menu.html">+33 1 23 45 67 90</a></li>
+					<li><a href="menu.php">+33 1 23 45 67 90</a></li>
 					<li>
-						<a href="localisation.html">Kitsun.pro@gmail.com</a>
+						<a href="localisation.php">Kitsun.pro@gmail.com</a>
 					</li>
 				</ul>
 
 				<ul>
 					<li>
-						<a class="title_footer" href="index.html"
+						<a class="title_footer" href="index.php"
 							>Inscrivez vous a notre newlettter</a
 						>
 					</li>

@@ -37,7 +37,7 @@
 						<img
 							src="img/logo.png"
 							alt=""
-							onclick="location.href='index.html'"
+							onclick="location.href='index.php'"
 						/>
 					</div>
 					<div class="header_left" id="header_left">
@@ -74,10 +74,10 @@
 			<div class="menu">
 				<nav>
 					<ul>
-						<li><a href="menu.html">Menu</a></li>
-						<li><a href="localisation.html">Localisation</a></li>
-						<li><a href="about.html">A propos</a></li>
-						<li><a href="connexion.html">Mon compte</a></li>
+						<li><a href="menu.php">Menu</a></li>
+						<li><a href="localisation.php">Localisation</a></li>
+						<li><a href="about.php">A propos</a></li>
+						<li><a href="connexion.php">Mon compte</a></li>
 					</ul>
 				</nav>
 			</div>
