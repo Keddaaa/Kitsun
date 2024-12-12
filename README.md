@@ -43,6 +43,18 @@ Kitsun est bien plus qu'un simple **Bubble Tea**. Grâce à nos partenariats exc
 ![Aperçu de kitsun](Kitsun/imgrepo/1.png)
 ![Aperçu de kitsun](Kitsun/imgrepo/2.png)
 
-### See ya at Kitsun!
+## Conduite de projet
 
-Ready to experience Kitsun? Whether you're a fan of One Piece or simply curious about our creations, drop in or order online for a unique taste journey. We can't wait to share with you the best of Bubble Tea, Japanese sweets, and exclusive collaborations inspired by your favorite anime! 🦊✨
+### Introduction
+
+Dans le cadre de notre projet de gestion, nous avons été sollicités pour réaliser la conception du site web du restaurant **Kitsun**, spécialisé dans les **Bubble Tea**. L'objectif principal de cette refonte est de rendre le site plus attrayant, moderne, et d'améliorer l'expérience utilisateur, notamment en facilitant l'accès aux informations sur le menu et en offrant une meilleure compatibilité avec les appareils mobiles.
+
+### Objectifs du projet
+
+L'objectif est de créer un site web moderne et fonctionnel qui réponde aux besoins du client. Ce site devra permettre aux utilisateurs de consulter les produits proposés par le restaurant et éventuellement de passer des commandes en ligne. L’interface devra être intuitive, accessible sur tout type d’appareil, et refléter l’identité visuelle du restaurant.
+
+---
+
+### Définition des Sprints
+
+Les fonctionnalités du projet **Kitsun** sont regroupées en sprints afin de favoriser une mise en œuvre progressive et collaborative. Voici la répartition des sprints :
