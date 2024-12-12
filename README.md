@@ -38,7 +38,7 @@ Kitsun est bien plus qu'un simple **Bubble Tea**. Grâce à nos partenariats exc
 
 ### Lien vers le projet hébergé
 
-[Accédez au projet sur GitHub](https://github.com/Keddaaa/Kitsun)
+[Accédez au projet sur GitHub](https://kitsun-site.alwaysdata.net/)
 
 ## Identifiants de Connexion pour Test
 
