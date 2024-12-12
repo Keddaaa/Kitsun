@@ -220,8 +220,7 @@ $produits = $statement->fetchAll(PDO::FETCH_ASSOC);
 					<p>Categorie</p>
 						<ul id="list_cat">
 							<li><a href="?categorie=bubbletea" onclick="updateBreadcrumb(this, 'bubbletea')">Bubble Tea</a></li>
-							<li><a href="?categorie=Fruits" onclick="updateBreadcrumb(this, 'Fruits')">Kitsun Fruits</a></li>
-							<li><a href="?categorie=Tea" onclick="updateBreadcrumb(this, 'Tea')">Kitsun Tea</a></li>
+							<li><a href="?categorie=Tea" onclick="updateBreadcrumb(this, 'Crêpes')">Crêpes</a></li>
 							<li><a href="?categorie=Cookies" onclick="updateBreadcrumb(this, 'Cookies')">Cookies</a></li>
 							<li><a href="?categorie=Mochi" onclick="updateBreadcrumb(this, 'Mochi')">Mochi Mochi</a></li>
 						</ul>
