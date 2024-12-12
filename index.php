@@ -78,6 +78,7 @@
 				</nav>
 			</div>
 		</div>
+
 		<main>
 			<section class="hero">
 				<div class="hero_left">
