@@ -1,87 +1,62 @@
-var title_cat_right = document.getElementById("title_cat_right");
+// Fonction pour récupérer un paramètre dans l'URL
+function getURLParameter(name) {
+	const params = new URLSearchParams(window.location.search);
+	return params.get(name);
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-	const defaultCategory = document.querySelector("#list_cat li a");
-	if (defaultCategory) {
-		updateBreadcrumb(defaultCategory, "Specials");
-	}
-});
-
+// Fonction pour mettre à jour le fil d'Ariane et le titre
 function updateBreadcrumb(element, newPage) {
 	const breadcrumb = document.getElementById("actual_page");
-	breadcrumb.textContent = newPage;
+	const titleCatRight = document.getElementById("title_cat_right");
+
+	if (!breadcrumb || !titleCatRight) {
+		console.error("Éléments manquants : breadcrumb ou title_cat_right.");
+		return;
+	}
+
+	// Met à jour le fil d'Ariane
+	breadcrumb.textContent = newPage.charAt(0).toUpperCase() + newPage.slice(1);
+
+	// Réinitialise la classe "selected" pour tous les liens
 	const links = document.querySelectorAll("#list_cat li a");
 	links.forEach((link) => link.classList.remove("selected"));
 
-	if (newPage == "Mochi") {
-		title_cat_right.textContent = "Mochi Mochi";
+	// Met à jour le titre de la catégorie
+	if (newPage.toLowerCase() === "mochi") {
+		titleCatRight.textContent = "Mochi Mochi";
 	} else {
-		title_cat_right.textContent = "Kitsun " + newPage;
+		titleCatRight.textContent =
+			"Kitsun " + newPage.charAt(0).toUpperCase() + newPage.slice(1);
 	}
 
+	// Ajoute la classe "selected" à l'élément courant
 	element.classList.add("selected");
 }
 
+// Initialisation par défaut lors du chargement de la page
+document.addEventListener("DOMContentLoaded", function () {
+	// Récupère la catégorie depuis l'URL, ou utilise "bubbletea" comme valeur par défaut
+	const categorie = getURLParameter("categorie") || "bubbletea";
+	const defaultCategory = document.querySelector(
+		`#list_cat li a[href*='${categorie}']`
+	);
+
+	if (defaultCategory) {
+		updateBreadcrumb(defaultCategory, categorie);
+	} else {
+		console.warn("Catégorie par défaut non trouvée :", categorie);
+	}
+});
+
+// Fonction pour marquer/démarquer un favori
 function favory(icon) {
 	icon.classList.toggle("active_favory");
 }
 
-document.getElementById("panier_close").addEventListener("click", function () {
-	var panier = document.getElementById("panier");
-	panier.style.transform = "translateX(100%)";
-
-	setTimeout(function () {
-		panier.style.display = "none";
-	}, 500);
-});
-
-document.getElementById("panier_btn").addEventListener("click", function () {
-	var panier = document.getElementById("panier");
-	panier.style.display = "flex";
-	setTimeout(function () {
-		panier.style.transform = "translateX(0%)";
-	}, 100);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-	var articles = document.querySelectorAll(".panier_produit");
-	var total = document.querySelector("#total");
-
-	function calculerTotal() {
-		let totalPanier = 0;
-		articles.forEach(function (article) {
-			var prix = article.querySelector("#prix");
-			totalPanier += parseFloat(prix.textContent);
-		});
-		total.innerHTML = totalPanier.toFixed(2) + " $";
-	}
-
-	articles.forEach(function (article) {
-		var remove = article.querySelector("#remove");
-		var add = article.querySelector("#add");
-		var nb_article_chiffre = article.querySelector("#nb_article_chiffre");
-		var prix = article.querySelector("#prix");
-		var nb_article = 1;
-
-		remove.addEventListener("click", function () {
-			nb_article--;
-			if (nb_article < 1) {
-				nb_article = 1;
-			}
-			nb_article_chiffre.textContent = nb_article;
-			prix.innerHTML = (nb_article * 6.0).toFixed(2) + " $";
-			calculerTotal();
-		});
-		add.addEventListener("click", function () {
-			nb_article++;
-			nb_article_chiffre.textContent = nb_article;
-			prix.innerHTML = (nb_article * 6.0).toFixed(2) + " $";
-			calculerTotal();
-		});
-	});
-
-	calculerTotal();
-});
+// Script de gestion des favoris
+function favory(icon) {
+	icon.classList.toggle("active_favory");
+}
 
 // Script de validation de l'adresse email
 document.querySelector(".btn_soumettre").addEventListener("click", function () {
