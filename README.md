@@ -52,8 +52,6 @@ Kitsun est bien plus qu'un simple **Bubble Tea**. Grâce à nos partenariats exc
 
 -   Ces identifiants sont fournis uniquement pour un usage de test ou de démonstration.
 -   **Ne pas utiliser ces informations pour un environnement en production.**
--   Pensez à remplacer le mot de passe par un mot de passe sécurisé pour toute utilisation réelle.
--   Activez l'authentification à deux facteurs (2FA) pour renforcer la sécurité des comptes.
 
 ---
 
