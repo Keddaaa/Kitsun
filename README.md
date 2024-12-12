@@ -252,3 +252,47 @@ Cette étape est fondamentale pour poser les bases solides du projet et garantir
 
 -   **Validation des maquettes**
     Les maquettes sont partagées avec le client pour retour. Une phase de révision est prévue pour ajuster les éléments selon leurs commentaires. Cette validation assure que l'équipe démarre le
+
+2. **Tests et débogage**
+
+    - Cette étape est cruciale pour s'assurer que le site web du restaurant Kitsun répond aux attentes en termes de fonctionnalité, de performance et d'expérience utilisateur.
+
+    ### Planification des tests
+
+    Avant de commencer, l'équipe définit un plan de test détaillé couvrant :
+
+    - **Tests fonctionnels** : Vérification que chaque fonctionnalité (comme l'inscription, la gestion du panier, et les avis) fonctionne correctement.
+    - **Tests de compatibilité** : S'assurer que le site fonctionne sur différents navigateurs (Chrome, Firefox, Safari) et appareils (mobile, tablette, ordinateur).
+    - **Tests de performance** : Évaluer la rapidité et la fluidité du site, notamment lors de pics de trafic.
+
+    ### Exécution des tests
+
+    Les tests sont réalisés de manière systématique pour identifier les anomalies. Cette étape inclut :
+
+    - **Tests unitaires** : Chaque composant individuel du site (formulaires, boutons, etc.) est testé indépendamment.
+    - **Tests d'intégration** : Vérification de l'interaction entre les différents modules (exemple : ajout d'un produit dans le panier puis validation de commande).
+    - **Tests utilisateur** : Des scénarios réels sont simulés pour observer comment les utilisateurs interagissent avec le site et identifier les points de friction.
+
+    ### Identification et priorisation des bugs
+
+    Les bugs détectés sont classés par priorité (critique, majeur, mineur) et consignés dans un outil de gestion des tâches comme Trello ou Jira. Cela permet à l'équipe de se concentrer sur les problèmes les plus urgents.
+
+    ### Correction et itérations
+
+    Les développeurs corrigent les bugs identifiés, et les tests sont réexécutés pour s'assurer que les corrections n'ont pas introduit de nouveaux problèmes. Cette boucle itérative continue jusqu'à ce que le site soit jugé stable.
+
+    ### Tests finaux
+
+    Une fois les corrections terminées, des tests finaux sont effectués pour valider la version complète du site. Cela inclut des tests de stress pour vérifier la robustesse du système sous des charges importantes.
+
+    ### Documentation des résultats
+
+    Tous les résultats des tests sont documentés, et un rapport final est préparé pour le client. Ce rapport inclut :
+
+    - Une liste des fonctionnalités validées.
+    - Les améliorations apportées.
+    - Les limitations éventuelles ou points à surveiller après le déploiement.
+
+    ### Préparation au déploiement
+
+    Une fois les tests validés, l'équipe prépare le site pour sa mise en ligne, garantissant une transition fluide vers la phase d'exploitation.
