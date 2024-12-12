@@ -1,24 +1,44 @@
-### Welcome to Kitsun 🦊
+# Kitsun 🦊
 
-Immerse yourself in the world of Kitsun, where every sip of Bubble Tea is an invitation to travel, a tribute to Japanese culture and gourmandise. Inspired by the famous mystical fox of Japanese legends, we created Kitsun to share with you our passion for authentic flavors and the art of mixology.
+Bienvenue à **Kitsun**, où chaque gorgée de Bubble Tea est une invitation au voyage, un hommage à la culture japonaise et à la gourmandise. Inspirés par le célèbre renard mystique des légendes japonaises, nous avons créé Kitsun pour partager avec vous notre passion pour les saveurs authentiques et l'art de la mixologie.
 
-### 🌱ᆞ Natural, quality ingredients
+---
 
-At Kitsun, every drink is made with carefully selected ingredients, favoring natural and local whenever possible. We work with premium teas, fresh fruit and tapioca pearls of controlled origin to guarantee a Bubble Tea as tasty as it is authentic. Quality and freshness are at the heart of our process.
+### 🌱ᆞ **Ingrédients naturels et de qualité**
 
-## Nos Spécialités
+Chez Kitsun, chaque boisson est élaborée à partir d'ingrédients soigneusement sélectionnés, en privilégiant le naturel et le local dans la mesure du possible. Nous travaillons avec des thés de première qualité, des fruits frais et des perles de tapioca d'origine contrôlée pour garantir un **Bubble Tea** aussi savoureux qu'authentique. La qualité et la fraîcheur sont au cœur de notre démarche.
 
-### 🍡 Nos douceurs japonaises
+---
 
-Discover our exclusive mochi, Japanese crepes and cookies:
+### Nos Spécialités
 
--   Artisanal mochi: a sweet, authentic touch!
--   Soft, generous crepes
--   Japanese-style cookies, perfect for a gourmet break
+#### 🍡 **Nos douceurs japonaises**
 
-### 🍵ᆞBubble Tea & Anime
+Découvrez nos spécialités sucrées qui complètent l'expérience Kitsun :
 
-Kitsun is much more than just a Bubble Tea. Thanks to our exclusive partnerships with iconic anime franchises like One Piece, we offer drinks and experiences inspired by the characters and worlds you love. Every month, discover new special editions and exclusive creations that pay tribute to your favorite heroes!
+-   **Mochi artisanal** : une touche de douceur et d'authenticité !
+-   **Crêpes japonaises** : moelleuses et généreuses.
+-   **Biscuits japonais** : parfaits pour une pause gourmande.
+
+#### 🍵ᆞ **Bubble Tea & Anime**
+
+Kitsun est bien plus qu'un simple **Bubble Tea**. Grâce à nos partenariats exclusifs avec des franchises d'anime emblématiques comme _One Piece_, nous proposons des boissons et des expériences inspirées par les personnages et les mondes que vous aimez. Chaque mois, découvrez de nouvelles éditions spéciales et des créations exclusives qui rendent hommage à vos héros préférés !
+
+---
+
+### Contributeurs
+
+-   Keyla Tiabas Houlai
+-   Youness Eddabachi
+-   John Perez Sanchez
+-   Emmanuel Kouassi
+-   Nolan Veopraseuth
+
+---
+
+### Lien vers le projet hébergé
+
+[Accédez au projet sur GitHub](https://github.com/Keddaaa/Kitsun)
 
 ![Aperçu de kitsun](Kitsun/imgrepo/1.png)
 ![Aperçu de kitsun](Kitsun/imgrepo/2.png)
