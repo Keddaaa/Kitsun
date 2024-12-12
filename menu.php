@@ -1,6 +1,6 @@
 <?php
-$host = "localhost";
-$dbname = "kitsun";
+$host = "mysql-kitsun-site.alwaysdata.net";
+$dbname = "kitsun-site_2";
 $user = "root";
 $password = "root";
 
