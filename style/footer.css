@@ -1,0 +1,91 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5vw;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	background-color: #ef7970;
+	padding: 5vh 5vw 10vh 5vw;
+	color: white;
+	gap: 5vw;
+	position: relative;
+}
+
+.footer_container {
+	display: flex;
+	gap: 3vw;
+}
+
+.footer img {
+	height: 25vh;
+	width: 12.5vw;
+	border-radius: 50%;
+	cursor: url(../img/main.svg) 10 10, auto;
+}
+
+.footer_container ul {
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
+}
+
+.footer_container ul li {
+	list-style: none;
+}
+
+.footer_container ul li a {
+	text-decoration: none;
+	color: white;
+	font-family: "segoe ui", sans-serif;
+	cursor: url(../img/main.svg) 10 10, auto;
+	font-size: 1.4vw;
+}
+.footer_container ul li > .title_footer {
+	font-size: 1.9vw;
+	font-family: "Marine Sikona", sans-serif;
+}
+
+.footer_container .formulaire {
+	display: flex;
+	gap: 0;
+	background-color: white;
+	width: 20vw;
+	border-radius: 1vw;
+}
+
+.footer_container input {
+	border: none;
+	outline: none;
+	background-color: #ffffff;
+	border-radius: 1vw 0 0 1vw;
+	padding: 1vh 1vw;
+	width: 15vw;
+	font-size: 1vw;
+	font-family: "segoe ui", sans-serif;
+	font-weight: bold;
+}
+
+.footer_container button {
+	border: none;
+	outline: none;
+	background-color: #e63527;
+	border-radius: 1vw;
+	padding: 1vh 1vw;
+	font-size: 1vw;
+	font-family: "Marine Sikona", sans-serif;
+	color: white;
+}
+
+.footer::after {
+	content: "";
+	width: 60%;
+	height: 2px;
+	background-color: #ffffff;
+	display: block;
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

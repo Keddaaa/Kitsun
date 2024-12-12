@@ -1,0 +1,558 @@
+.hero {
+	display: flex;
+	width: 100%;
+	height: auto;
+	color: white;
+	background-color: #a2b5fb;
+
+	height: 80vh;
+	justify-content: center;
+	align-items: center;
+	z-index: 09;
+}
+
+.bon_plan {
+	display: flex;
+	width: 100%;
+	height: auto;
+	color: rgb(0, 0, 0);
+	background-color: #ffffff;
+	padding: 5vh 10vw;
+	height: 70vh;
+	gap: 5vw;
+	flex-wrap: wrap;
+	padding: 5vh 10vw;
+	justify-content: center;
+	z-index: 09;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	gap: 0.5vw;
+	font-size: 2vw;
+	margin-top: 5vh;
+	margin-bottom: 15vh;
+	font-weight: lighter;
+}
+
+.title::before {
+	content: "";
+	display: block;
+	width: 2vw;
+	height: 0.5vh;
+	background-color: rgb(0, 0, 0);
+	border-radius: 10px;
+}
+
+.title::after {
+	content: "";
+	display: block;
+	width: 2vw;
+	height: 0.5vh;
+	background-color: rgb(0, 0, 0);
+	border-radius: 10px;
+}
+
+.bon_plan .card {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-basis: 20%;
+	align-items: center;
+	gap: 2vh;
+	width: 10vw;
+	max-width: 10vw;
+	height: auto;
+	border-radius: 10px;
+	user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	transition: 0.3s;
+	flex-wrap: wrap;
+}
+
+.bon_plan .card:hover {
+	transform: scale(1.1);
+	cursor: url(../img/main.svg) 10 10, auto;
+}
+
+.bon_plan .card:active {
+	transform: scale(0.99);
+}
+
+.bon_plan .card .image_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 8vw;
+	height: 8vw;
+	padding: 2vh 2vw;
+	border-radius: 50%;
+	background-color: #ee7970;
+}
+
+.bon_plan .card img {
+	width: 8vw;
+	min-width: 8vw;
+	height: auto;
+	padding: 2vh 2vw;
+	border-radius: 50%;
+	position: relative;
+	user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+}
+
+.bon_plan .card .img_petit {
+	width: 8vw;
+	height: auto;
+	padding: 0.7vh 0.7vw;
+	border-radius: 50%;
+	position: relative;
+}
+
+.bon_plan .card p {
+	font-size: 1vw;
+}
+
+.btn_bon_plan {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1vh;
+	font-size: 1vw;
+	width: 15vw;
+	border: none;
+	background-color: white;
+	color: #000000;
+	font-family: "Marine Sikona", sans-serif;
+	font-weight: bold;
+	border-radius: 50px;
+	margin: 0 auto;
+	margin-bottom: 3vh;
+	transition: 0.5s;
+}
+
+.btn_bon_plan:hover {
+	/* color: #a2b5fb; */
+	transform: scale(1.1);
+	cursor: url(../img/main.svg) 10 10, auto;
+}
+
+.btn_bon_plan:active {
+	transform: scale(0.9);
+}
+
+.btn_bon_plan::after {
+	content: "";
+	display: block;
+	width: 2vw;
+	height: 0.3vh;
+	background-color: #e52e20;
+	border-radius: 10px;
+	transition: 0.5s;
+}
+
+.btn_bon_plan:hover::after {
+	/* background-color: #a2b5fb; */
+	transform: scale(1.2);
+}
+
+.btn_bon_plan:active::after {
+	transform: scale(0.9);
+}
+
+.decouvrir {
+	display: flex;
+	font-size: 1.5vw;
+	font-weight: bold;
+	width: 100%;
+	border: none;
+	background-color: #ede6de;
+	padding: 5vh 5vw;
+}
+
+.decouvrir_left {
+	display: flex;
+	align-items: center;
+	gap: 1vw;
+}
+
+.decouvrir_left .decouvrir_card {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	gap: 2vh;
+}
+
+.decouvrir_left .decalage {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	flex-direction: column;
+	gap: 2vh;
+	position: relative;
+	height: 61vh;
+}
+
+.decouvrir .crepes {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: auto;
+	height: auto;
+	min-width: 16vw;
+	min-height: 20vh;
+	max-width: 25vw;
+	max-height: 30vh;
+	border-radius: 5%;
+	background-color: #ee7970;
+	color: white;
+}
+
+.decouvrir .coockies {
+	display: flex;
+	justify-content: right;
+	align-items: flex-end;
+	width: 16vw;
+	height: 15vw;
+	border-radius: 5%;
+	background-color: #ffc9cc;
+	color: white;
+	position: relative;
+}
+
+.decouvrir .mochi {
+	display: flex;
+	justify-content: right;
+	align-items: flex-end;
+	width: 16vw;
+	height: 40vh;
+	border-radius: 5%;
+	background-color: #a2b5fb;
+	color: white;
+	position: relative;
+}
+
+.decouvrir .bubble_tea {
+	display: flex;
+	justify-content: right;
+	align-items: flex-end;
+	width: 16vw;
+	height: 8vw;
+	border-radius: 1vw;
+	background-color: #f5c6a3;
+	color: white;
+	position: relative;
+}
+
+.decouvrir .coockies img {
+	width: 7vw;
+	height: auto;
+	border-radius: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.753));
+}
+
+.decouvrir .crepes img {
+	width: 10vw;
+	height: 30vh;
+	border-radius: 5%;
+}
+
+.decouvrir .mochi img {
+	width: 10vw;
+	height: auto;
+	border-radius: 5%;
+}
+
+.decouvrir .bubble_tea > img {
+	width: 10vw;
+	height: auto;
+	border-radius: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.decouvrir .crepes > p {
+	padding: 0 0 1vh 1vw;
+	font-size: 1.5vw;
+}
+
+.decouvrir .mochi > p {
+	padding: 0 1vw 1vh 0;
+	font-size: 1.5vw;
+}
+.decouvrir .coockies > p {
+	padding: 0 1vw 1vh 0;
+	z-index: 100;
+	font-size: 1.5vw;
+}
+
+.decouvrir .bubble_tea > p {
+	padding: 0 1vw 1vh 0;
+	font-size: 1.2vw;
+}
+
+.decouvrir_right {
+	height: 50vh;
+	width: 60vw;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.decouvrir_right H2 {
+	position: absolute;
+	top: 45%;
+	left: 60%;
+	transform: translate(-50%, -50%);
+	font-size: 2.5vw;
+}
+
+.decouvrir_right img {
+	width: 60vw;
+	height: auto;
+	position: absolute;
+	top: 60%;
+	left: 49%;
+	transform: translate(-50%, -50%);
+}
+
+/* relative declaration */
+/* ================================= */
+/* .bon_plan .mint_tea {
+	position: relative;
+}
+
+.bon_plan .special {
+	position: relative;
+}
+
+.bon_plan .blueberies {
+	position: relative;
+}
+
+.bon_plan .red {
+	position: relative;
+}
+
+.bon_plan .pure {
+	position: relative;
+}
+
+.bon_plan .fruit_series {
+	position: relative;
+} */
+
+/* ou */
+
+.bon_plan .mint_tea,
+.special,
+.blueberies,
+.red,
+.pure,
+.fruit_series {
+	position: relative;
+}
+
+/* ================================= */
+
+/* after */
+/* ================================= */
+.bon_plan .mint_tea::after {
+	content: "5.50$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: -10%;
+	right: -15%;
+}
+
+.bon_plan .special::after {
+	content: "5.50$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: -10%;
+	right: -15%;
+}
+
+.bon_plan .blueberies::after {
+	content: "6.50$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: -10%;
+	right: -15%;
+}
+
+.bon_plan .red::after {
+	content: "4.99$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: -10%;
+	right: -15%;
+}
+
+.bon_plan .pure::after {
+	content: "5.80$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: -10%;
+	right: -15%;
+}
+
+.bon_plan .fruit_series::after {
+	content: "4.99$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: -10%;
+	right: -15%;
+}
+
+/* ================================= */
+.hero_left {
+	position: absolute;
+	bottom: 85px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+.btn_commander {
+	position: absolute;
+	bottom: 155px;
+	left: 100px;
+	gap: 1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2vw;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 15px;
+	padding: 1.5vh 1.5vw;
+	color: black;
+	background-color: #c8e2fb;
+}
+.hero_right h1 {
+	position: absolute;
+	bottom: 748px;
+	right: 240px;
+	display: flex;
+	font-weight: lighter;
+	justify-content: right;
+	align-items: center;
+	font-size: 40px;
+}
+.btn_collab {
+	position: absolute;
+	bottom: 650px;
+	right: 400px;
+	gap: 1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2vw;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 15px;
+	padding: 1.5vh 1.5vw;
+	color: black;
+	background-color: #c8e2fb;
+}
+.img_collab {
+	position: relative;
+	left: 400px;
+	top: 100px;
+}
+.desc_collab {
+	position: absolute;
+	bottom: 160px;
+	font-weight: lighter;
+	right: 530px;
+	font-size: 25px;
+}
+
+.img_collab::after {
+	content: "5.99$";
+	display: block;
+	width: 3.5vw;
+	height: 3.5vw;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 1vw;
+	font-weight: 0;
+	text-align: center;
+	line-height: 3.5vw;
+	border-radius: 50%;
+	position: absolute;
+	top: 30%;
+	right: -5%;
+}
