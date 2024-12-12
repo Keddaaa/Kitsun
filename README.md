@@ -59,8 +59,6 @@ L'objectif est de créer un site web moderne et fonctionnel qui réponde aux bes
 
 Les fonctionnalités du projet **Kitsun** sont regroupées en sprints afin de favoriser une mise en œuvre progressive et collaborative. Voici la répartition des sprints :
 
-### Objectifs des Sprints
-
 | **Sprint** | **Objectif**                                                     |
 | ---------- | ---------------------------------------------------------------- |
 | Sprint 1   | Gestion des clients : Inscription, connexion, gestion du panier. |
@@ -69,3 +67,121 @@ Les fonctionnalités du projet **Kitsun** sont regroupées en sprints afin de fa
 | Sprint 4   | Galerie photo : Ajout, modification, suppression des photos.     |
 
 ---
+
+## Conduite de projet - User Stories et Backlog
+
+Pour chaque sprint, les **User Stories** sont définies afin de refléter les besoins des utilisateurs finaux. Voici un exemple de backlog par sprint :
+
+### Gestion des clients
+
+| **ID** | **User Story**                                                        | **Tâches**                                            | **Priorité** | **Critères d'acceptation**                                                                                                    | **Etat** |
+| ------ | --------------------------------------------------------------------- | ----------------------------------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------- | -------- |
+| US1    | En tant qu'utilisateur, je veux m'inscrire pour accéder à mon panier. | Créer un formulaire d'inscription.                    | 1            | Le formulaire valide les données utilisateur et affiche un message de confirmation.                                           | Fini     |
+| US2    | En tant qu'utilisateur, je veux consulter et modifier mon panier.     | Intégrer la fonctionnalité de gestion du panier.      | 1            | Les utilisateurs peuvent ajouter, modifier ou supprimer des articles dans le panier et voir le total actualisé en temps réel. | Fini     |
+| US3    | En tant qu'utilisateur, je veux valider ma commande en ligne.         | Ajouter une fonctionnalité de validation de commande. | 2            | Une confirmation de commande est envoyée par e-mail une fois validée.                                                         | À faire  |
+
+---
+
+| **ID** | **User Story**                                                               | **Tâches**                                           | **Priorité** | **Critères d'acceptation**                                                                                                | **Etat** |
+| ------ | ---------------------------------------------------------------------------- | ---------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------- | -------- |
+| US1    | En tant qu'utilisateur, je veux voir les produits récents en page d'accueil. | Créer une page d'accueil dynamique.                  | 1            | Les produits les plus récents sont affichés avec des images attrayantes et un lien direct vers leur page détail.          | Fini     |
+| US2    | En tant qu'utilisateur, je veux rechercher rapidement un produit.            | Ajouter une barre de recherche avec fonction de tri. | 1            | La recherche renvoie des résultats pertinents en fonction des mots-clés ou des filtres appliqués (catégorie, prix, etc.). | Fini     |
+
+### Système Feedback
+
+| **ID** | **User Story**                                                                   | **Tâches**                                            | **Priorité** | **Critères d'acceptation**                                                                        | **Etat** |
+| ------ | -------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------- | -------- |
+| US1    | En tant qu'utilisateur, je veux laisser un avis sur les produits ou services.    | Créer un formulaire d'avis utilisateur.               | 1            | Les avis sont enregistrés dans la base de données et s'affichent dans un module de retour client. | En cours |
+| US2    | En tant qu'administrateur, je veux consulter les retours pour améliorer l'offre. | Intégrer un tableau de bord pour les retours clients. | 2            | Les retours clients sont classés par produit et analysables via des graphiques.                   | En cours |
+
+---
+
+### Galerie Photo
+
+| **ID** | **User Story**                                                                | **Tâches**                                              | **Priorité** | **Critères d'acceptation**                                                                          | **Etat** |
+| ------ | ----------------------------------------------------------------------------- | ------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------- | -------- |
+| US1    | En tant qu'utilisateur, je veux voir des photos des produits.                 | Créer une galerie photo avec albums.                    | 1            | Les photos s'affichent sous forme de grille avec la possibilité de naviguer par album.              | Fini     |
+| US2    | En tant qu'administrateur, je veux ajouter, modifier ou supprimer des photos. | Ajouter une interface d’administration pour la galerie. | 2            | Les modifications effectuées dans l’administration sont immédiatement reflétées sur le site public. | Fini     |
+
+---
+
+## Planification et Réalisation des Sprints
+
+### Planification
+
+-   Organiser une réunion pour estimer les efforts (en points ou heures) pour chaque User Story.
+-   Identifier les priorités et définir le contenu du sprint.
+
+### Exécution
+
+-   Déplacer les tâches du backlog à "En cours" lors du démarrage.
+-   Utiliser des outils comme Trello ou Jira pour suivre l'avancement.
+-   Organiser des "Daily Scrums" (15 minutes) pour faire le point sur l’avancement.
+
+### Outils de collaboration
+
+-   Trello ou Jira pour la gestion des tâches.
+-   Discord pour la communication rapide.
+-   Figma pour les maquettes et designs.
+
+### Validation Croisée et Rétrospective
+
+-   Validation croisée : Les groupes s'évaluent mutuellement sur les critères d'acceptation.
+-   Rétrospective : Identifier ce qui a bien fonctionné et les axes d’amélioration. Documenter les apprentissages pour le prochain sprint.
+
+---
+
+### Répartition des tâches
+
+#### Sprint 1 : Gestion des clients
+
+-   Création du formulaire d'inscription (US1)
+
+    -   Responsable : Keyla
+    -   Raisons : Connaissance des formulaires et des validations.
+
+-   Intégration de la gestion du panier (US2)
+
+    -   Responsable : Nolan
+    -   Raisons : Expérience dans la gestion d'éléments dynamiques en JavaScript.
+
+-   Ajout de la fonctionnalité de validation de commande (US3)
+-   Responsable : Emmanuel
+-   Raisons : Intérêt pour les bases de données et l'intégration backend.
+
+### Sprint 2 : Présentation du site
+
+-   **Création de la page d'accueil dynamique (US1)**
+
+    -   **Responsable** : John
+    -   **Raisons** : Sens du design et des interactions utilisateurs.
+
+-   **Ajout d'une barre de recherche et des fonctions de tri (US2)**
+    -   **Responsable** : Youness
+    -   **Raisons** : Capacité à implémenter des fonctionnalités complexes.
+
+---
+
+### Sprint 3 : Système Feedback
+
+-   **Création du formulaire d'avis utilisateur (US1)**
+
+    -   **Responsable** : Keyla
+    -   **Raisons** : Expertise dans les interfaces intuitives.
+
+-   **Intégration du tableau de bord pour les retours clients (US2)**
+    -   **Responsable** : Nolan
+    -   **Raisons** : Compétence en visualisation de données et dashboards.
+
+---
+
+### Sprint 4 : Galerie photo
+
+-   **Création de la galerie photo avec albums (US1)**
+
+    -   **Responsable** : John
+    -   **Raisons** : Créativité et sens artistique.
+
+-   **Ajout de l'interface d'administration pour la galerie (US2)**
+    -   **Responsable** : Youness
+    -   **Raisons** : Expérience dans les outils administratifs et leur sécurisation.
