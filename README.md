@@ -40,8 +40,8 @@ Kitsun est bien plus qu'un simple **Bubble Tea**. Grâce à nos partenariats exc
 
 [Accédez au projet sur GitHub](https://github.com/Keddaaa/Kitsun)
 
-![Aperçu de kitsun](Kitsun/imgrepo/1.png)
-![Aperçu de kitsun](Kitsun/imgrepo/2.png)
+![Aperçu de kitsun](imgrepo/1.png)
+![Aperçu de kitsun](imgrepo/2.png)
 
 ## Conduite de projet
 
