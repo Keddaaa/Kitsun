@@ -2,7 +2,7 @@
 $host = "mysql-kitsun-site.alwaysdata.net";
 $dbname = "kitsun-site_2";
 $user = "root";
-$password = "root";
+$password = "";
 
 try {
     $pdo = new PDO(

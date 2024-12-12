@@ -40,6 +40,23 @@ Kitsun est bien plus qu'un simple **Bubble Tea**. Grâce à nos partenariats exc
 
 [Accédez au projet sur GitHub](https://github.com/Keddaaa/Kitsun)
 
+## Identifiants de Connexion pour Test
+
+**Par Email :**
+`jean.dupont@gmail.com`
+
+**Mot de Passe :**
+`123456`
+
+### Notes importantes :
+
+-   Ces identifiants sont fournis uniquement pour un usage de test ou de démonstration.
+-   **Ne pas utiliser ces informations pour un environnement en production.**
+-   Pensez à remplacer le mot de passe par un mot de passe sécurisé pour toute utilisation réelle.
+-   Activez l'authentification à deux facteurs (2FA) pour renforcer la sécurité des comptes.
+
+---
+
 ![Aperçu de kitsun](imgrepo/1.png)
 ![Aperçu de kitsun](imgrepo/2.png)
 
