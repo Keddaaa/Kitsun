@@ -58,3 +58,14 @@ L'objectif est de créer un site web moderne et fonctionnel qui réponde aux bes
 ### Définition des Sprints
 
 Les fonctionnalités du projet **Kitsun** sont regroupées en sprints afin de favoriser une mise en œuvre progressive et collaborative. Voici la répartition des sprints :
+
+### Objectifs des Sprints
+
+| **Sprint** | **Objectif**                                                     |
+| ---------- | ---------------------------------------------------------------- |
+| Sprint 1   | Gestion des clients : Inscription, connexion, gestion du panier. |
+| Sprint 2   | Présentation du site : Page d’accueil, recherche et navigation.  |
+| Sprint 3   | Système Feedback : Formulaire d’avis, analyse des retours.       |
+| Sprint 4   | Galerie photo : Ajout, modification, suppression des photos.     |
+
+---
