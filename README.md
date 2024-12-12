@@ -185,3 +185,55 @@ Pour chaque sprint, les **User Stories** sont définies afin de refléter les be
 -   **Ajout de l'interface d'administration pour la galerie (US2)**
     -   **Responsable** : Youness
     -   **Raisons** : Expérience dans les outils administratifs et leur sécurisation.
+
+### Planification et Gestion
+
+**Scrum Master**
+
+-   **Responsable** : Emmanuel
+-   **Raisons** : Bonne organisation et gestion des priorités.
+
+**Suivi des tâches (Trello/Jira)**
+
+-   **Responsables** : Keyla et Nolan (support).
+
+**Design et Maquettes (Figma)**
+
+-   **Responsable** : John.
+
+**Communication (Discord)**
+
+-   **Responsable** : Youness (modérateur principal).
+
+### Étapes principales :
+
+#### 1. Idéation et conception
+
+Cette étape est fondamentale pour poser les bases solides du projet et garantir que l'équipe travaille en harmonie avec les attentes du client.
+
+-   **Analyse des besoins**
+    L'équipe commence par collecter toutes les informations pertinentes sur le restaurant Kitsun : son identité visuelle, ses valeurs, ses produits phares (notamment les bubble teas), et les fonctionnalités attendues pour le site web. Cette phase implique :
+
+    -   Entrevues avec le client : Pour comprendre leurs objectifs, leur vision, et leurs contraintes.
+    -   Analyse des utilisateurs finaux : Identification des profils types (personas) des utilisateurs cibles et définition de leurs besoins principaux, tels que la facilité de navigation ou l'accès rapide au menu.
+    -   Analyse concurrentielle : Étudier les sites similaires pour déterminer les bonnes pratiques et identifier des opportunités d'innovation.
+
+-   **Définition des objectifs**
+    À partir des données collectées, l'équipe établit des objectifs clairs et mesurables pour le site web. Par exemple :
+
+    -   Augmenter la visibilité en ligne de Kitsun.
+    -   Simplifier la navigation pour améliorer l'expérience utilisateur.
+    -   Permettre une éventuelle commande en ligne et gérer les avis clients.
+
+-   **Brainstorming et idéation**
+    Une session de brainstorming est organisée pour générer des idées créatives et innovantes. L'équipe discute des solutions techniques et des approches visuelles les plus adaptées. Les meilleures idées sont retenues et organisées dans un plan fonctionnel.
+
+-   **Création des maquettes**
+    Une fois les idées validées, des maquettes détaillées sont créées à l'aide d'outils comme Figma. Cette phase inclut :
+
+    -   Le design des pages principales (accueil, menu, galerie, contact).
+    -   Une structure UX (expérience utilisateur) intuitive, avec une navigation claire et rapide.
+    -   L'utilisation des couleurs, polices, et éléments graphiques reflétant l'identité visuelle de Kitsun.
+
+-   **Validation des maquettes**
+    Les maquettes sont partagées avec le client pour retour. Une phase de révision est prévue pour ajuster les éléments selon leurs commentaires. Cette validation assure que l'équipe démarre le
