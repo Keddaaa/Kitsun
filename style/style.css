@@ -4,9 +4,15 @@
 	box-sizing: border-box;
 }
 
+@font-face {
+	font-family: "Marine Sikona";
+	src: url("../font/MarineSikona-Regular.woff");
+}
+
 html,
 body {
 	font-family: "Marine Sikona", sans-serif;
+	
 	user-select: none;
 	-webkit-user-drag: none;
 	width: 100%;
@@ -23,3 +29,4 @@ body {
 	user-select: none;
 	-webkit-user-drag: none;
 }
+

@@ -1,14 +1,159 @@
 .hero {
-	display: flex;
+	position: relative;
 	width: 100%;
-	height: auto;
-	color: white;
+	min-height: 80vh;
 	background-color: #a2b5fb;
-
-	height: 80vh;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	z-index: 09;
+	padding: 5vh 5vw;
+	overflow: hidden;
+}
+
+.hero_content {
+	width: 100%;
+	max-width: 1400px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 5vw;
+}
+
+/* Left side with character */
+.hero_text {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2rem;
+}
+
+.speech_bubble {
+	background-color: #c3f4f7;
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.speech_bubble::after {
+	content: '';
+	position: absolute;
+	bottom: -20px;
+	right: -20px;
+	width: 40px;
+	height: 40px;
+	background-color: #c3f4f7;
+	border-radius: 50%;
+}
+
+.character_face {
+	width: 90%;
+	height: 90%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.btn_commander {
+	background-color: #e8f4ff;
+	color: #000;
+	text-decoration: none;
+	padding: 1rem 2rem;
+	border-radius: 25px;
+	font-size: 1.2rem;
+	font-weight: 600;
+	transition: transform 0.3s ease;
+}
+
+.btn_commander:hover {
+	transform: translateY(-3px);
+}
+
+/* Right side with product */
+.hero_product {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.product_title {
+	text-align: left;
+}
+
+.product_title h1 {
+	color: white;
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	font-weight: 600;
+}
+
+.collab_tag {
+	display: inline-block;
+	background-color: #e8f4ff;
+	padding: 0.5rem 1.5rem;
+	border-radius: 20px;
+	font-weight: 600;
+}
+
+.product_showcase {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.product_image {
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	transform: rotate(-15deg);
+}
+
+.price_tag {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #ff0000;
+	color: white;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+}
+
+.product_name {
+	color: white;
+	font-size: 1.5rem;
+	margin-top: 1rem;
+	font-weight: 600;
+}
+
+/* Dots navigation */
+.hero_dots {
+	position: absolute;
+	bottom: 2rem;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.5);
+	cursor: pointer;
+}
+
+.dot.active {
+	background-color: white;
 }
 
 .bon_plan {
@@ -477,82 +622,133 @@
 
 /* ================================= */
 .hero_left {
-	position: absolute;
-	bottom: 85px;
 	display: flex;
-	justify-content: left;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-}
-.btn_commander {
-	position: absolute;
-	bottom: 155px;
-	left: 100px;
-	gap: 1vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 2vw;
-	text-decoration: none;
-	font-weight: bold;
-	border-radius: 15px;
-	padding: 1.5vh 1.5vw;
-	color: black;
-	background-color: #c8e2fb;
-}
-.hero_right h1 {
-	position: absolute;
-	bottom: 748px;
-	right: 240px;
-	display: flex;
-	font-weight: lighter;
-	justify-content: right;
-	align-items: center;
-	font-size: 40px;
-}
-.btn_collab {
-	position: absolute;
-	bottom: 650px;
-	right: 400px;
-	gap: 1vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 2vw;
-	text-decoration: none;
-	font-weight: bold;
-	border-radius: 15px;
-	padding: 1.5vh 1.5vw;
-	color: black;
-	background-color: #c8e2fb;
-}
-.img_collab {
-	position: relative;
-	left: 400px;
-	top: 100px;
-}
-.desc_collab {
-	position: absolute;
-	bottom: 160px;
-	font-weight: lighter;
-	right: 530px;
-	font-size: 25px;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 4vh;
+	width: 45%;
+	z-index: 1;
 }
 
-.img_collab::after {
-	content: "5.99$";
-	display: block;
-	width: 3.5vw;
-	height: 3.5vw;
-	background-color: rgb(255, 0, 0);
+.hero_left img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.2));
+	transition: transform 0.3s ease;
+}
+
+.hero_left img:hover {
+	transform: translateY(-10px);
+}
+
+.btn_commander {
+	display: inline-flex;
+	align-items: center;
+	gap: 1vw;
+	padding: 1.5vh 3vw;
+	background-color: white;
+	color: black;
+	text-decoration: none;
+	border-radius: 50px;
+	font-size: 1.2vw;
+	font-weight: bold;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn_commander:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn_commander svg {
+	transition: transform 0.3s ease;
+}
+
+.btn_commander:hover svg {
+	transform: translateX(5px);
+}
+
+.hero_right {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3vh;
+	width: 45%;
+	z-index: 1;
+}
+
+.hero_right h1 {
+	font-size: 3.5vw;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 0;
 	color: white;
-	font-size: 1vw;
-	font-weight: 0;
+}
+
+.btn_collab {
+	display: inline-flex;
+	align-items: center;
+	gap: 1vw;
+	padding: 1.5vh 3vw;
+	background-color: white;
+	color: black;
+	text-decoration: none;
+	border-radius: 50px;
+	font-size: 1.2vw;
+	font-weight: bold;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn_collab:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn_collab svg {
+	transition: transform 0.3s ease;
+}
+
+.btn_collab:hover svg {
+	transform: translateX(5px);
+}
+
+.img_collab {
+	width: 100%;
+	position: relative;
+}
+
+.img_collab img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.2));
+	transition: transform 0.3s ease;
+}
+
+.img_collab img:hover {
+	transform: translateY(-10px);
+}
+
+.desc_collab {
+	font-size: 1.8vw;
+	font-weight: bold;
+	color: white;
+	margin: 0;
 	text-align: center;
-	line-height: 3.5vw;
-	border-radius: 50%;
+	width: 100%;
+}
+
+/* Ajout d'un effet de fond */
+.hero::before {
+	content: '';
 	position: absolute;
-	top: 30%;
-	right: -5%;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+	pointer-events: none;
 }

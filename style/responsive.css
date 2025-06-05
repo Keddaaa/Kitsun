@@ -1,0 +1,413 @@
+/* Mobile First Approach */
+/* Base styles for mobile (up to 768px) */
+@media screen and (max-width: 768px) {
+    /* Header */
+    header {
+        padding: 2vh 5vw;
+    }
+
+    header .header_left .logo img {
+        width: 10vw;
+    }
+
+    header .header_left p {
+        font-size: 4vw;
+    }
+
+    header .header_right {
+        gap: 2vw;
+    }
+
+    header .header_right .icons_right {
+        width: auto;
+        gap: 3vw;
+    }
+
+    header .header_right .icons_right i {
+        font-size: 5vw;
+    }
+
+    header .header_right .icons_right .searchInput {
+        width: 50vw;
+        font-size: 3vw;
+    }
+
+    header .header_right .btn .btn_click {
+        font-size: 3vw;
+        padding: 1vh 3vw;
+    }
+
+    /* Menu */
+    .menu {
+        padding: 0 0 5vh 5vw;
+    }
+
+    .menu ul li a {
+        font-size: 4vw;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: auto;
+        padding: 3rem 1rem;
+    }
+
+    .hero_content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero_text {
+        order: 2;
+        align-items: center;
+        width: 100%;
+    }
+
+    .speech_bubble {
+        width: 200px;
+        height: 200px;
+    }
+
+    .speech_bubble::after {
+        width: 30px;
+        height: 30px;
+        bottom: -15px;
+        right: -15px;
+    }
+
+    .btn_commander {
+        width: 80%;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+
+    .hero_product {
+        order: 1;
+        width: 100%;
+    }
+
+    .product_title {
+        text-align: center;
+    }
+
+    .product_title h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .collab_tag {
+        font-size: 1rem;
+    }
+
+    .product_showcase {
+        margin-top: 1rem;
+    }
+
+    .product_image {
+        max-width: 280px;
+    }
+
+    .price_tag {
+        width: 50px;
+        height: 50px;
+        font-size: 0.9rem;
+    }
+
+    .product_name {
+        font-size: 1.2rem;
+    }
+
+    .hero_dots {
+        bottom: 1rem;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .btn_commander, .btn_collab {
+        font-size: 4vw;
+        padding: 2vh 6vw;
+        width: 80%;
+        justify-content: center;
+    }
+
+    .btn_commander svg, .btn_collab svg {
+        width: 24px;
+        height: 12px;
+    }
+
+    .img_collab {
+        width: 90%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .desc_collab {
+        font-size: 5vw;
+    }
+
+    /* Bon Plan Section */
+    .title {
+        font-size: 5vw;
+        margin: 3vh 0;
+    }
+
+    .title::before,
+    .title::after {
+        width: 8vw;
+    }
+
+    .bon_plan {
+        height: auto;
+        padding: 2vh 5vw;
+        gap: 4vh;
+    }
+
+    .bon_plan .card {
+        flex-basis: 45%;
+        max-width: 45vw;
+    }
+
+    .bon_plan .card .image_container {
+        width: 30vw;
+        height: 30vw;
+        padding: 2vh 2vw;
+    }
+
+    .bon_plan .card img {
+        width: 25vw;
+        min-width: 25vw;
+    }
+
+    .bon_plan .card p {
+        font-size: 3.5vw;
+    }
+
+    .btn_bon_plan {
+        font-size: 4vw;
+        width: 40vw;
+    }
+
+    /* Decouvrir Section */
+    .decouvrir {
+        flex-direction: column;
+        padding: 3vh 5vw;
+        font-size: 4vw;
+    }
+
+    .decouvrir_left {
+        flex-direction: column;
+        gap: 3vh;
+    }
+
+    .decouvrir_left .decalage {
+        height: auto;
+        gap: 3vh;
+    }
+
+    .decouvrir .crepes,
+    .decouvrir .coockies,
+    .decouvrir .mochi,
+    .decouvrir .bubble_tea {
+        width: 90vw;
+        height: 50vw;
+        margin-bottom: 2vh;
+    }
+
+    .decouvrir_right {
+        text-align: center;
+        margin-top: 5vh;
+    }
+
+    .decouvrir_right h2 {
+        font-size: 6vw;
+    }
+
+    .decouvrir_right img {
+        width: 20vw;
+    }
+
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        padding: 5vh 5vw;
+        gap: 5vh;
+    }
+
+    .footer img {
+        height: auto;
+        width: 30vw;
+    }
+
+    .footer_container {
+        flex-direction: column;
+        gap: 5vh;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer_container ul li a {
+        font-size: 3.5vw;
+    }
+
+    .footer_container ul li > .title_footer {
+        font-size: 4.5vw;
+    }
+
+    .footer_container .formulaire {
+        width: 80vw;
+    }
+
+    .footer_container input {
+        width: 60vw;
+        font-size: 3vw;
+        padding: 1.5vh 3vw;
+    }
+
+    .footer_container button {
+        font-size: 3vw;
+        padding: 1.5vh 3vw;
+    }
+}
+
+/* Tablet styles (768px to 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Header */
+    header .header_left .logo img {
+        width: 5vw;
+    }
+
+    header .header_left p {
+        font-size: 2.5vw;
+    }
+
+    header .header_right .icons_right i {
+        font-size: 2.5vw;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 4rem 2rem;
+    }
+
+    .hero_content {
+        gap: 4rem;
+    }
+
+    .speech_bubble {
+        width: 250px;
+        height: 250px;
+    }
+
+    .product_title h1 {
+        font-size: 2.2rem;
+    }
+
+    .product_image {
+        max-width: 320px;
+    }
+
+    .btn_commander, .btn_collab {
+        font-size: 2vw;
+        padding: 1.5vh 3vw;
+    }
+
+    .desc_collab {
+        font-size: 2.5vw;
+    }
+
+    /* Bon Plan Section */
+    .bon_plan {
+        gap: 3vh;
+    }
+
+    .bon_plan .card {
+        flex-basis: 30%;
+        max-width: 30vw;
+    }
+
+    .bon_plan .card .image_container {
+        width: 15vw;
+        height: 15vw;
+    }
+
+    .bon_plan .card img {
+        width: 12vw;
+        min-width: 12vw;
+    }
+
+    .bon_plan .card p {
+        font-size: 2vw;
+    }
+
+    /* Decouvrir Section */
+    .decouvrir .crepes,
+    .decouvrir .coockies,
+    .decouvrir .mochi,
+    .decouvrir .bubble_tea {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    /* Footer */
+    .footer img {
+        width: 15vw;
+        height: auto;
+    }
+
+    .footer_container ul li a {
+        font-size: 1.8vw;
+    }
+
+    .footer_container ul li > .title_footer {
+        font-size: 2.2vw;
+    }
+
+    .footer_container .formulaire {
+        width: 25vw;
+    }
+
+    .footer_container input {
+        width: 18vw;
+        font-size: 1.5vw;
+    }
+
+    .footer_container button {
+        font-size: 1.5vw;
+    }
+}
+
+/* Desktop styles (above 1024px) */
+@media screen and (min-width: 1024px) {
+    .hero {
+        padding: 5rem 2rem;
+    }
+
+    .hero_content {
+        gap: 4rem;
+    }
+}
+
+/* Large screens (above 1440px) */
+@media screen and (min-width: 1440px) {
+    .hero_content {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .speech_bubble {
+        width: 350px;
+        height: 350px;
+    }
+
+    .product_title h1 {
+        font-size: 3rem;
+    }
+
+    .product_image {
+        max-width: 450px;
+    }
+} 

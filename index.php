@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<!-- font awesome -->
 		<link
 			rel="stylesheet"
@@ -21,11 +21,11 @@
 			rel="stylesheet"
 		/>
 
-		<link rel="stylesheet" href="https://path.to/font/MarineSikona.css" />
 		<link rel="stylesheet" href="style/footer.css" />
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="stylesheet" href="style/header.css" />
 		<link rel="stylesheet" href="style/index.css" />
+		<link rel="stylesheet" href="style/responsive.css" />
 		<link rel="icon" type="image/png" href="img/logo.png" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -81,59 +81,31 @@
 
 		<main>
 			<section class="hero">
-				<div class="hero_left">
-					<img src="img/yamato.png" alt="Yamato" />
-					<a class="btn_commander" href="menu.php"
-						>Commander
-						<svg
-							width="20"
-							height="10"
-							viewBox="0 0 20 10"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M15 5H1"
-								stroke="black"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-							<path
-								d="M19.7152 4.79657L14.265 0.903565C13.7355 0.525354 13 0.903853 13 1.55455V8.44545C13 9.09615 13.7355 9.47465 14.265 9.09644L19.7152 5.20343C19.8548 5.10373 19.8548 4.89627 19.7152 4.79657Z"
-								fill="black"
-							/>
-						</svg>
-					</a>
-				</div>
-				<div class="hero_right">
-					<h1>Un Bubble Tea digne d’un pirate !</h1>
-					<a class="btn_collab" href="menu.php"
-						>One piece x Kitsun
-						<svg
-							width="20"
-							height="10"
-							viewBox="0 0 20 10"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M15 5H1"
-								stroke="black"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-							<path
-								d="M19.7152 4.79657L14.265 0.903565C13.7355 0.525354 13 0.903853 13 1.55455V8.44545C13 9.09615 13.7355 9.47465 14.265 9.09644L19.7152 5.20343C19.8548 5.10373 19.8548 4.89627 19.7152 4.79657Z"
-								fill="black"
-							/>
-						</svg>
-					</a>
-					<div class="img_collab">
-						<img src="img/teacollab.png" alt="tea collab" />
+				<div class="hero_content">
+					<div class="hero_text">
+						<div class="speech_bubble">
+							<img src="img/yamato-face.png" alt="Yamato" class="character_face" />
+						</div>
+						<a href="menu.php" class="btn_commander">
+							Commander →
+						</a>
 					</div>
-					<h3 class="desc_collab">Pirate Pearl Tea</h3>
+					<div class="hero_product">
+						<div class="product_title">
+							<h1>Un Bubble Tea digne d'un pirate !</h1>
+							<div class="collab_tag">One piece x Kitsun</div>
+						</div>
+						<div class="product_showcase">
+							<img src="img/teacollab.png" alt="Pirate Pearl Tea" class="product_image" />
+							<div class="price_tag">9.99€</div>
+							<p class="product_name">Pirate Pearl Tea</p>
+						</div>
+					</div>
+				</div>
+				<div class="hero_dots">
+					<span class="dot active"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
 				</div>
 			</section>
 			<h1 class="title">Nos Bons Plans</h1>
@@ -173,8 +145,7 @@
 						<img
 							src="img/red.png"
 							alt=""
-							class="img_petit"
-							class="non-selectable"
+							class="img_petit non-selectable"
 						/>
 					</div>
 					<p>The red kitsun</p>
@@ -214,7 +185,7 @@
 								alt=""
 								class="non-selectable"
 							/>
-							<p>Coockies</p>
+							<p>Cookies</p>
 						</article>
 					</div>
 					<div class="decalage">
@@ -279,7 +250,7 @@
 				<ul>
 					<li>
 						<a class="title_footer" href="index.php"
-							>Inscrivez vous a notre newlettter</a
+							>Inscrivez vous à notre newsletter</a
 						>
 					</li>
 
@@ -305,6 +276,15 @@
 				var menu_btn = document.getElementById("menu_btn");
 				var menu_close = document.querySelector(".bx-x");
 
+				// Fermer le menu quand on clique sur un lien
+				document.querySelectorAll('.menu a').forEach(link => {
+					link.addEventListener('click', () => {
+						menu.style.display = "none";
+						menu_btn.style.display = "block";
+						menu_close.style.display = "none";
+					});
+				});
+
 				search_btn.addEventListener("click", function () {
 					if (searchInput.style.display === "flex") {
 						// on recupere la valeur de l'input et le mettre dans la barre de recherche
@@ -318,15 +298,22 @@
 						searchInput.style.display = "none";
 					} else {
 						searchInput.style.display = "flex";
+						searchInput.focus(); // Ajouter le focus automatique
 					}
 				});
 
-				window.addEventListener("click", function () {
-					if (
-						event.target != searchInput &&
-						event.target != search_btn
-					) {
+				window.addEventListener("click", function (event) {
+					if (event.target != searchInput && event.target != search_btn) {
 						searchInput.style.display = "none";
+					}
+				});
+
+				// Fermer le menu quand on clique en dehors
+				window.addEventListener("click", function (event) {
+					if (!header_left.contains(event.target) && menu.style.display === "flex") {
+						menu.style.display = "none";
+						menu_btn.style.display = "block";
+						menu_close.style.display = "none";
 					}
 				});
 
@@ -343,7 +330,9 @@
 						searchInput.style.display = "none";
 					}
 				});
-				header_left.addEventListener("click", function () {
+
+				header_left.addEventListener("click", function (event) {
+					event.stopPropagation(); // Empêcher la propagation du clic
 					if (menu.style.display === "flex") {
 						menu.style.display = "none";
 						menu_btn.style.display = "block";
