@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $host = 'mysql-kitsun-site.alwaysdata.net';
 $dbname = 'kitsun-site_2';
 $username = 'root';
@@ -13,7 +15,7 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $mdp = $_POST['password']; // Mot de passe en texte clair
+    $mdp = $_POST['password'];
 
     $sql = "SELECT * FROM utilisateurs WHERE email = :email";
     $stmt = $pdo->prepare($sql);
@@ -21,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $user['mot_de_passe'] === $mdp) {
-        session_start();
+    if ($user && password_verify($mdp, $user['mot_de_passe'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['email'] = $user['email'];
+        $_SESSION['pseudo'] = $user['pseudo'] ?? $user['email'];
 
         header("Location: index.php");
         exit;

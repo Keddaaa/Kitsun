@@ -3,17 +3,10 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<!-- font awesome -->
 		<link
 			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-			integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMhS2SH3Y4h3Cz4Hc1giH2g5mI6O8PHeG1M7mF"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
 			crossorigin="anonymous"
 		/>
 		<link
@@ -285,51 +278,48 @@
 					});
 				});
 
-				search_btn.addEventListener("click", function () {
-					if (searchInput.style.display === "flex") {
-						// on recupere la valeur de l'input et le mettre dans la barre de recherche
-						value = searchInput.value;
-						if (value == "") {
-							location.href = "";
-						} else {
-							location.href = "#" + value;
-						}
-						searchInput.value = "";
-						searchInput.style.display = "none";
+			search_btn.addEventListener("click", function () {
+				if (searchInput.style.display === "flex") {
+					let value = searchInput.value;
+					if (value == "") {
+						location.href = "";
 					} else {
-						searchInput.style.display = "flex";
-						searchInput.focus(); // Ajouter le focus automatique
+						location.href = "#" + value;
 					}
-				});
+					searchInput.value = "";
+					searchInput.style.display = "none";
+				} else {
+					searchInput.style.display = "flex";
+					searchInput.focus();
+				}
+			});
 
-				window.addEventListener("click", function (event) {
-					if (event.target != searchInput && event.target != search_btn) {
-						searchInput.style.display = "none";
-					}
-				});
+			window.addEventListener("click", function (event) {
+				if (event.target != searchInput && event.target != search_btn) {
+					searchInput.style.display = "none";
+				}
+			});
 
-				// Fermer le menu quand on clique en dehors
-				window.addEventListener("click", function (event) {
-					if (!header_left.contains(event.target) && menu.style.display === "flex") {
-						menu.style.display = "none";
-						menu_btn.style.display = "block";
-						menu_close.style.display = "none";
-					}
-				});
+			window.addEventListener("click", function (event) {
+				if (!header_left.contains(event.target) && menu.style.display === "flex") {
+					menu.style.display = "none";
+					menu_btn.style.display = "block";
+					menu_close.style.display = "none";
+				}
+			});
 
-				// quand on click sur entrer meme quand on click sur la barre de recherche on cache la barre de recherche
-				searchInput.addEventListener("keydown", function (event) {
-					if (event.key === "Enter") {
-						value = searchInput.value;
-						if (value == "") {
-							location.href = "";
-						} else {
-							location.href = "#" + value;
-						}
-						searchInput.value = "";
-						searchInput.style.display = "none";
+			searchInput.addEventListener("keydown", function (event) {
+				if (event.key === "Enter") {
+					let value = searchInput.value;
+					if (value == "") {
+						location.href = "";
+					} else {
+						location.href = "#" + value;
 					}
-				});
+					searchInput.value = "";
+					searchInput.style.display = "none";
+				}
+			});
 
 				header_left.addEventListener("click", function (event) {
 					event.stopPropagation(); // Empêcher la propagation du clic

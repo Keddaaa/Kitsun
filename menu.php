@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $host = "mysql-kitsun-site.alwaysdata.net";
 $dbname = "kitsun-site_2";
 $user = "root";
@@ -29,7 +31,7 @@ $table = isset($categories_valides[$categorie])
     ? $categories_valides[$categorie]
     : "bubbletea";
 
-$sql = "SELECT nom, img, description, prix, disponible FROM $categorie WHERE disponible = 1";
+$sql = "SELECT nom, img, description, prix, disponible FROM $table WHERE disponible = 1";
 $statement = $pdo->prepare($sql);
 
 try {
@@ -57,16 +59,9 @@ if (isset($_POST['add_to_cart'])) {
 }
 
 if (isset($_GET['remove'])) {
-    $product_id = $_GET['remove'];
+    $product_id = intval($_GET['remove']);
     unset($_SESSION['cart'][$product_id]);
 }
-
-$categorie = isset($_GET["categorie"]) ? $_GET["categorie"] : "bubbletea";
-
-$sql = "SELECT nom, img, description, prix, disponible FROM $categorie WHERE disponible = 1";
-$statement = $pdo->prepare($sql);
-$statement->execute();
-$produits = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -76,31 +71,20 @@ $produits = $statement->fetchAll(PDO::FETCH_ASSOC);
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-			integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMhS2SH3Y4h3Cz4Hc1giH2g5mI6O8PHeG1M7mF"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
 			crossorigin="anonymous"
 		/>
 		<link
 			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
 			rel="stylesheet"
 		/>
-		<link rel="icon" type="image/png" href="img/logo.jpg" />
+		<link rel="icon" type="image/png" href="img/logo.png" />
 		<link rel="stylesheet" href="style/footer.css" />
-		<link rel="stylesheet" href="https://path.to/font/MarineSikona.css" />
 		<link rel="stylesheet" href="style/style.css" />
 		<link rel="stylesheet" href="style/header.css" />
 		<link rel="stylesheet" href="style/connexion.css" />
 		<link rel="stylesheet" href="style/menu.css" />
-		<link
-			rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
-		/>
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<link rel="icon" href="logo.png" />
 		<title>Document</title>
@@ -186,7 +170,7 @@ $produits = $statement->fetchAll(PDO::FETCH_ASSOC);
     </section>
 </main>
 		<footer class="footer">
-			<img src="img/logo.jpg" alt="" />
+			<img src="img/logo.png" alt="" />
 			<div class="footer_container">
 				<ul>
 					<li>
@@ -242,7 +226,7 @@ $produits = $statement->fetchAll(PDO::FETCH_ASSOC);
 				var menu_close = document.querySelector(".bx-x");
 				search_btn.addEventListener("click", function () {
 					if (searchInput.style.display === "flex") {
-						value = searchInput.value;
+						let value = searchInput.value;
 						if (value == "") {
 							location.href = "";
 						} else {
@@ -255,7 +239,7 @@ $produits = $statement->fetchAll(PDO::FETCH_ASSOC);
 					}
 				});
 
-				window.addEventListener("click", function () {
+				window.addEventListener("click", function (event) {
 					if (
 						event.target != searchInput &&
 						event.target != search_btn
@@ -266,8 +250,12 @@ $produits = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 				searchInput.addEventListener("keydown", function (event) {
 					if (event.key === "Enter") {
-						value = searchInput.value;
-						location.href = "#" + value;
+						let value = searchInput.value;
+						if (value == "") {
+							location.href = "";
+						} else {
+							location.href = "#" + value;
+						}
 						searchInput.value = "";
 						searchInput.style.display = "none";
 					}

@@ -13,17 +13,13 @@ if (isset($_SESSION['pseudo'])) {
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- font awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMhS2SH3Y4h3Cz4Hc1giH2g5mI6O8PHeG1M7mF" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" />
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
         <link rel="icon" type="image/png" href="img/logo.png" />
         <link rel="stylesheet" href="style/footer.css" />
-        <link rel="stylesheet" href="https://path.to/font/MarineSikona.css" />
         <link rel="stylesheet" href="style/style.css" />
         <link rel="stylesheet" href="style/header.css" />
         <link rel="stylesheet" href="style/connexion.css" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="icon" href="logo.png" />
         <title>Connexion</title>
@@ -72,9 +68,8 @@ if (isset($_SESSION['pseudo'])) {
         <main>
             <h1>Inscription ou connexion</h1>
 
-            <!-- Si l'utilisateur est connecté, afficher son pseudonyme -->
             <?php if ($pseudo): ?>
-                <p>Vous êtes connecté en tant que <strong><?php echo htmlspecialchars($pseudo); ?></strong></p>
+                <p>Vous êtes connecté en tant que <strong><?= htmlspecialchars($pseudo, ENT_QUOTES, 'UTF-8') ?></strong></p>
             <?php else: ?>
                 <p>Vous n'êtes pas connecté. Veuillez vous connecter.</p>
             <?php endif; ?>
@@ -133,7 +128,7 @@ if (isset($_SESSION['pseudo'])) {
                 var menu_close = document.querySelector(".bx-x");
                 search_btn.addEventListener("click", function () {
                     if (searchInput.style.display === "flex") {
-                        value = searchInput.value;
+                        let value = searchInput.value;
                         if (value == "") {
                             location.href = "";
                         } else {
@@ -146,7 +141,7 @@ if (isset($_SESSION['pseudo'])) {
                     }
                 });
 
-                window.addEventListener("click", function () {
+                window.addEventListener("click", function (event) {
                     if (
                         event.target != searchInput &&
                         event.target != search_btn
@@ -157,8 +152,12 @@ if (isset($_SESSION['pseudo'])) {
 
                 searchInput.addEventListener("keydown", function (event) {
                     if (event.key === "Enter") {
-                        value = searchInput.value;
-                        location.href = "#" + value;
+                        let value = searchInput.value;
+                        if (value == "") {
+                            location.href = "";
+                        } else {
+                            location.href = "#" + value;
+                        }
                         searchInput.value = "";
                         searchInput.style.display = "none";
                     }
