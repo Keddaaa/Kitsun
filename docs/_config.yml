@@ -1,0 +1,3 @@
+# Jekyll configuration for Kitsun
+theme: jekyll-theme-primer
+markdown: kramdown
