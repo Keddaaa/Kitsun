@@ -1,13 +1,33 @@
+'use client';
+
 import Image from 'next/image';
+import { ShoppingBag, Heart, UserRound } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 const navLinks = ['Menu', 'Personnalise', 'Nos stores', 'About'];
 
 export default function Header() {
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setHidden(y > lastY.current && y > 80);
+      lastY.current = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-transform duration-300"
+      style={{ transform: hidden ? 'translateY(-100%)' : 'translateY(0)' }}
+    >
       <nav className="flex items-center justify-between px-5 py-4">
         {/* Logo */}
-        <a href="/" className="flex items-center select-none">
+        <a href="/" className="flex items-center select-none ml-4">
           <Image
             src="/logo header.svg"
             alt="Kitsun"
@@ -23,7 +43,8 @@ export default function Header() {
             <li key={link}>
               <a
                 href="#"
-                className="text-white/90 hover:text-white text-sm font-sans transition-colors duration-200"
+                className="text-white transition-colors duration-200"
+                style={{ fontFamily: 'Excon, sans-serif', fontSize: '1.875rem', fontWeight: 500 }}
               >
                 {link}
               </a>
@@ -33,26 +54,14 @@ export default function Header() {
 
         {/* Icons */}
         <div className="flex items-center gap-4">
-          {/* Message */}
-          <button aria-label="Messages" className="text-white hover:text-white/70 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
+          <button aria-label="Panier" className="text-white hover:text-white/70 transition-colors">
+            <ShoppingBag size={34} strokeWidth={1.6} />
           </button>
-
-          {/* Wishlist */}
           <button aria-label="Favoris" className="text-white hover:text-white/70 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
+            <Heart size={34} strokeWidth={1.6} />
           </button>
-
-          {/* Account */}
           <button aria-label="Mon compte" className="text-white hover:text-white/70 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
+            <UserRound size={34} strokeWidth={1.6} />
           </button>
         </div>
       </nav>
