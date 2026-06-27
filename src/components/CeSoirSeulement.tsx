@@ -62,7 +62,7 @@ function ProductCard({
 		<Link href={`/produit/${id}`} style={{ textDecoration: "none" }}>
 			<div className="flex flex-col">
 				<div
-					className="relative overflow-hidden"
+					className="ce-soir-card relative overflow-hidden"
 					style={{ width: "408px", height: "507.73px" }}
 					onMouseEnter={() => ref.current?.play()}
 					onMouseLeave={() => {
@@ -82,7 +82,7 @@ function ProductCard({
 					/>
 				</div>
 				<div
-					className="flex items-center justify-between mt-3"
+					className="ce-soir-card flex items-center justify-between mt-3"
 					style={{ width: "408px" }}
 				>
 					<span
@@ -139,7 +139,7 @@ export default function CeSoirSeulement() {
 			</div>
 
 			{/* Content */}
-			<div className="px-8 pt-28 pb-16">
+			<div className="mob-px px-8 pt-16 md:pt-28 pb-16">
 				<h2
 					ref={titleRef as React.RefObject<HTMLHeadingElement>}
 					className="anim-fade-up text-black mb-1"
@@ -165,7 +165,7 @@ export default function CeSoirSeulement() {
 				</p>
 
 				{/* Cards */}
-				<div className="grid grid-cols-4 gap-4">
+				<div className="ce-soir-grid grid grid-cols-1 md:grid-cols-4 gap-4">
 					{products.map((p, i) => (
 						<div
 							key={p.name}

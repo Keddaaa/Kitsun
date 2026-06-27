@@ -99,3 +99,53 @@ html, body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+/* ── Mobile responsive utilities ── */
+@media (max-width: 768px) {
+  .mob-hide   { display: none !important; }
+  .mob-show   { display: flex !important; }
+  .mob-col    { flex-direction: column !important; }
+  .mob-full   { width: 100% !important; }
+  .mob-px     { padding-left: 20px !important; padding-right: 20px !important; }
+  .mob-pt0    { padding-top: 0 !important; }
+
+  /* Hero */
+  .hero-title { font-size: 56px !important; }
+
+  /* CeSoirSeulement cards */
+  .ce-soir-grid { grid-template-columns: 1fr !important; }
+  .ce-soir-card { width: 100% !important; }
+  .ce-soir-card video { width: 100% !important; }
+
+  /* ObsessionSection */
+  .obsession-title { font-size: 44px !important; line-height: 1.1 !important; }
+  .obsession-sub   { font-size: 20px !important; width: 100% !important; }
+
+  /* NosStores */
+  .stores-title { font-size: 36px !important; }
+
+  /* Footer */
+  .footer-logo { width: 240px !important; height: auto !important; }
+  .footer-cols { grid-template-columns: 1fr 1fr !important; padding-left: 20px !important; padding-right: 20px !important; gap: 32px !important; }
+  .footer-top  { padding-left: 20px !important; padding-right: 20px !important; flex-direction: column !important; gap: 24px !important; }
+  .footer-skate { display: none !important; }
+  .footer-hash  { font-size: 16px !important; }
+  .footer-copy  { position: static !important; text-align: center !important; padding: 16px 20px 8px !important; }
+
+  /* Menu */
+  .menu-title   { font-size: 56px !important; }
+  .menu-grid    { grid-template-columns: 1fr !important; column-gap: 0 !important; }
+  .menu-cats    { gap: 16px !important; flex-wrap: wrap !important; }
+
+  /* Product page */
+  .product-layout { flex-direction: column !important; padding-left: 20px !important; padding-right: 20px !important; }
+  .product-video  { width: 100% !important; height: 420px !important; }
+  .product-detail { padding-left: 0 !important; }
+  .product-title  { font-size: 40px !important; }
+  .product-price  { font-size: 36px !important; }
+  .product-sizes  { flex-wrap: wrap !important; }
+  .product-size-btn { width: 140px !important; height: 50px !important; font-size: 18px !important; }
+
+  /* Cart drawer */
+  .cart-drawer { width: 100vw !important; }
+}

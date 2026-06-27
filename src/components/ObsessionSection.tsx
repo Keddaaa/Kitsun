@@ -13,19 +13,19 @@ export default function ObsessionSection() {
 	return (
 		<section
 			id="about"
-			className="flex items-center"
+			className="mob-col flex items-center"
 			style={{
 				backgroundColor: "#FDF3E6",
-				height: "1080px",
-				padding: "0 80px",
+				minHeight: "100dvh",
+				padding: "60px 40px",
 				overflow: "hidden",
 			}}
 		>
 			{/* Left: text */}
-			<div className="flex-1 pr-16 flex flex-col">
+			<div className="flex-1 md:pr-16 flex flex-col">
 				<h2
 					ref={titleRef as React.RefObject<HTMLHeadingElement>}
-					className="anim-fade-up text-black"
+					className="obsession-title anim-fade-up text-black"
 					style={{
 						fontFamily: "LemonMilk, sans-serif",
 						fontSize: "100px",
@@ -40,7 +40,7 @@ export default function ObsessionSection() {
 				</h2>
 				<p
 					ref={subtitleRef as React.RefObject<HTMLParagraphElement>}
-					className="anim-fade-up text-black"
+					className="obsession-sub anim-fade-up text-black"
 					style={{
 						fontFamily: "Excon, sans-serif",
 						fontSize: "35px",
@@ -57,7 +57,7 @@ export default function ObsessionSection() {
 			{/* Right: gif */}
 			<div
 				ref={gifRef as React.RefObject<HTMLDivElement>}
-				className="anim-slide-left flex-shrink-0"
+				className="footer-skate anim-slide-left flex-shrink-0"
 				style={{ width: "551px", height: "993px", borderRadius: "32px", overflow: "hidden" }}
 			>
 				{/* eslint-disable-next-line @next/next/no-img-element */}

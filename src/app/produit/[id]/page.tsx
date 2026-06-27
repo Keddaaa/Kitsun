@@ -116,7 +116,7 @@ export default function ProduitPage() {
 
 			{/* Product layout */}
 			<div
-				className="flex gap-8"
+				className="product-layout flex gap-8"
 				style={{
 					paddingTop: "40px",
 					paddingLeft: "48px",
@@ -126,7 +126,7 @@ export default function ProduitPage() {
 			>
 				{/* Thumbnails */}
 				<div
-					className="flex flex-col gap-3"
+					className="mob-hide flex flex-col gap-3"
 					style={{ paddingTop: "8px" }}
 				>
 					{[product.video, product.video, product.video].map(
@@ -143,6 +143,7 @@ export default function ProduitPage() {
 
 				{/* Main video */}
 				<div
+					className="product-video"
 					style={{
 						width: "635px",
 						height: "791px",
@@ -166,11 +167,12 @@ export default function ProduitPage() {
 
 				{/* Details */}
 				<div
-					className="flex flex-col"
+					className="product-detail flex flex-col"
 					style={{ paddingLeft: "40px", flex: 1 }}
 				>
 					<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Menu', href: '/menu' }, { label: product.name }]} />
 					<h1
+						className="product-title"
 						style={{
 							fontFamily: "Excon, sans-serif",
 							fontSize: "60px",
@@ -231,7 +233,6 @@ export default function ProduitPage() {
 										onClick={() => !soon && setSelectedSize(label)}
 										style={{
 											fontFamily: "Excon, sans-serif",
-											fontSize: "30px",
 											fontWeight: 400,
 											color: soon ? "#aaa" : selectedSize === label ? "#fff" : "#000",
 											backgroundColor: soon ? "transparent" : selectedSize === label ? "#000" : "transparent",
@@ -279,18 +280,18 @@ export default function ProduitPage() {
 									onClick={() => !soon && setSelectedSize(label)}
 									style={{
 										fontFamily: "Excon, sans-serif",
-										fontSize: "30px",
 										fontWeight: 400,
 										color: soon ? "#aaa" : selectedSize === label ? "#fff" : "#000",
 										backgroundColor: soon ? "transparent" : selectedSize === label ? "#000" : "transparent",
 										border: "2px solid #000",
 										borderRadius: "999px",
-										width: "210px",
-										height: "63px",
+										width: "min(210px, 36vw)",
+										height: "50px",
 										cursor: soon ? "not-allowed" : "pointer",
 										transition: "all 0.15s ease",
 										transform: selectedSize === label ? "scale(1.04)" : "scale(1)",
 										opacity: soon ? 0.5 : 1,
+										fontSize: "clamp(16px, 4vw, 30px)",
 									}}
 								>
 									{label}
@@ -355,8 +356,9 @@ export default function ProduitPage() {
 					</ul>
 
 					{/* Price + cart */}
-					<div className="flex items-center" style={{ gap: "48px" }}>
+					<div className="mob-col flex items-center" style={{ gap: "48px" }}>
 						<span
+							className="product-price"
 							style={{
 								fontFamily: "Excon, sans-serif",
 								fontSize: "60px",

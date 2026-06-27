@@ -91,6 +91,7 @@ export default function MenuPage() {
 			<Header light />
 
 			<div
+				className="mob-px"
 				style={{
 					paddingTop: "120px",
 					paddingLeft: "48px",
@@ -116,6 +117,7 @@ export default function MenuPage() {
 					style={{ marginBottom: "32px" }}
 				>
 					<h1
+						className="menu-title"
 						style={{
 							fontFamily: "LemonMilk, sans-serif",
 							fontSize: "110px",
@@ -151,11 +153,12 @@ export default function MenuPage() {
 
 				{/* Filter tabs */}
 				<div
-					className="flex items-center"
+					className="menu-cats flex items-center overflow-x-auto"
 					style={{
 						gap: "65px",
 						marginBottom: "40px",
 						marginTop: "55px",
+						scrollbarWidth: "none",
 					}}
 				>
 					{categories.map(({ label, width, soon }) => (
@@ -220,7 +223,7 @@ export default function MenuPage() {
 
 				{/* Product grid */}
 				<div
-					className="grid items-start"
+					className="menu-grid grid items-start"
 					style={{
 						gridTemplateColumns: "repeat(3, 410px)",
 						columnGap: "68px",

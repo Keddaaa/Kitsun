@@ -40,7 +40,7 @@ export default function Footer() {
 		>
 			{/* Top: logo + socials */}
 			<div
-				className="flex items-start justify-between pt-12 pb-10"
+				className="footer-top flex items-start justify-between pt-12 pb-10"
 				style={{ paddingLeft: "200px", paddingRight: "40px" }}
 			>
 				<div>
@@ -49,6 +49,7 @@ export default function Footer() {
 						alt="Kitsun"
 						width={744.08}
 						height={246}
+						className="footer-logo"
 						priority
 					/>
 				</div>
@@ -79,7 +80,7 @@ export default function Footer() {
 
 			{/* Columns */}
 			<div
-				className="grid grid-cols-4 pb-16 gap-8"
+				className="footer-cols grid grid-cols-4 pb-16 gap-8"
 				style={{ paddingLeft: "200px", paddingRight: "40px" }}
 			>
 				{/* Contact */}
@@ -148,16 +149,9 @@ export default function Footer() {
 			<div className="relative px-10 pb-6">
 				<div
 					style={{ height: "160px", marginTop: "320px" }}
-					className="flex items-end"
+					className="footer-skate flex items-end hidden md:flex"
 				>
-					{/* Placeholder skateboarder illustration */}
-					<div
-						style={{
-							width: "612px",
-							height: "459px",
-							position: "relative",
-						}}
-					>
+					<div style={{ width: "612px", height: "459px", position: "relative" }}>
 						<Image
 							src="/skate.gif"
 							alt="Kitsun skater"
@@ -168,7 +162,7 @@ export default function Footer() {
 					</div>
 				</div>
 				<p
-					className="absolute right-16 bottom-6"
+					className="footer-copy md:absolute right-16 bottom-6"
 					style={{
 						fontFamily: "Excon, sans-serif",
 						fontSize: "25px",
@@ -181,20 +175,19 @@ export default function Footer() {
 				</p>
 			</div>
 			{/* Hashtag bar */}
-			<div className="grid grid-cols-4">
+			<div className="grid grid-cols-2 md:grid-cols-4">
 				{["#KITSUN", "#CESIRSEULEMENT", "#BOLDTEA", "#MOCHIPOWER"].map(
 					(tag) => (
-						<div
-							key={tag}
-							className="py-4 flex items-center justify-center"
-						>
+						<div key={tag} className="py-4 flex items-center justify-center">
 							<span
+								className="footer-hash"
 								style={{
 									fontFamily: "LemonMilk, sans-serif",
 									fontSize: "30px",
 									fontWeight: 400,
 									color: "#000",
 									letterSpacing: "0.05em",
+									textAlign: "center",
 								}}
 							>
 								{tag}

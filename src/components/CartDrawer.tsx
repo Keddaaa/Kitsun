@@ -35,7 +35,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
       <div
         style={{
           position: 'fixed', top: 0, right: 0, bottom: 0,
-          width: '520px', backgroundColor: '#FDF3E6',
+          width: 'min(520px, 100vw)', backgroundColor: '#FDF3E6',
           zIndex: 101, display: 'flex', flexDirection: 'column',
           transform: open ? 'translateX(0)' : 'translateX(100%)',
           transition: 'transform 0.35s cubic-bezier(0.22,1,0.36,1)',
