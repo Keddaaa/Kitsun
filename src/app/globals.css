@@ -45,6 +45,42 @@
   to { transform: translateX(-50%); }
 }
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.anim-fade-up {
+  opacity: 0;
+}
+.anim-fade-up.in-view {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-fade-in {
+  opacity: 0;
+}
+.anim-fade-in.in-view {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.anim-slide-left {
+  opacity: 0;
+}
+.anim-slide-left.in-view {
+  animation: slideLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-excon: 'Excon', sans-serif;

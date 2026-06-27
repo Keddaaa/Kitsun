@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CartProvider } from "@/contexts/CartContext";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={geist.variable}>
-      <body><LanguageProvider>{children}</LanguageProvider></body>
+      <body><CartProvider><LanguageProvider>{children}</LanguageProvider></CartProvider></body>
     </html>
   );
 }

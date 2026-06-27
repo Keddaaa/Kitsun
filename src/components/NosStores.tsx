@@ -1,8 +1,9 @@
 "use client";
 
+import React, { useRef } from "react";
 import { ChevronRight } from "lucide-react";
-import { useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useInView } from "@/hooks/useInView";
 
 const stores = [
 	{
@@ -136,17 +137,20 @@ function StoreCard({
 export default function NosStores() {
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const { t } = useLanguage();
+	const titleRef = useInView('anim-fade-up', 0);
+	const subtitleRef = useInView('anim-fade-up', 100);
 
 	const scroll = () => {
 		scrollRef.current?.scrollBy({ left: 480, behavior: "smooth" });
 	};
 
 	return (
-		<section style={{ backgroundColor: "#FDF3E6", padding: "80px 80px" }}>
+		<section id="nos-stores" style={{ backgroundColor: "#FDF3E6", padding: "80px 80px" }}>
 			<div className="flex items-end justify-between" style={{ marginBottom: "40px" }}>
 				<div>
 					<h2
-						className="text-black"
+						ref={titleRef as React.RefObject<HTMLHeadingElement>}
+						className="anim-fade-up text-black"
 						style={{
 							fontFamily: "LemonMilk, sans-serif",
 							fontSize: "40px",
@@ -158,7 +162,8 @@ export default function NosStores() {
 						{t.stores.title}
 					</h2>
 					<p
-						className="text-black"
+						ref={subtitleRef as React.RefObject<HTMLParagraphElement>}
+						className="anim-fade-up text-black"
 						style={{
 							fontFamily: "Excon, sans-serif",
 							fontSize: "30px",

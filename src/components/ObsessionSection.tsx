@@ -1,11 +1,18 @@
 'use client';
 
+import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useInView } from '@/hooks/useInView';
 
 export default function ObsessionSection() {
 	const { t } = useLanguage();
+	const titleRef = useInView('anim-fade-up', 0);
+	const subtitleRef = useInView('anim-fade-up', 150);
+	const gifRef = useInView('anim-slide-left', 100);
+
 	return (
 		<section
+			id="about"
 			className="flex items-center"
 			style={{
 				backgroundColor: "#FDF3E6",
@@ -17,7 +24,8 @@ export default function ObsessionSection() {
 			{/* Left: text */}
 			<div className="flex-1 pr-16 flex flex-col">
 				<h2
-					className="text-black"
+					ref={titleRef as React.RefObject<HTMLHeadingElement>}
+					className="anim-fade-up text-black"
 					style={{
 						fontFamily: "LemonMilk, sans-serif",
 						fontSize: "100px",
@@ -31,7 +39,8 @@ export default function ObsessionSection() {
 					{t.obsession.title}
 				</h2>
 				<p
-					className="text-black"
+					ref={subtitleRef as React.RefObject<HTMLParagraphElement>}
+					className="anim-fade-up text-black"
 					style={{
 						fontFamily: "Excon, sans-serif",
 						fontSize: "35px",
@@ -47,7 +56,8 @@ export default function ObsessionSection() {
 
 			{/* Right: gif */}
 			<div
-				className="flex-shrink-0"
+				ref={gifRef as React.RefObject<HTMLDivElement>}
+				className="anim-slide-left flex-shrink-0"
 				style={{ width: "551px", height: "993px", borderRadius: "32px", overflow: "hidden" }}
 			>
 				{/* eslint-disable-next-line @next/next/no-img-element */}

@@ -1,8 +1,12 @@
 ﻿"use client";
 
 import { useState, useRef } from "react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { products } from "@/data/products";
+import { useLanguage } from "@/contexts/LanguageContext";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const categories = [
 	{ label: "Bubble tea", width: 228, soon: false },
@@ -11,119 +15,8 @@ const categories = [
 	{ label: "Mochi", width: 228, soon: true },
 ];
 
-const products = [
-	{
-		id: 1,
-		name: "Berry Boost",
-		type: "Smoothie",
-		price: "4,90€",
-		category: "Bubble tea",
-		video: "/videos/Berry Boost.mp4",
-		ingredients: [
-			"Framboises",
-			"Fraises",
-			"Coconut Sugar",
-			"Dragonfruit",
-			"Dates",
-			"Coconut Milk",
-		],
-		bg: "#E8503A",
-	},
-	{
-		id: 2,
-		name: "Banana Nut",
-		type: "Protein Shake",
-		price: "5,50€",
-		category: "Bubble tea",
-		video: "/videos/Banana Nut.mp4",
-		ingredients: [
-			"Banana",
-			"Unflavoured Whey Protein",
-			"Oats",
-			"Peanut Butter",
-			"Cinnamon",
-			"Himalayan Salt",
-			"Oat Milk",
-		],
-		bg: "#C8934A",
-	},
-	{
-		id: 3,
-		name: "Green Glow",
-		type: "Smoothie",
-		price: "4,50€",
-		category: "Bubble tea",
-		video: "/videos/Green Glow.mp4",
-		ingredients: [
-			"Mango",
-			"Pineapple",
-			"Coconut Yoghurt",
-			"Lime",
-			"Turmeric",
-			"Passionfruit",
-			"Coconut Water",
-		],
-		bg: "#F5C842",
-	},
-	{
-		id: 4,
-		name: "Green Glow",
-		type: "Smoothie",
-		price: "4,50€",
-		category: "Bubble tea",
-		video: "/videos/Green Glow.mp4",
-		ingredients: [
-			"Avocado",
-			"Spinach",
-			"Pineapple",
-			"Kiwi",
-			"Apple",
-			"Fresh Mint",
-			"Lime",
-			"Coconut Water",
-		],
-		bg: "#7A9E3B",
-	},
-	{
-		id: 5,
-		name: "Blueberry Fuel",
-		type: "Protein Shake",
-		price: "5,90€",
-		category: "Bubble tea",
-		video: "/videos/Blueberry Fuel.mp4",
-		ingredients: [
-			"Banana",
-			"Vanilla Whey Protein",
-			"Oats",
-			"Almond Butter",
-			"Blueberries",
-			"Kefir",
-			"Oat Milk",
-		],
-		bg: "#7B5EA7",
-	},
-	{
-		id: 6,
-		name: "Cacao Power",
-		type: "Protein Shake",
-		price: "4,50€",
-		category: "Bubble tea",
-		video: "/videos/cacao power.mp4",
-		ingredients: [
-			"Banana",
-			"Unflavoured Whey Protein",
-			"Oats",
-			"Almond Butter",
-			"Espresso",
-			"Dates",
-			"Dairy",
-			"Oat Milk",
-		],
-		bg: "#8B6340",
-	},
-];
-
 function ProductCard({
+	id,
 	name,
 	type,
 	price,
@@ -134,7 +27,7 @@ function ProductCard({
 	const ref = useRef<HTMLVideoElement>(null);
 
 	return (
-		<div>
+		<Link href={`/produit/${id}`} style={{ textDecoration: 'none' }}>
 			<div
 				className="relative overflow-hidden"
 				style={{
@@ -184,7 +77,7 @@ function ProductCard({
 					{price}
 				</span>
 			</div>
-		</div>
+		</Link>
 	);
 }
 
@@ -205,6 +98,7 @@ export default function MenuPage() {
 					paddingBottom: "80px",
 				}}
 			>
+				<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Menu' }]} />
 				{/* Title area */}
 				<p
 					style={{
@@ -330,7 +224,7 @@ export default function MenuPage() {
 					style={{
 						gridTemplateColumns: "repeat(3, 410px)",
 						columnGap: "68px",
-						rowGap: "16px",
+						rowGap: "48px",
 					}}
 				>
 					{filtered.map((product) => (

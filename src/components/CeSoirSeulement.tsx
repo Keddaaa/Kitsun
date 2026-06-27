@@ -1,18 +1,16 @@
 "use client";
 
-import { useRef } from "react";
+import React, { useRef } from "react";
+import Link from "next/link";
 import { Dot } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useInView } from "@/hooks/useInView";
 
 const products = [
-	{ name: "Berry Boost", price: "4,90€", video: "/videos/Berry Boost.mp4" },
-	{ name: "Banana Nut", price: "5,50€", video: "/videos/Banana Nut.mp4" },
-	{ name: "Green Glow", price: "4,50€", video: "/videos/Green Glow.mp4" },
-	{
-		name: "Blueberry Fuel",
-		price: "5,90€",
-		video: "/videos/Blueberry Fuel.mp4",
-	},
+	{ id: 1, name: "Berry Boost", price: "4,90€", video: "/videos/Berry Boost.mp4" },
+	{ id: 2, name: "Banana Nut", price: "5,50€", video: "/videos/Banana Nut.mp4" },
+	{ id: 3, name: "Green Glow", price: "4,50€", video: "/videos/Green Glow.mp4" },
+	{ id: 5, name: "Blueberry Fuel", price: "5,90€", video: "/videos/Blueberry Fuel.mp4" },
 ];
 
 const TICKER_TEXT = "LOREM IPSUM DO";
@@ -48,10 +46,12 @@ function TickerContent() {
 }
 
 function ProductCard({
+	id,
 	name,
 	price,
 	video,
 }: {
+	id: number;
 	name: string;
 	price: string;
 	video: string;
@@ -59,58 +59,69 @@ function ProductCard({
 	const ref = useRef<HTMLVideoElement>(null);
 
 	return (
-		<div className="flex flex-col">
-			<div
-				className="relative overflow-hidden"
-				style={{ width: "408px", height: "507.73px" }}
-				onMouseEnter={() => ref.current?.play()}
-				onMouseLeave={() => {
-					if (ref.current) {
-						ref.current.pause();
-						ref.current.currentTime = 0;
-					}
-				}}
-			>
-				<video
-					ref={ref}
-					src={video}
-					loop
-					muted
-					playsInline
-					className="absolute inset-0 w-full h-full object-cover"
-				/>
-			</div>
-			<div
-				className="flex items-center justify-between mt-3"
-				style={{ width: "408px" }}
-			>
-				<span
-					className="text-black"
-					style={{
-						fontFamily: "Excon, sans-serif",
-						fontSize: "25px",
-						fontWeight: 400,
+		<Link href={`/produit/${id}`} style={{ textDecoration: "none" }}>
+			<div className="flex flex-col">
+				<div
+					className="relative overflow-hidden"
+					style={{ width: "408px", height: "507.73px" }}
+					onMouseEnter={() => ref.current?.play()}
+					onMouseLeave={() => {
+						if (ref.current) {
+							ref.current.pause();
+							ref.current.currentTime = 0;
+						}
 					}}
 				>
-					{name}
-				</span>
-				<span
-					className="text-black"
-					style={{
-						fontFamily: "Excon, sans-serif",
-						fontSize: "25px",
-						fontWeight: 400,
-					}}
+					<video
+						ref={ref}
+						src={video}
+						loop
+						muted
+						playsInline
+						className="absolute inset-0 w-full h-full object-cover"
+					/>
+				</div>
+				<div
+					className="flex items-center justify-between mt-3"
+					style={{ width: "408px" }}
 				>
-					{price}
-				</span>
+					<span
+						className="text-black"
+						style={{
+							fontFamily: "Excon, sans-serif",
+							fontSize: "25px",
+							fontWeight: 400,
+						}}
+					>
+						{name}
+					</span>
+					<span
+						className="text-black"
+						style={{
+							fontFamily: "Excon, sans-serif",
+							fontSize: "25px",
+							fontWeight: 400,
+						}}
+					>
+						{price}
+					</span>
+				</div>
 			</div>
-		</div>
+		</Link>
 	);
 }
 
 export default function CeSoirSeulement() {
 	const { t } = useLanguage();
+	const titleRef = useInView('anim-fade-up', 0);
+	const subtitleRef = useInView('anim-fade-up', 100);
+	const card0 = useInView('anim-fade-up', 0);
+	const card1 = useInView('anim-fade-up', 100);
+	const card2 = useInView('anim-fade-up', 200);
+	const card3 = useInView('anim-fade-up', 300);
+	const cardRefs = [card0, card1, card2, card3];
+	const voirPlusRef = useInView('anim-fade-in', 200);
+
 	return (
 		<section style={{ backgroundColor: "#FDF3E6" }}>
 			{/* Ticker */}
@@ -130,7 +141,8 @@ export default function CeSoirSeulement() {
 			{/* Content */}
 			<div className="px-8 pt-28 pb-16">
 				<h2
-					className="text-black mb-1"
+					ref={titleRef as React.RefObject<HTMLHeadingElement>}
+					className="anim-fade-up text-black mb-1"
 					style={{
 						fontFamily: "LemonMilk, sans-serif",
 						fontSize: "55px",
@@ -141,7 +153,8 @@ export default function CeSoirSeulement() {
 					{t.ceSoir.title}
 				</h2>
 				<p
-					className="text-black mb-16"
+					ref={subtitleRef as React.RefObject<HTMLParagraphElement>}
+					className="anim-fade-up text-black mb-16"
 					style={{
 						fontFamily: "Excon, sans-serif",
 						fontSize: "30px",
@@ -153,15 +166,24 @@ export default function CeSoirSeulement() {
 
 				{/* Cards */}
 				<div className="grid grid-cols-4 gap-4">
-					{products.map((p) => (
-						<ProductCard key={p.name} {...p} />
+					{products.map((p, i) => (
+						<div
+							key={p.name}
+							ref={cardRefs[i] as React.RefObject<HTMLDivElement>}
+							className="anim-fade-up"
+						>
+							<ProductCard {...p} />
+						</div>
 					))}
 				</div>
 
 				{/* Voir plus */}
-				<div className="mt-14 text-center">
-					<a
-						href="#"
+				<div
+					ref={voirPlusRef as React.RefObject<HTMLDivElement>}
+					className="anim-fade-in mt-14 text-center"
+				>
+					<Link
+						href="/menu"
 						className="text-black underline underline-offset-4 hover:opacity-60 transition-opacity"
 						style={{
 							fontFamily: "Excon, sans-serif",
@@ -170,7 +192,7 @@ export default function CeSoirSeulement() {
 						}}
 					>
 						{t.ceSoir.voirPlus}
-					</a>
+					</Link>
 				</div>
 			</div>
 		</section>
