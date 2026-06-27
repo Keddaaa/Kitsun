@@ -3,6 +3,8 @@ import Hero from '@/components/Hero';
 import CeSoirSeulement from '@/components/CeSoirSeulement';
 import ObsessionSection from '@/components/ObsessionSection';
 import NosStores from '@/components/NosStores';
+import ImageBanner from '@/components/ImageBanner';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <CeSoirSeulement />
       <ObsessionSection />
       <NosStores />
+      <ImageBanner />
+      <Footer />
     </>
   );
 }

@@ -3,12 +3,16 @@
 import Image from 'next/image';
 import { ShoppingBag, Heart, UserRound } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const navLinks = ['Menu', 'Personnalise', 'Nos stores', 'About'];
-
-export default function Header() {
+export default function Header({ light = false }: { light?: boolean }) {
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
+  const { t } = useLanguage();
+
+  const color = light ? '#000' : '#fff';
+  const hoverClass = light ? 'text-black hover:text-black/50' : 'text-white hover:text-white/70';
+  const linkClass = light ? 'text-black' : 'text-white';
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,7 +33,7 @@ export default function Header() {
         {/* Logo */}
         <a href="/" className="flex items-center select-none ml-4">
           <Image
-            src="/logo header.svg"
+            src={light ? '/Kitsun.svg' : '/logo header.svg'}
             alt="Kitsun"
             width={232}
             height={74}
@@ -39,11 +43,11 @@ export default function Header() {
 
         {/* Nav */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {t.nav.map((link, i) => (
             <li key={link}>
               <a
-                href="#"
-                className="text-white transition-colors duration-200"
+                href={i === 0 ? '/menu' : '#'}
+                className={`${linkClass} transition-colors duration-200`}
                 style={{ fontFamily: 'Excon, sans-serif', fontSize: '1.875rem', fontWeight: 500 }}
               >
                 {link}
@@ -54,13 +58,13 @@ export default function Header() {
 
         {/* Icons */}
         <div className="flex items-center gap-4">
-          <button aria-label="Panier" className="text-white hover:text-white/70 transition-colors">
+          <button aria-label="Panier" className={`${hoverClass} transition-colors`} style={{ color }}>
             <ShoppingBag size={34} strokeWidth={1.6} />
           </button>
-          <button aria-label="Favoris" className="text-white hover:text-white/70 transition-colors">
+          <button aria-label="Favoris" className={`${hoverClass} transition-colors`} style={{ color }}>
             <Heart size={34} strokeWidth={1.6} />
           </button>
-          <button aria-label="Mon compte" className="text-white hover:text-white/70 transition-colors">
+          <button aria-label="Mon compte" className={`${hoverClass} transition-colors`} style={{ color }}>
             <UserRound size={34} strokeWidth={1.6} />
           </button>
         </div>

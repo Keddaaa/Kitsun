@@ -1,4 +1,9 @@
+'use client';
+
+import { useLanguage } from '@/contexts/LanguageContext';
+
 export default function ObsessionSection() {
+	const { t } = useLanguage();
 	return (
 		<section
 			className="flex items-center"
@@ -23,7 +28,7 @@ export default function ObsessionSection() {
 						marginBottom: "80px",
 					}}
 				>
-					NÉS DE L&apos;OBSESSION DU GOÛT ET DU DÉTAIL
+					{t.obsession.title}
 				</h2>
 				<p
 					className="text-black"
@@ -36,8 +41,7 @@ export default function ObsessionSection() {
 						textTransform: "uppercase",
 					}}
 				>
-					POURQUOI LE BUBBLE TEA EST TOUJOURS PAREIL PARTOUT&nbsp;?
-					KITSUN EST NOTRE RÉPONSE.
+					{t.obsession.subtitle}
 				</p>
 			</div>
 
