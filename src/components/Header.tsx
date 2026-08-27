@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { ShoppingBag, Heart, UserRound, Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -44,7 +45,7 @@ export default function Header({ light = false, staticPos = false }: { light?: b
       >
         <nav className="flex items-center justify-between px-5 py-4">
           {/* Logo */}
-          <a href="/" className="flex items-center select-none ml-2">
+          <Link href="/" className="flex items-center select-none ml-2">
             <Image
               src={light ? '/Kitsun.svg' : '/logo header.svg'}
               alt="Kitsun"
@@ -53,19 +54,19 @@ export default function Header({ light = false, staticPos = false }: { light?: b
               className="md:w-[232px] md:h-[74px]"
               priority
             />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map(({ label, href }) => (
               <li key={label}>
-                <a
+                <Link
                   href={href}
                   className={`${linkClass} transition-colors duration-200`}
                   style={{ fontFamily: 'Excon, sans-serif', fontSize: '1.875rem', fontWeight: 500 }}
                 >
                   {label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -127,7 +128,7 @@ export default function Header({ light = false, staticPos = false }: { light?: b
           onClick={() => setMenuOpen(false)}
         >
           {navLinks.map(({ label, href }) => (
-            <a
+            <Link
               key={label}
               href={href}
               onClick={() => setMenuOpen(false)}
@@ -141,7 +142,7 @@ export default function Header({ light = false, staticPos = false }: { light?: b
               }}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
       )}

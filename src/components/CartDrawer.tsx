@@ -1,17 +1,12 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import Link from 'next/link';
 import { X, Trash2 } from 'lucide-react';
-import { useCart } from '@/contexts/CartContext';
+import { formatPrice, getCartItemTotal, getCartTotal, useCart } from '@/contexts/CartContext';
 
 export default function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const { items, remove, update } = useCart();
-
-  const total = items.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace(',', '.').replace('€', ''));
-    return sum + price;
-  }, 0);
+  const { items, count, remove, update } = useCart();
+  const total = getCartTotal(items);
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
@@ -49,7 +44,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
               MON PANIER
             </span>
             <div style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1.5px solid #000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '20px', color: '#000', fontWeight: 500 }}>{items.length}</span>
+              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '20px', color: '#000', fontWeight: 500 }}>{count}</span>
             </div>
           </div>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#000' }}>
@@ -89,7 +84,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
             <div className="flex justify-between items-center" style={{ marginBottom: '20px' }}>
               <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '22px', fontWeight: 500, color: '#000' }}>Total</span>
               <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '32px', fontWeight: 500, color: '#000' }}>
-                {total.toFixed(2).replace('.', ',')}€
+                {formatPrice(total)}
               </span>
             </div>
             <button
@@ -137,7 +132,7 @@ function CartItem({ item, onRemove, onUpdate }: {
       <div className="flex flex-col" style={{ flex: 1, gap: '4px' }}>
         <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '22px', fontWeight: 700, color: '#000', lineHeight: 1 }}>{item.name}</p>
         <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '16px', color: '#000', opacity: 0.5 }}>{item.size}</p>
-        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '20px', fontWeight: 500, color: '#000', marginTop: '4px' }}>{item.price}</p>
+        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '20px', fontWeight: 500, color: '#000', marginTop: '4px' }}>{formatPrice(getCartItemTotal(item))}</p>
 
         {/* Qty */}
         <div className="flex items-center" style={{ marginTop: '8px', border: '1.5px solid #000', width: '130px', height: '44px' }}>

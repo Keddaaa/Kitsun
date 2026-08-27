@@ -11,6 +11,22 @@ export type CartItem = {
   video: string;
 };
 
+export function parsePrice(price: string) {
+  return Number.parseFloat(price.replace(',', '.').replace('€', ''));
+}
+
+export function formatPrice(price: number) {
+  return `${price.toFixed(2).replace('.', ',')}€`;
+}
+
+export function getCartItemTotal(item: CartItem) {
+  return parsePrice(item.price) * item.qty;
+}
+
+export function getCartTotal(items: CartItem[]) {
+  return items.reduce((total, item) => total + getCartItemTotal(item), 0);
+}
+
 type CartCtx = {
   items: CartItem[];
   count: number;

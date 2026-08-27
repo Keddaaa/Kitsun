@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Dot, Trash2 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useCart } from '@/contexts/CartContext';
+import { formatPrice, getCartItemTotal, getCartTotal, useCart } from '@/contexts/CartContext';
 
 const TICKER_TEXT = 'TON PANIER';
 const TICKER_REPEAT = 16;
@@ -84,7 +84,7 @@ function CartRow({ item, onRemove, onUpdate }: {
 
       {/* Price */}
       <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '35px', fontWeight: 500, color: '#000', minWidth: '120px', textAlign: 'right', flexShrink: 0 }}>
-        {item.price}
+        {formatPrice(getCartItemTotal(item))}
       </p>
 
       {/* Delete */}
@@ -103,10 +103,7 @@ function CartRow({ item, onRemove, onUpdate }: {
 export default function CartPage() {
   const { items, remove, update } = useCart();
 
-  const total = items.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace(',', '.').replace('€', ''));
-    return sum + price * item.qty;
-  }, 0);
+  const total = getCartTotal(items);
 
   return (
     <div style={{ backgroundColor: '#FDF3E6', minHeight: '100vh' }}>
@@ -199,7 +196,7 @@ export default function CartPage() {
                       {item.name} × {item.qty}
                     </span>
                     <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '18px', color: '#000' }}>
-                      {item.price}
+                      {formatPrice(getCartItemTotal(item))}
                     </span>
                   </div>
                 ))}
@@ -208,7 +205,7 @@ export default function CartPage() {
                 <div className="flex justify-between items-center">
                   <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '25px', fontWeight: 700, color: '#000' }}>Total</span>
                   <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '35px', fontWeight: 500, color: '#000' }}>
-                    {total.toFixed(2).replace('.', ',')}€
+                    {formatPrice(total)}
                   </span>
                 </div>
               </div>

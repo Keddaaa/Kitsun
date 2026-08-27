@@ -6,10 +6,10 @@ import { Dot } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products } from "@/data/products";
-import { useCart } from "@/contexts/CartContext";
+import { formatPrice, parsePrice, useCart } from "@/contexts/CartContext";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const TICKER_TEXT = "LOREM IPSUM DO";
+const TICKER_TEXT = "TON KITSUN, TES RÈGLES";
 const TICKER_REPEAT = 12;
 
 function TickerContent() {
@@ -90,11 +90,10 @@ export default function ProduitPage() {
 	const [qty, setQty] = useState(1);
 	const [activeThumb, setActiveThumb] = useState(0);
 
-	const basePrice = parseFloat(
-		product.price.replace(",", ".").replace("€", ""),
-	);
+	const basePrice = parsePrice(product.price);
 	const sizeMultiplier = SIZES.find((s) => s.label === selectedSize)?.multiplier ?? 1;
-	const totalPrice = (basePrice * sizeMultiplier * qty).toFixed(2).replace(".", ",") + "€";
+	const unitPrice = basePrice * sizeMultiplier;
+	const totalPrice = formatPrice(unitPrice * qty);
 
 	return (
 		<div style={{ backgroundColor: "#FDF3E6", minHeight: "100vh" }}>
@@ -170,7 +169,7 @@ export default function ProduitPage() {
 					className="product-detail flex flex-col"
 					style={{ paddingLeft: "40px", flex: 1 }}
 				>
-					<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Menu', href: '/menu' }, { label: product.name }]} />
+					<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Carte', href: '/menu' }, { label: product.name }]} />
 					<h1
 						className="product-title"
 						style={{
@@ -432,7 +431,7 @@ export default function ProduitPage() {
 
 						{/* Add to cart */}
 						<button
-							onClick={() => { add({ id: product.id, name: product.name, price: totalPrice, size: selectedSize, qty, video: product.video }); openCart(); }}
+							onClick={() => { add({ id: product.id, name: product.name, price: formatPrice(unitPrice), size: selectedSize, qty, video: product.video }); openCart(); }}
 							className="hover:bg-white hover:text-black transition-colors"
 							style={{
 								fontFamily: "Excon, sans-serif",

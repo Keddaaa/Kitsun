@@ -5,7 +5,6 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { products } from "@/data/products";
-import { useLanguage } from "@/contexts/LanguageContext";
 import Breadcrumb from "@/components/Breadcrumb";
 
 const categories = [
@@ -18,10 +17,8 @@ const categories = [
 function ProductCard({
 	id,
 	name,
-	type,
 	price,
 	video,
-	ingredients,
 	bg,
 }: (typeof products)[0]) {
 	const ref = useRef<HTMLVideoElement>(null);
@@ -99,7 +96,7 @@ export default function MenuPage() {
 					paddingBottom: "80px",
 				}}
 			>
-				<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Menu' }]} />
+				<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Carte' }]} />
 				{/* Title area */}
 				<p
 					style={{
@@ -157,7 +154,8 @@ export default function MenuPage() {
 					style={{
 						gap: "65px",
 						marginBottom: "40px",
-						marginTop: "55px",
+						marginTop: "27px",
+						paddingTop: "28px",
 						scrollbarWidth: "none",
 					}}
 				>
@@ -170,7 +168,9 @@ export default function MenuPage() {
 							}}
 						>
 							<button
-								onClick={() => setActiveCategory(label)}
+								onClick={() => !soon && setActiveCategory(label)}
+								disabled={soon}
+								title={soon ? `${label} — bientôt disponible` : undefined}
 								style={{
 									fontFamily: "Excon, sans-serif",
 									fontSize: "30px",
@@ -187,7 +187,7 @@ export default function MenuPage() {
 									borderRadius: "999px",
 									width: `${width}px`,
 									height: "63px",
-									cursor: "pointer",
+									cursor: soon ? "not-allowed" : "pointer",
 									transition: "all 0.2s",
 								}}
 							>

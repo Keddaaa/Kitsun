@@ -136,12 +136,59 @@ function StoreCard({
 
 export default function NosStores() {
 	const scrollRef = useRef<HTMLDivElement>(null);
+	const dragRef = useRef({ pointerId: -1, startX: 0, scrollLeft: 0 });
 	const { t } = useLanguage();
 	const titleRef = useInView('anim-fade-up', 0);
 	const subtitleRef = useInView('anim-fade-up', 100);
 
 	const scroll = () => {
 		scrollRef.current?.scrollBy({ left: 480, behavior: "smooth" });
+	};
+
+	const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+		const container = scrollRef.current;
+		if (!container || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+
+		const atStart = container.scrollLeft <= 0;
+		const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+		if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
+
+		event.preventDefault();
+		container.scrollLeft += event.deltaY;
+	};
+
+	const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+		if (event.pointerType !== "mouse" || event.button !== 0) return;
+
+		const container = event.currentTarget;
+		dragRef.current = {
+			pointerId: event.pointerId,
+			startX: event.clientX,
+			scrollLeft: container.scrollLeft,
+		};
+		container.setPointerCapture(event.pointerId);
+		container.style.cursor = "grabbing";
+	};
+
+	const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+		if (dragRef.current.pointerId !== event.pointerId) return;
+		event.currentTarget.scrollLeft =
+			dragRef.current.scrollLeft - (event.clientX - dragRef.current.startX);
+	};
+
+	const stopDragging = (event: React.PointerEvent<HTMLDivElement>) => {
+		if (dragRef.current.pointerId !== event.pointerId) return;
+		dragRef.current.pointerId = -1;
+		event.currentTarget.style.cursor = "grab";
+	};
+
+	const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+		if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+		event.preventDefault();
+		scrollRef.current?.scrollBy({
+			left: event.key === "ArrowRight" ? 480 : -480,
+			behavior: "smooth",
+		});
 	};
 
 	return (
@@ -196,10 +243,21 @@ export default function NosStores() {
 			<div
 				ref={scrollRef}
 				className="flex gap-6 overflow-x-auto"
+				tabIndex={0}
+				aria-label="Liste des stores"
+				onWheel={handleWheel}
+				onPointerDown={handlePointerDown}
+				onPointerMove={handlePointerMove}
+				onPointerUp={stopDragging}
+				onPointerCancel={stopDragging}
+				onKeyDown={handleKeyDown}
 				style={{
 					scrollbarWidth: "none",
 					msOverflowStyle: "none",
 					paddingBottom: "8px",
+					cursor: "grab",
+					userSelect: "none",
+					touchAction: "pan-y",
 				}}
 			>
 				{stores.map((store) => (

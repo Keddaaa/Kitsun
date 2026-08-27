@@ -55,22 +55,28 @@ export default function Footer() {
 				</div>
 				<div className="flex items-center gap-6 pt-2">
 					<a
-						href="#"
-						aria-label="TikTok"
+						href="https://www.tiktok.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="TikTok — ouvrir dans un nouvel onglet"
 						className="text-black hover:opacity-60 transition-opacity"
 					>
 						<TikTokIcon />
 					</a>
 					<a
-						href="#"
-						aria-label="X (Twitter)"
+						href="https://x.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="X (Twitter) — ouvrir dans un nouvel onglet"
 						className="text-black hover:opacity-60 transition-opacity"
 					>
 						<XIcon />
 					</a>
 					<a
-						href="#"
-						aria-label="Instagram"
+						href="https://www.instagram.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Instagram — ouvrir dans un nouvel onglet"
 						className="text-black hover:opacity-60 transition-opacity"
 					>
 						<InstagramIcon />

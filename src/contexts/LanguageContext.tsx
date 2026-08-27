@@ -6,7 +6,7 @@ export type Lang = 'fr' | 'en' | 'de' | 'es';
 
 const translations = {
   fr: {
-    nav: ['Menu', 'Personnalise', 'Nos stores', 'About'],
+    nav: ['Carte', 'Personnalisation', 'Nos stores', 'About'],
     ceSoir: {
       title: 'CE SOIR SEULEMENT',
       subtitle: 'Les bons plans disparaissent à minuit.',

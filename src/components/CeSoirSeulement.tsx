@@ -13,7 +13,7 @@ const products = [
 	{ id: 5, name: "Blueberry Fuel", price: "5,90€", video: "/videos/Blueberry Fuel.mp4" },
 ];
 
-const TICKER_TEXT = "LOREM IPSUM DO";
+const TICKER_TEXT = "APRÈS MINUIT, C’EST FINI";
 const TICKER_REPEAT = 12;
 
 function TickerContent() {
