@@ -158,7 +158,7 @@ export default function Footer() {
 				>
 					<div style={{ width: "clamp(300px, 42vw, 612px)", aspectRatio: "612 / 459", position: "relative" }}>
 						<Image
-							src="/skate.gif"
+							src="/skate.webp"
 							alt="Kitsun skater"
 							fill
 							className="object-contain object-bottom"
