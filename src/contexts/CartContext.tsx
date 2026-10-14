@@ -36,6 +36,7 @@ type CartCtx = {
   add: (item: CartItem) => void;
   remove: (id: number, size: string) => void;
   update: (id: number, size: string, qty: number) => void;
+  clear: () => void;
 };
 
 const CartContext = createContext<CartCtx>({
@@ -47,6 +48,7 @@ const CartContext = createContext<CartCtx>({
   add: () => {},
   remove: () => {},
   update: () => {},
+  clear: () => {},
 });
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
@@ -81,7 +83,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const count = items.reduce((s, i) => s + i.qty, 0);
 
   return (
-    <CartContext.Provider value={{ items, count, isOpen, openCart: () => setIsOpen(true), closeCart: () => setIsOpen(false), add, remove, update }}>
+    <CartContext.Provider value={{ items, count, isOpen, openCart: () => setIsOpen(true), closeCart: () => setIsOpen(false), add, remove, update, clear: () => setItems([]) }}>
       {children}
     </CartContext.Provider>
   );

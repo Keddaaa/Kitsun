@@ -211,7 +211,8 @@ export default function CartPage() {
                   </span>
                 </div>
               </div>
-              <button
+              <Link
+                href="/checkout"
                 className="hover:bg-white hover:text-black transition-colors w-full"
                 style={{
                   fontFamily: 'Excon, sans-serif',
@@ -225,10 +226,11 @@ export default function CartPage() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  textDecoration: 'none',
                 }}
               >
                 COMMANDER
-              </button>
+              </Link>
               <Link
                 href="/menu"
                 style={{

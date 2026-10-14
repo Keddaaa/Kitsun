@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { X, Trash2 } from 'lucide-react';
 import { formatPrice, getCartItemTotal, getCartTotal, useCart } from '@/contexts/CartContext';
 
@@ -88,16 +89,19 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
                 {formatPrice(total)}
               </span>
             </div>
-            <button
+            <Link
+              href="/checkout"
+              onClick={onClose}
               className="hover:bg-white hover:text-black transition-colors w-full"
               style={{
                 fontFamily: 'Excon, sans-serif', fontSize: '18px', fontWeight: 600,
                 color: '#fff', backgroundColor: '#000', border: '2px solid #000',
                 height: '60px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                textDecoration: 'none',
               }}
             >
               COMMANDER
-            </button>
+            </Link>
             <button
               onClick={onClose}
               style={{ display: 'block', width: '100%', textAlign: 'center', marginTop: '12px', fontFamily: 'Excon, sans-serif', fontSize: '15px', color: '#000', opacity: 0.5, background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}
