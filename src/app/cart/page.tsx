@@ -43,7 +43,7 @@ function CartRow({ item, onRemove, onUpdate }: {
       >
         <video
           ref={ref}
-          src={item.video}
+          src={`${item.video}#t=0.001`}
           loop muted playsInline
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />

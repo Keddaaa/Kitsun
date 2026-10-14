@@ -130,7 +130,7 @@ function CartItem({ item, onRemove, onUpdate }: {
         onMouseEnter={() => ref.current?.play()}
         onMouseLeave={() => { if (ref.current) { ref.current.pause(); ref.current.currentTime = 0; } }}
       >
-        <video ref={ref} src={item.video} loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <video ref={ref} src={`${item.video}#t=0.001`} preload="metadata" loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </div>
 
       {/* Info */}

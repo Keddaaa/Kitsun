@@ -65,7 +65,7 @@ export default function ObsessionSection() {
 				{/* eslint-disable-next-line @next/next/no-img-element */}
 				<img
 					src="/mouse.webp"
-					alt="Kitsun"
+					alt="Kitsun" loading="lazy" decoding="async"
 					style={{
 						width: "100%",
 						height: "100%",

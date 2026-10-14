@@ -42,7 +42,7 @@ function ProductCard({
 			>
 				<video
 					ref={ref}
-					src={video}
+					src={`${video}#t=0.001`}
 					loop
 					muted
 					preload="metadata"

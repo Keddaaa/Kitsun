@@ -76,6 +76,8 @@ function StoreCard({
 					src={image}
 					alt={district}
 					draggable={false}
+					loading="lazy"
+					decoding="async"
 					style={{
 						width: "100%",
 						height: "100%",
@@ -265,7 +267,7 @@ export default function NosStores() {
 					paddingBottom: "8px",
 					cursor: "grab",
 					userSelect: "none",
-					touchAction: "pan-y",
+					touchAction: "pan-x pan-y",
 				}}
 			>
 				{stores.map((store) => (
