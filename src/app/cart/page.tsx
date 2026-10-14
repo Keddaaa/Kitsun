@@ -32,12 +32,12 @@ function CartRow({ item, onRemove, onUpdate }: {
   const ref = useRef<HTMLVideoElement>(null);
   return (
     <div
-      className="flex items-center gap-8"
-      style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: '32px', paddingTop: '32px' }}
+      className="flex flex-wrap items-center"
+      style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: 'clamp(20px, 2.5vw, 32px)', paddingTop: 'clamp(20px, 2.5vw, 32px)', columnGap: 'clamp(12px, 2.2vw, 32px)', rowGap: '16px' }}
     >
       {/* Thumbnail */}
       <div
-        style={{ width: '160px', height: '200px', flexShrink: 0, overflow: 'hidden' }}
+        style={{ width: 'clamp(88px, 20vw, 160px)', aspectRatio: '4 / 5', flexShrink: 0, overflow: 'hidden' }}
         onMouseEnter={() => ref.current?.play()}
         onMouseLeave={() => { if (ref.current) { ref.current.pause(); ref.current.currentTime = 0; } }}
       >
@@ -50,7 +50,7 @@ function CartRow({ item, onRemove, onUpdate }: {
       </div>
 
       {/* Info */}
-      <div className="flex flex-col gap-2" style={{ flex: 1 }}>
+      <div className="flex flex-col gap-2" style={{ flex: '1 1 140px', minWidth: 0 }}>
         <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-35)", fontWeight: 700, color: '#000', lineHeight: 1 }}>
           {item.name}
         </p>
@@ -62,12 +62,12 @@ function CartRow({ item, onRemove, onUpdate }: {
       {/* Qty */}
       <div
         className="flex items-center"
-        style={{ border: '1.5px solid #000', width: '180px', height: '56px', flexShrink: 0 }}
+        style={{ border: '1.5px solid #000', width: 'clamp(132px, 14vw, 180px)', height: 'clamp(44px, 4vw, 56px)', flexShrink: 0 }}
       >
         <button
           onClick={() => onUpdate(item.qty - 1)}
           className="hover:bg-black hover:text-white transition-colors"
-          style={{ width: '56px', height: '56px', fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
+          style={{ width: 'clamp(44px, 4vw, 56px)', height: '100%', fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
         >
           -
         </button>
@@ -77,14 +77,14 @@ function CartRow({ item, onRemove, onUpdate }: {
         <button
           onClick={() => onUpdate(item.qty + 1)}
           className="hover:bg-black hover:text-white transition-colors"
-          style={{ width: '56px', height: '56px', fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
+          style={{ width: 'clamp(44px, 4vw, 56px)', height: '100%', fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
         >
           +
         </button>
       </div>
 
       {/* Price */}
-      <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-35)", fontWeight: 500, color: '#000', minWidth: '120px', textAlign: 'right', flexShrink: 0 }}>
+      <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-35)", fontWeight: 500, color: '#000', minWidth: 'clamp(80px, 8vw, 120px)', textAlign: 'right', flexShrink: 0, marginLeft: 'auto' }}>
         {formatPrice(getCartItemTotal(item))}
       </p>
 
@@ -118,15 +118,15 @@ export default function CartPage() {
 
       <Header light staticPos />
 
-      <div style={{ paddingTop: '40px', paddingLeft: '80px', paddingRight: '80px', paddingBottom: '80px' }}>
+      <div style={{ paddingTop: 'clamp(24px, 3vw, 40px)', paddingLeft: 'var(--gutter)', paddingRight: 'var(--gutter)', paddingBottom: '80px', maxWidth: '1920px', marginInline: 'auto' }}>
         {/* Title */}
-        <div className="flex items-end gap-6" style={{ marginBottom: '8px' }}>
+        <div className="flex flex-wrap items-end gap-x-6 gap-y-2" style={{ marginBottom: '8px' }}>
           <h1 style={{ fontFamily: 'LemonMilk, sans-serif', fontSize: "var(--fs-110)", fontWeight: 800, color: '#000', lineHeight: '0.9' }}>
             MON PANIER
           </h1>
           <div
             className="flex items-center justify-center"
-            style={{ width: '68px', height: '68px', borderRadius: '50%', border: '1.5px solid #000', flexShrink: 0, marginBottom: '8px' }}
+            style={{ width: 'clamp(44px, 4.7vw, 68px)', height: 'clamp(44px, 4.7vw, 68px)', borderRadius: '50%', border: '1.5px solid #000', flexShrink: 0, marginBottom: '8px' }}
           >
             <span style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-37)", color: '#000', fontWeight: 500 }}>
               {items.length}
@@ -135,7 +135,7 @@ export default function CartPage() {
         </div>
 
         {items.length === 0 ? (
-          <div className="flex flex-col items-center justify-center" style={{ paddingTop: '120px', gap: '24px' }}>
+          <div className="flex flex-col items-center justify-center" style={{ paddingTop: 'clamp(48px, 8vw, 120px)', gap: '24px' }}>
             <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-30)", color: '#000', opacity: 0.4 }}>
               Ton panier est vide.
             </p>
@@ -161,9 +161,9 @@ export default function CartPage() {
             </Link>
           </div>
         ) : (
-          <div className="flex gap-16" style={{ marginTop: '48px' }}>
+          <div className="flex flex-col lg:flex-row" style={{ marginTop: 'clamp(24px, 3.3vw, 48px)', gap: 'clamp(32px, 4.4vw, 64px)' }}>
             {/* Items */}
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
               {items.map((item) => (
                 <CartRow
                   key={`${item.id}-${item.size}`}
@@ -177,11 +177,12 @@ export default function CartPage() {
             {/* Summary */}
             <div
               style={{
-                width: '400px',
+                width: '100%',
+                maxWidth: '400px',
                 flexShrink: 0,
                 backgroundColor: '#fff',
                 border: '1px solid #e5e5e5',
-                padding: '40px',
+                padding: 'clamp(20px, 2.8vw, 40px)',
                 height: 'fit-content',
                 position: 'sticky',
                 top: '24px',

@@ -45,6 +45,7 @@ function ProductCard({
 					src={video}
 					loop
 					muted
+					preload="metadata"
 					playsInline
 					className="absolute inset-0 w-full h-full object-cover"
 				/>
@@ -199,9 +200,9 @@ export default function MenuPage() {
 									style={{
 										position: "absolute",
 										top: "-10px",
-										right: "-35px",
-										width: "107px",
-										height: "37px",
+										right: "clamp(-35px, -2.4vw, -8px)",
+										width: "clamp(64px, 7.4vw, 107px)",
+										height: "clamp(24px, 2.6vw, 37px)",
 										backgroundColor: "#FFA5ED",
 										borderRadius: "999px",
 										display: "flex",
@@ -209,7 +210,7 @@ export default function MenuPage() {
 										justifyContent: "center",
 										transform: "rotate(32.61deg)",
 										fontFamily: "Excon, sans-serif",
-										fontSize: "var(--fs-20)",
+										fontSize: "clamp(0.6875rem, 1.4vw, 20px)",
 										fontWeight: 500,
 										color: "#000",
 										pointerEvents: "none",

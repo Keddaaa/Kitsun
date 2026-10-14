@@ -77,6 +77,7 @@ function ProductCard({
 						src={video}
 						loop
 						muted
+						preload="metadata"
 						playsInline
 						className="absolute inset-0 w-full h-full object-cover"
 					/>

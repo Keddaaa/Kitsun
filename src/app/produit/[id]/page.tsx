@@ -229,7 +229,7 @@ export default function ProduitPage() {
 					>
 						<div className="flex gap-3">
 							{SIZES.slice(0, 3).map(({ label, soon }) => (
-								<div key={label} style={{ position: "relative", display: "inline-block" }}>
+								<div key={label} style={{ position: "relative", flex: "1 1 0", minWidth: 0, maxWidth: "210px" }}>
 									<button
 										onClick={() => !soon && setSelectedSize(label)}
 										style={{
@@ -239,7 +239,7 @@ export default function ProduitPage() {
 											backgroundColor: soon ? "transparent" : selectedSize === label ? "#000" : "transparent",
 											border: "2px solid #000",
 											borderRadius: "999px",
-											width: "clamp(80px, 25vw, 210px)",
+											width: "100%",
 											height: "clamp(44px, 4.4vw, 63px)",
 											fontSize: "var(--fs-20)",
 											cursor: soon ? "not-allowed" : "pointer",
@@ -254,9 +254,9 @@ export default function ProduitPage() {
 										<span style={{
 											position: "absolute",
 											top: "-10px",
-											right: "-35px",
-											width: "107px",
-											height: "37px",
+											right: "clamp(-35px, -2.4vw, -8px)",
+											width: "clamp(64px, 7.4vw, 107px)",
+											height: "clamp(24px, 2.6vw, 37px)",
 											backgroundColor: "#FFA5ED",
 											borderRadius: "999px",
 											display: "flex",
@@ -264,7 +264,7 @@ export default function ProduitPage() {
 											justifyContent: "center",
 											transform: "rotate(32.61deg)",
 											fontFamily: "Excon, sans-serif",
-											fontSize: "var(--fs-20)",
+											fontSize: "clamp(0.6875rem, 1.4vw, 20px)",
 											fontWeight: 500,
 											color: "#000",
 											pointerEvents: "none",
@@ -277,7 +277,7 @@ export default function ProduitPage() {
 						</div>
 						<div className="flex gap-3">
 							{SIZES.slice(3).map(({ label, soon }) => (
-								<div key={label} style={{ position: "relative", display: "inline-block" }}>
+								<div key={label} style={{ position: "relative", flex: "1 1 0", minWidth: 0, maxWidth: "210px" }}>
 								<button
 									onClick={() => !soon && setSelectedSize(label)}
 									style={{
@@ -287,7 +287,7 @@ export default function ProduitPage() {
 										backgroundColor: soon ? "transparent" : selectedSize === label ? "#000" : "transparent",
 										border: "2px solid #000",
 										borderRadius: "999px",
-										width: "clamp(110px, 36vw, 210px)",
+										width: "100%",
 										height: "clamp(44px, 4vw, 50px)",
 										cursor: soon ? "not-allowed" : "pointer",
 										transition: "all 0.15s ease",
@@ -302,9 +302,9 @@ export default function ProduitPage() {
 									<span style={{
 										position: "absolute",
 										top: "-10px",
-										right: "-35px",
-										width: "107px",
-										height: "37px",
+										right: "clamp(-35px, -2.4vw, -8px)",
+										width: "clamp(64px, 7.4vw, 107px)",
+										height: "clamp(24px, 2.6vw, 37px)",
 										backgroundColor: "#FFA5ED",
 										borderRadius: "999px",
 										display: "flex",
@@ -312,7 +312,7 @@ export default function ProduitPage() {
 										justifyContent: "center",
 										transform: "rotate(32.61deg)",
 										fontFamily: "Excon, sans-serif",
-										fontSize: "var(--fs-20)",
+										fontSize: "clamp(0.6875rem, 1.4vw, 20px)",
 										fontWeight: 500,
 										color: "#000",
 										pointerEvents: "none",
