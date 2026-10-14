@@ -13,27 +13,29 @@ export default function ObsessionSection() {
 	return (
 		<section
 			id="about"
-			className="mob-col flex items-center"
+			className="flex flex-col lg:flex-row items-center"
 			style={{
 				backgroundColor: "#FDF3E6",
 				minHeight: "100dvh",
-				padding: "60px 40px",
+				padding: "clamp(40px, 6vw, 60px) var(--gutter-sm)",
+				gap: "clamp(32px, 5vw, 64px)",
 				overflow: "hidden",
 			}}
 		>
 			{/* Left: text */}
-			<div className="flex-1 md:pr-16 flex flex-col">
+			<div className="flex-1 min-w-0 flex flex-col">
 				<h2
 					ref={titleRef as React.RefObject<HTMLHeadingElement>}
 					className="obsession-title anim-fade-up text-black"
 					style={{
 						fontFamily: "LemonMilk, sans-serif",
-						fontSize: "100px",
+						fontSize: "var(--fs-100)",
 						fontWeight: 800,
 						width: "100%",
-						lineHeight: "1.4",
+						lineHeight: "1.2",
 						textTransform: "uppercase",
-						marginBottom: "80px",
+						marginBottom: "clamp(24px, 5.5vw, 80px)",
+						overflowWrap: "anywhere",
 					}}
 				>
 					{t.obsession.title}
@@ -43,8 +45,8 @@ export default function ObsessionSection() {
 					className="obsession-sub anim-fade-up text-black"
 					style={{
 						fontFamily: "Excon, sans-serif",
-						fontSize: "35px",
-						width: "70%",
+						fontSize: "var(--fs-35)",
+						width: "min(100%, 70ch)",
 						fontWeight: 500,
 						lineHeight: "1.4",
 						textTransform: "uppercase",
@@ -57,16 +59,16 @@ export default function ObsessionSection() {
 			{/* Right: gif */}
 			<div
 				ref={gifRef as React.RefObject<HTMLDivElement>}
-				className="footer-skate anim-slide-left flex-shrink-0"
-				style={{ width: "551px", height: "993px", borderRadius: "32px", overflow: "hidden" }}
+				className="anim-slide-left flex-shrink-0"
+				style={{ width: "clamp(260px, 38vw, 551px)", aspectRatio: "551 / 993", maxHeight: "90dvh", borderRadius: "32px", overflow: "hidden" }}
 			>
 				{/* eslint-disable-next-line @next/next/no-img-element */}
 				<img
 					src="/mouse.gif"
 					alt="Kitsun"
 					style={{
-						width: "551px",
-						height: "993px",
+						width: "100%",
+						height: "100%",
 						objectFit: "cover",
 					}}
 				/>

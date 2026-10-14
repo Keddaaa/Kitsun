@@ -35,13 +35,12 @@ export default function Footer() {
 				backgroundColor: "#fff",
 				borderTop: "1px solid #e5e5e5",
 				width: "100%",
-				minHeight: "1038px",
 			}}
 		>
 			{/* Top: logo + socials */}
 			<div
-				className="footer-top flex items-start justify-between pt-12 pb-10"
-				style={{ paddingLeft: "200px", paddingRight: "40px" }}
+				className="flex flex-col sm:flex-row items-start justify-between gap-6 pt-12 pb-10"
+				style={{ paddingLeft: "clamp(20px, 13.9vw, 200px)", paddingRight: "var(--gutter-sm)" }}
 			>
 				<div>
 					<Image
@@ -49,7 +48,7 @@ export default function Footer() {
 						alt="Kitsun"
 						width={744.08}
 						height={246}
-						className="footer-logo"
+						className="footer-logo w-[min(100%,744px)] h-auto"
 						priority
 					/>
 				</div>
@@ -86,31 +85,31 @@ export default function Footer() {
 
 			{/* Columns */}
 			<div
-				className="footer-cols grid grid-cols-4 pb-16 gap-8"
-				style={{ paddingLeft: "200px", paddingRight: "40px" }}
+				className="grid grid-cols-2 lg:grid-cols-4 pb-16 gap-x-6 gap-y-10 lg:gap-8"
+				style={{ paddingLeft: "clamp(20px, 13.9vw, 200px)", paddingRight: "var(--gutter-sm)" }}
 			>
 				{/* Contact */}
 				<div>
-					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "30px", color: "#000", fontWeight: 500, opacity: 0.5, marginBottom: "12px" }}>
+					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-30)", color: "#000", fontWeight: 500, opacity: 0.5, marginBottom: "12px" }}>
 						{t.footer.contact}
 					</p>
-					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "25px", fontWeight: 500, color: "#000", lineHeight: "1.6" }}>
+					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-25)", fontWeight: 500, color: "#000", lineHeight: "1.6" }}>
 						{t.footer.contactText}
 					</p>
-					<a href="mailto:hello@kitsun.fr" style={{ fontFamily: "Excon, sans-serif", fontSize: "25px", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
+					<a href="mailto:hello@kitsun.fr" style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-25)", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
 						hello@kitsun.fr
 					</a>
 				</div>
 
 				{/* Navigation */}
 				<div>
-					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "30px", fontWeight: 500, color: "#000", opacity: 0.5, marginBottom: "12px" }}>
+					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-30)", fontWeight: 500, color: "#000", opacity: 0.5, marginBottom: "12px" }}>
 						{t.footer.navigation}
 					</p>
 					<ul className="flex flex-col gap-2">
 						{t.nav.map((link) => (
 							<li key={link}>
-								<a href="#" style={{ fontFamily: "Excon, sans-serif", fontSize: "25px", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
+								<a href="#" style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-25)", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
 									{link}
 								</a>
 							</li>
@@ -120,13 +119,13 @@ export default function Footer() {
 
 				{/* Catégories */}
 				<div>
-					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "30px", color: "#000", fontWeight: 500, opacity: 0.5, marginBottom: "12px" }}>
+					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-30)", color: "#000", fontWeight: 500, opacity: 0.5, marginBottom: "12px" }}>
 						{t.footer.categories}
 					</p>
 					<ul className="flex flex-col gap-2">
 						{["Bubble tea", "Crepe", "Cookies", "Mochi"].map((item) => (
 							<li key={item}>
-								<a href="#" style={{ fontFamily: "Excon, sans-serif", fontSize: "25px", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
+								<a href="#" style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-25)", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
 									{item}
 								</a>
 							</li>
@@ -136,13 +135,13 @@ export default function Footer() {
 
 				{/* Légal */}
 				<div>
-					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "30px", fontWeight: 500, color: "#000", opacity: 0.5, marginBottom: "12px" }}>
+					<p style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-30)", fontWeight: 500, color: "#000", opacity: 0.5, marginBottom: "12px" }}>
 						{t.footer.legal}
 					</p>
 					<ul className="flex flex-col gap-2">
 						{t.footer.legalLinks.map((item) => (
 							<li key={item}>
-								<a href="#" style={{ fontFamily: "Excon, sans-serif", fontSize: "25px", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
+								<a href="#" style={{ fontFamily: "Excon, sans-serif", fontSize: "var(--fs-25)", color: "#000", fontWeight: 500 }} className="hover:opacity-60 transition-opacity">
 									{item}
 								</a>
 							</li>
@@ -152,12 +151,12 @@ export default function Footer() {
 			</div>
 
 			{/* Bottom: illustration + copyright */}
-			<div className="relative px-10 pb-6">
+			<div className="relative pb-6" style={{ paddingLeft: "var(--gutter-sm)", paddingRight: "var(--gutter-sm)" }}>
 				<div
-					style={{ height: "160px", marginTop: "320px" }}
-					className="footer-skate flex items-end hidden md:flex"
+					style={{ height: "clamp(80px, 11vw, 160px)", marginTop: "clamp(120px, 22vw, 320px)" }}
+					className="hidden md:flex items-end"
 				>
-					<div style={{ width: "612px", height: "459px", position: "relative" }}>
+					<div style={{ width: "clamp(300px, 42vw, 612px)", aspectRatio: "612 / 459", position: "relative" }}>
 						<Image
 							src="/skate.gif"
 							alt="Kitsun skater"
@@ -168,14 +167,13 @@ export default function Footer() {
 					</div>
 				</div>
 				<p
-					className="footer-copy md:absolute right-16 bottom-6"
+					className="text-center md:text-right md:absolute md:right-[var(--gutter-sm)] bottom-6"
 					style={{
 						fontFamily: "Excon, sans-serif",
-						fontSize: "25px",
+						fontSize: "var(--fs-25)",
 						fontWeight: 400,
 						color: "#000",
-						whiteSpace: "nowrap",
-					}}
+						}}
 				>
 					{t.footer.copyright}
 				</p>
@@ -186,10 +184,10 @@ export default function Footer() {
 					(tag) => (
 						<div key={tag} className="py-4 flex items-center justify-center">
 							<span
-								className="footer-hash"
+								className="break-words"
 								style={{
 									fontFamily: "LemonMilk, sans-serif",
-									fontSize: "30px",
+									fontSize: "clamp(0.6875rem, 2.4vw, 30px)",
 									fontWeight: 400,
 									color: "#000",
 									letterSpacing: "0.05em",

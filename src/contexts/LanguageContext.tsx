@@ -6,6 +6,7 @@ export type Lang = 'fr' | 'en' | 'de' | 'es';
 
 const translations = {
   fr: {
+    tickers: { ceSoir: 'APRÈS MINUIT, C’EST FINI', produit: 'TON KITSUN, TES RÈGLES', panier: 'TON PANIER' },
     nav: ['Carte', 'Personnalisation', 'Nos stores', 'About'],
     ceSoir: {
       title: 'CE SOIR SEULEMENT',
@@ -33,6 +34,7 @@ const translations = {
     },
   },
   en: {
+    tickers: { ceSoir: 'AFTER MIDNIGHT, IT’S OVER', produit: 'YOUR KITSUN, YOUR RULES', panier: 'YOUR CART' },
     nav: ['Menu', 'Customize', 'Our stores', 'About'],
     ceSoir: {
       title: 'TONIGHT ONLY',
@@ -60,6 +62,7 @@ const translations = {
     },
   },
   de: {
+    tickers: { ceSoir: 'NACH MITTERNACHT IST SCHLUSS', produit: 'DEIN KITSUN, DEINE REGELN', panier: 'DEIN WARENKORB' },
     nav: ['Menü', 'Anpassen', 'Unsere Läden', 'Über uns'],
     ceSoir: {
       title: 'NUR HEUTE ABEND',
@@ -87,6 +90,7 @@ const translations = {
     },
   },
   es: {
+    tickers: { ceSoir: 'DESPUÉS DE MEDIANOCHE, SE ACABÓ', produit: 'TU KITSUN, TUS REGLAS', panier: 'TU CARRITO' },
     nav: ['Menú', 'Personaliza', 'Nuestras tiendas', 'Acerca de'],
     ceSoir: {
       title: 'SOLO ESTA NOCHE',

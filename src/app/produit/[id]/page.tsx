@@ -8,11 +8,12 @@ import Footer from "@/components/Footer";
 import { products } from "@/data/products";
 import { formatPrice, parsePrice, useCart } from "@/contexts/CartContext";
 import Breadcrumb from "@/components/Breadcrumb";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const TICKER_TEXT = "TON KITSUN, TES RÈGLES";
 const TICKER_REPEAT = 12;
 
 function TickerContent() {
+	const { t } = useLanguage();
 	return (
 		<>
 			{Array(TICKER_REPEAT)
@@ -26,13 +27,13 @@ function TickerContent() {
 						<span
 							style={{
 								fontFamily: "LemonMilk, sans-serif",
-								fontSize: "20px",
+								fontSize: "var(--fs-20)",
 								color: "#000",
 								textTransform: "uppercase",
 								marginRight: "24px",
 							}}
 						>
-							{TICKER_TEXT}
+							{t.tickers.produit}
 						</span>
 						<Dot size={7} className="text-black" />
 					</span>
@@ -115,17 +116,19 @@ export default function ProduitPage() {
 
 			{/* Product layout */}
 			<div
-				className="product-layout flex gap-8"
+				className="flex flex-col lg:flex-row gap-8"
 				style={{
-					paddingTop: "40px",
-					paddingLeft: "48px",
-					paddingRight: "48px",
+					paddingTop: "clamp(24px, 3vw, 40px)",
+					paddingLeft: "var(--gutter-sm)",
+					paddingRight: "var(--gutter-sm)",
 					paddingBottom: "80px",
+					maxWidth: "1920px",
+					marginInline: "auto",
 				}}
 			>
 				{/* Thumbnails */}
 				<div
-					className="mob-hide flex flex-col gap-3"
+					className="hidden lg:flex flex-col gap-3"
 					style={{ paddingTop: "8px" }}
 				>
 					{[product.video, product.video, product.video].map(
@@ -142,10 +145,9 @@ export default function ProduitPage() {
 
 				{/* Main video */}
 				<div
-					className="product-video"
+					className="w-full max-w-[635px] mx-auto lg:mx-0 lg:w-[clamp(340px,44vw,635px)]"
 					style={{
-						width: "635px",
-						height: "791px",
+						aspectRatio: "635 / 791",
 						flexShrink: 0,
 						overflow: "hidden",
 					}}
@@ -166,15 +168,15 @@ export default function ProduitPage() {
 
 				{/* Details */}
 				<div
-					className="product-detail flex flex-col"
-					style={{ paddingLeft: "40px", flex: 1 }}
+					className="flex flex-col lg:pl-10 min-w-0"
+					style={{ flex: 1 }}
 				>
 					<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Carte', href: '/menu' }, { label: product.name }]} />
 					<h1
-						className="product-title"
+						
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "60px",
+							fontSize: "var(--fs-60)",
 							fontWeight: 800,
 							color: "#000",
 							lineHeight: "1",
@@ -186,7 +188,7 @@ export default function ProduitPage() {
 					<p
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "30px",
+							fontSize: "var(--fs-30)",
 							fontWeight: 500,
 							color: "#000",
 
@@ -198,7 +200,7 @@ export default function ProduitPage() {
 					<p
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "30px",
+							fontSize: "var(--fs-30)",
 							fontWeight: 400,
 							color: "#000",
 							lineHeight: "1.5",
@@ -213,7 +215,7 @@ export default function ProduitPage() {
 					<p
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "30px",
+							fontSize: "var(--fs-30)",
 							fontWeight: 500,
 							color: "#000",
 							marginBottom: "12px",
@@ -237,8 +239,9 @@ export default function ProduitPage() {
 											backgroundColor: soon ? "transparent" : selectedSize === label ? "#000" : "transparent",
 											border: "2px solid #000",
 											borderRadius: "999px",
-											width: "210px",
-											height: "63px",
+											width: "clamp(80px, 25vw, 210px)",
+											height: "clamp(44px, 4.4vw, 63px)",
+											fontSize: "var(--fs-20)",
 											cursor: soon ? "not-allowed" : "pointer",
 											transition: "all 0.15s ease",
 											transform: selectedSize === label ? "scale(1.04)" : "scale(1)",
@@ -261,7 +264,7 @@ export default function ProduitPage() {
 											justifyContent: "center",
 											transform: "rotate(32.61deg)",
 											fontFamily: "Excon, sans-serif",
-											fontSize: "20px",
+											fontSize: "var(--fs-20)",
 											fontWeight: 500,
 											color: "#000",
 											pointerEvents: "none",
@@ -284,13 +287,13 @@ export default function ProduitPage() {
 										backgroundColor: soon ? "transparent" : selectedSize === label ? "#000" : "transparent",
 										border: "2px solid #000",
 										borderRadius: "999px",
-										width: "min(210px, 36vw)",
-										height: "50px",
+										width: "clamp(110px, 36vw, 210px)",
+										height: "clamp(44px, 4vw, 50px)",
 										cursor: soon ? "not-allowed" : "pointer",
 										transition: "all 0.15s ease",
 										transform: selectedSize === label ? "scale(1.04)" : "scale(1)",
 										opacity: soon ? 0.5 : 1,
-										fontSize: "clamp(16px, 4vw, 30px)",
+										fontSize: "var(--fs-20)",
 									}}
 								>
 									{label}
@@ -309,7 +312,7 @@ export default function ProduitPage() {
 										justifyContent: "center",
 										transform: "rotate(32.61deg)",
 										fontFamily: "Excon, sans-serif",
-										fontSize: "20px",
+										fontSize: "var(--fs-20)",
 										fontWeight: 500,
 										color: "#000",
 										pointerEvents: "none",
@@ -327,7 +330,7 @@ export default function ProduitPage() {
 					<p
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "30px",
+							fontSize: "var(--fs-30)",
 							fontWeight: 500,
 							color: "#000",
 							marginBottom: "8px",
@@ -344,7 +347,7 @@ export default function ProduitPage() {
 								key={item}
 								style={{
 									fontFamily: "Excon, sans-serif",
-									fontSize: "30px",
+									fontSize: "var(--fs-30)",
 									fontWeight: 400,
 									color: "#000",
 								}}
@@ -355,19 +358,19 @@ export default function ProduitPage() {
 					</ul>
 
 					{/* Price + cart */}
-					<div className="mob-col flex items-center" style={{ gap: "48px" }}>
+					<div className="flex flex-col items-start sm:flex-row sm:items-center" style={{ gap: "clamp(16px, 3.3vw, 48px)" }}>
 						<span
-							className="product-price"
+							
 							style={{
 								fontFamily: "Excon, sans-serif",
-								fontSize: "60px",
+								fontSize: "var(--fs-60)",
 								fontWeight: 500,
 								color: "#000",
 							}}
 						>
 							{totalPrice}
 						</span>
-						<div className="flex items-center gap-4">
+						<div className="flex flex-wrap items-center gap-4">
 
 						{/* Qty */}
 						<div
@@ -376,16 +379,16 @@ export default function ProduitPage() {
 								border: "1.5px solid #000",
 								borderRadius: "0",
 								overflow: "hidden",
-								width: "274px",
-								height: "66px",
+								width: "min(274px, 100%)",
+								height: "clamp(52px, 4.6vw, 66px)",
 							}}
 						>
 							<button
 								onClick={() => setQty((q) => Math.max(1, q - 1))}
 								className="hover:bg-black hover:text-white transition-colors"
 								style={{
-									width: "66px",
-									height: "66px",
+									width: "clamp(52px, 4.6vw, 66px)",
+									height: "clamp(52px, 4.6vw, 66px)",
 									fontFamily: "Excon, sans-serif",
 									fontSize: "24px",
 									background: "transparent",
@@ -399,7 +402,7 @@ export default function ProduitPage() {
 							<span
 								style={{
 									fontFamily: "Excon, sans-serif",
-									fontSize: "20px",
+									fontSize: "var(--fs-20)",
 									color: "#000",
 									flex: 1,
 									textAlign: "center",
@@ -415,8 +418,8 @@ export default function ProduitPage() {
 								onClick={() => setQty((q) => q + 1)}
 								className="hover:bg-black hover:text-white transition-colors"
 								style={{
-									width: "66px",
-									height: "66px",
+									width: "clamp(52px, 4.6vw, 66px)",
+									height: "clamp(52px, 4.6vw, 66px)",
 									fontFamily: "Excon, sans-serif",
 									fontSize: "24px",
 									background: "transparent",
@@ -435,14 +438,14 @@ export default function ProduitPage() {
 							className="hover:bg-white hover:text-black transition-colors"
 							style={{
 								fontFamily: "Excon, sans-serif",
-								fontSize: "20px",
+								fontSize: "var(--fs-20)",
 								fontWeight: 400,
 								color: "#fff",
 								backgroundColor: "#000",
 								border: "2px solid #000",
 								borderRadius: "0",
-								width: "274px",
-								height: "66px",
+								width: "min(274px, 100%)",
+								height: "clamp(52px, 4.6vw, 66px)",
 								cursor: "pointer",
 								display: "flex",
 								alignItems: "center",

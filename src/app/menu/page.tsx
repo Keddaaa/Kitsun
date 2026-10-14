@@ -28,8 +28,8 @@ function ProductCard({
 			<div
 				className="relative overflow-hidden"
 				style={{
-					width: "410px",
-					height: "510.22px",
+					width: "100%",
+					aspectRatio: "410 / 510.22",
 					backgroundColor: bg,
 				}}
 				onMouseEnter={() => ref.current?.play()}
@@ -50,13 +50,13 @@ function ProductCard({
 				/>
 			</div>
 			<div
-				className="flex items-center justify-between mt-1"
-				style={{ width: "410px" }}
+				className="flex items-center justify-between mt-1 gap-3"
+				style={{ width: "100%" }}
 			>
 				<span
 					style={{
 						fontFamily: "Excon, sans-serif",
-						fontSize: "25px",
+						fontSize: "var(--fs-25)",
 						color: "#000",
 						fontWeight: 400,
 					}}
@@ -66,7 +66,7 @@ function ProductCard({
 				<span
 					style={{
 						fontFamily: "Excon, sans-serif",
-						fontSize: "25px",
+						fontSize: "var(--fs-25)",
 						color: "#000",
 						fontWeight: 400,
 					}}
@@ -88,12 +88,13 @@ export default function MenuPage() {
 			<Header light />
 
 			<div
-				className="mob-px"
 				style={{
-					paddingTop: "120px",
-					paddingLeft: "48px",
-					paddingRight: "48px",
+					paddingTop: "clamp(88px, 9vw, 120px)",
+					paddingLeft: "var(--gutter-sm)",
+					paddingRight: "var(--gutter-sm)",
 					paddingBottom: "80px",
+					maxWidth: "1920px",
+					marginInline: "auto",
 				}}
 			>
 				<Breadcrumb crumbs={[{ label: 'Accueil', href: '/' }, { label: 'Carte' }]} />
@@ -101,7 +102,7 @@ export default function MenuPage() {
 				<p
 					style={{
 						fontFamily: "Excon, sans-serif",
-						fontSize: "25px",
+						fontSize: "var(--fs-25)",
 						color: "#000",
 						fontWeight: 500,
 						marginBottom: "4px",
@@ -117,7 +118,7 @@ export default function MenuPage() {
 						className="menu-title"
 						style={{
 							fontFamily: "LemonMilk, sans-serif",
-							fontSize: "110px",
+							fontSize: "var(--fs-110)",
 							fontWeight: 800,
 							color: "#000",
 							lineHeight: "0.9",
@@ -138,7 +139,7 @@ export default function MenuPage() {
 						<span
 							style={{
 								fontFamily: "Excon, sans-serif",
-								fontSize: "37px",
+								fontSize: "var(--fs-37)",
 								color: "#000",
 								fontWeight: 500,
 							}}
@@ -152,7 +153,7 @@ export default function MenuPage() {
 				<div
 					className="menu-cats flex items-center overflow-x-auto"
 					style={{
-						gap: "65px",
+						gap: "clamp(24px, 4.5vw, 65px)",
 						marginBottom: "40px",
 						marginTop: "27px",
 						paddingTop: "28px",
@@ -173,7 +174,7 @@ export default function MenuPage() {
 								title={soon ? `${label} — bientôt disponible` : undefined}
 								style={{
 									fontFamily: "Excon, sans-serif",
-									fontSize: "30px",
+									fontSize: "var(--fs-30)",
 									fontWeight: 500,
 									color:
 										activeCategory === label
@@ -185,8 +186,8 @@ export default function MenuPage() {
 											: "transparent",
 									border: "2.4px solid #000",
 									borderRadius: "999px",
-									width: `${width}px`,
-									height: "63px",
+									width: `clamp(${Math.round(width*0.55)}px, ${(width/14.4).toFixed(1)}vw, ${width}px)`,
+									height: "clamp(44px, 4.4vw, 63px)",
 									cursor: soon ? "not-allowed" : "pointer",
 									transition: "all 0.2s",
 								}}
@@ -208,7 +209,7 @@ export default function MenuPage() {
 										justifyContent: "center",
 										transform: "rotate(32.61deg)",
 										fontFamily: "Excon, sans-serif",
-										fontSize: "20px",
+										fontSize: "var(--fs-20)",
 										fontWeight: 500,
 										color: "#000",
 										pointerEvents: "none",
@@ -223,11 +224,10 @@ export default function MenuPage() {
 
 				{/* Product grid */}
 				<div
-					className="menu-grid grid items-start"
+					className="grid items-start grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
 					style={{
-						gridTemplateColumns: "repeat(3, 410px)",
-						columnGap: "68px",
-						rowGap: "48px",
+						columnGap: "clamp(16px, 4.7vw, 68px)",
+						rowGap: "clamp(24px, 3.3vw, 48px)",
 					}}
 				>
 					{filtered.map((product) => (

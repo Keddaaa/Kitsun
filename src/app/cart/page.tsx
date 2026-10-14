@@ -5,17 +5,18 @@ import Link from 'next/link';
 import { Dot, Trash2 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { formatPrice, getCartItemTotal, getCartTotal, useCart } from '@/contexts/CartContext';
 
-const TICKER_TEXT = 'TON PANIER';
 const TICKER_REPEAT = 16;
 
 function TickerContent() {
+  const { t } = useLanguage();
   return (
     <>
       {Array(TICKER_REPEAT).fill(null).map((_, i) => (
         <span key={i} className="inline-flex items-center" style={{ marginRight: '24px' }}>
-          <span style={{ fontFamily: 'LemonMilk, sans-serif', fontSize: '20px', color: '#000', textTransform: 'uppercase', marginRight: '24px' }}>{TICKER_TEXT}</span>
+          <span style={{ fontFamily: 'LemonMilk, sans-serif', fontSize: "var(--fs-20)", color: '#000', textTransform: 'uppercase', marginRight: '24px' }}>{t.tickers.panier}</span>
           <Dot size={7} className="text-black" />
         </span>
       ))}
@@ -50,10 +51,10 @@ function CartRow({ item, onRemove, onUpdate }: {
 
       {/* Info */}
       <div className="flex flex-col gap-2" style={{ flex: 1 }}>
-        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '35px', fontWeight: 700, color: '#000', lineHeight: 1 }}>
+        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-35)", fontWeight: 700, color: '#000', lineHeight: 1 }}>
           {item.name}
         </p>
-        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '22px', fontWeight: 400, color: '#000', opacity: 0.5 }}>
+        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", fontWeight: 400, color: '#000', opacity: 0.5 }}>
           {item.size}
         </p>
       </div>
@@ -66,24 +67,24 @@ function CartRow({ item, onRemove, onUpdate }: {
         <button
           onClick={() => onUpdate(item.qty - 1)}
           className="hover:bg-black hover:text-white transition-colors"
-          style={{ width: '56px', height: '56px', fontFamily: 'Excon, sans-serif', fontSize: '22px', background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
+          style={{ width: '56px', height: '56px', fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
         >
           -
         </button>
-        <span style={{ flex: 1, textAlign: 'center', fontFamily: 'Excon, sans-serif', fontSize: '20px', color: '#000', borderLeft: '1.5px solid #000', borderRight: '1.5px solid #000', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <span style={{ flex: 1, textAlign: 'center', fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-20)", color: '#000', borderLeft: '1.5px solid #000', borderRight: '1.5px solid #000', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {item.qty}
         </span>
         <button
           onClick={() => onUpdate(item.qty + 1)}
           className="hover:bg-black hover:text-white transition-colors"
-          style={{ width: '56px', height: '56px', fontFamily: 'Excon, sans-serif', fontSize: '22px', background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
+          style={{ width: '56px', height: '56px', fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", background: 'transparent', border: 'none', cursor: 'pointer', color: '#000' }}
         >
           +
         </button>
       </div>
 
       {/* Price */}
-      <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '35px', fontWeight: 500, color: '#000', minWidth: '120px', textAlign: 'right', flexShrink: 0 }}>
+      <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-35)", fontWeight: 500, color: '#000', minWidth: '120px', textAlign: 'right', flexShrink: 0 }}>
         {formatPrice(getCartItemTotal(item))}
       </p>
 
@@ -120,14 +121,14 @@ export default function CartPage() {
       <div style={{ paddingTop: '40px', paddingLeft: '80px', paddingRight: '80px', paddingBottom: '80px' }}>
         {/* Title */}
         <div className="flex items-end gap-6" style={{ marginBottom: '8px' }}>
-          <h1 style={{ fontFamily: 'LemonMilk, sans-serif', fontSize: '110px', fontWeight: 800, color: '#000', lineHeight: '0.9' }}>
+          <h1 style={{ fontFamily: 'LemonMilk, sans-serif', fontSize: "var(--fs-110)", fontWeight: 800, color: '#000', lineHeight: '0.9' }}>
             MON PANIER
           </h1>
           <div
             className="flex items-center justify-center"
             style={{ width: '68px', height: '68px', borderRadius: '50%', border: '1.5px solid #000', flexShrink: 0, marginBottom: '8px' }}
           >
-            <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '37px', color: '#000', fontWeight: 500 }}>
+            <span style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-37)", color: '#000', fontWeight: 500 }}>
               {items.length}
             </span>
           </div>
@@ -135,14 +136,14 @@ export default function CartPage() {
 
         {items.length === 0 ? (
           <div className="flex flex-col items-center justify-center" style={{ paddingTop: '120px', gap: '24px' }}>
-            <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '30px', color: '#000', opacity: 0.4 }}>
+            <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-30)", color: '#000', opacity: 0.4 }}>
               Ton panier est vide.
             </p>
             <Link
               href="/menu"
               style={{
                 fontFamily: 'Excon, sans-serif',
-                fontSize: '20px',
+                fontSize: "var(--fs-20)",
                 fontWeight: 600,
                 color: '#fff',
                 backgroundColor: '#000',
@@ -186,7 +187,7 @@ export default function CartPage() {
                 top: '24px',
               }}
             >
-              <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '25px', fontWeight: 500, color: '#000', marginBottom: '32px' }}>
+              <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-25)", fontWeight: 500, color: '#000', marginBottom: '32px' }}>
                 Récapitulatif
               </p>
               <div className="flex flex-col gap-3" style={{ marginBottom: '32px' }}>
@@ -203,8 +204,8 @@ export default function CartPage() {
               </div>
               <div style={{ borderTop: '1px solid #e5e5e5', paddingTop: '24px', marginBottom: '32px' }}>
                 <div className="flex justify-between items-center">
-                  <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '25px', fontWeight: 700, color: '#000' }}>Total</span>
-                  <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '35px', fontWeight: 500, color: '#000' }}>
+                  <span style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-25)", fontWeight: 700, color: '#000' }}>Total</span>
+                  <span style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-35)", fontWeight: 500, color: '#000' }}>
                     {formatPrice(total)}
                   </span>
                 </div>
@@ -213,7 +214,7 @@ export default function CartPage() {
                 className="hover:bg-white hover:text-black transition-colors w-full"
                 style={{
                   fontFamily: 'Excon, sans-serif',
-                  fontSize: '20px',
+                  fontSize: "var(--fs-20)",
                   fontWeight: 600,
                   color: '#fff',
                   backgroundColor: '#000',

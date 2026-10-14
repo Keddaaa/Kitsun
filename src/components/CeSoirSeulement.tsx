@@ -13,10 +13,10 @@ const products = [
 	{ id: 5, name: "Blueberry Fuel", price: "5,90€", video: "/videos/Blueberry Fuel.mp4" },
 ];
 
-const TICKER_TEXT = "APRÈS MINUIT, C’EST FINI";
 const TICKER_REPEAT = 12;
 
 function TickerContent() {
+	const { t } = useLanguage();
 	return (
 		<>
 			{Array(TICKER_REPEAT)
@@ -30,13 +30,13 @@ function TickerContent() {
 						<span
 							style={{
 								fontFamily: "LemonMilk, sans-serif",
-								fontSize: "20px",
+								fontSize: "var(--fs-20)",
 								color: "#000",
 								textTransform: "uppercase",
 								marginRight: "24px",
 							}}
 						>
-							{TICKER_TEXT}
+							{t.tickers.ceSoir}
 						</span>
 						<Dot size={40} className="text-black" />
 					</span>
@@ -62,8 +62,8 @@ function ProductCard({
 		<Link href={`/produit/${id}`} style={{ textDecoration: "none" }}>
 			<div className="flex flex-col">
 				<div
-					className="ce-soir-card relative overflow-hidden"
-					style={{ width: "408px", height: "507.73px" }}
+					className="relative overflow-hidden"
+					style={{ width: "100%", aspectRatio: "408 / 507.73" }}
 					onMouseEnter={() => ref.current?.play()}
 					onMouseLeave={() => {
 						if (ref.current) {
@@ -82,14 +82,14 @@ function ProductCard({
 					/>
 				</div>
 				<div
-					className="ce-soir-card flex items-center justify-between mt-3"
-					style={{ width: "408px" }}
+					className="ce-soir-card flex items-center justify-between mt-3 gap-3"
+					style={{ width: "100%" }}
 				>
 					<span
 						className="text-black"
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "25px",
+							fontSize: "var(--fs-25)",
 							fontWeight: 400,
 						}}
 					>
@@ -99,7 +99,7 @@ function ProductCard({
 						className="text-black"
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "25px",
+							fontSize: "var(--fs-25)",
 							fontWeight: 400,
 						}}
 					>
@@ -139,15 +139,16 @@ export default function CeSoirSeulement() {
 			</div>
 
 			{/* Content */}
-			<div className="mob-px px-8 pt-16 md:pt-28 pb-16">
+			<div className="pt-16 md:pt-28 pb-16"
+				style={{ paddingLeft: "var(--gutter-sm)", paddingRight: "var(--gutter-sm)" }}>
 				<h2
 					ref={titleRef as React.RefObject<HTMLHeadingElement>}
 					className="anim-fade-up text-black mb-1"
 					style={{
 						fontFamily: "LemonMilk, sans-serif",
-						fontSize: "55px",
+						fontSize: "var(--fs-55)",
 						fontWeight: 700,
-						lineHeight: "55px",
+						lineHeight: "1.05",
 					}}
 				>
 					{t.ceSoir.title}
@@ -157,7 +158,7 @@ export default function CeSoirSeulement() {
 					className="anim-fade-up text-black mb-16"
 					style={{
 						fontFamily: "Excon, sans-serif",
-						fontSize: "30px",
+						fontSize: "var(--fs-30)",
 						fontWeight: 500,
 					}}
 				>
@@ -165,7 +166,7 @@ export default function CeSoirSeulement() {
 				</p>
 
 				{/* Cards */}
-				<div className="ce-soir-grid grid grid-cols-1 md:grid-cols-4 gap-4">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[clamp(12px,1.4vw,20px)]">
 					{products.map((p, i) => (
 						<div
 							key={p.name}
@@ -187,7 +188,7 @@ export default function CeSoirSeulement() {
 						className="text-black underline underline-offset-4 hover:opacity-60 transition-opacity"
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "22px",
+							fontSize: "var(--fs-22)",
 							fontWeight: 400,
 						}}
 					>

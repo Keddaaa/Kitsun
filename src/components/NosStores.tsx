@@ -66,10 +66,10 @@ function StoreCard({
 	closedLabel: string;
 }) {
 	return (
-		<div className="flex-shrink-0" style={{ width: "457px" }}>
+		<div className="flex-shrink-0" style={{ width: "clamp(240px, 78vw, 457px)" }}>
 			<div
 				className="relative overflow-hidden"
-				style={{ width: "457px", height: "447px", borderRadius: "0px" }}
+				style={{ width: "100%", aspectRatio: "457 / 447", borderRadius: "0px" }}
 			>
 				{/* eslint-disable-next-line @next/next/no-img-element */}
 				<img
@@ -88,7 +88,7 @@ function StoreCard({
 						className="text-black"
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "25px",
+							fontSize: "var(--fs-25)",
 							fontWeight: 500,
 							lineHeight: "1.2",
 						}}
@@ -99,7 +99,7 @@ function StoreCard({
 						className="text-black"
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "25px",
+							fontSize: "var(--fs-25)",
 							fontWeight: 400,
 							lineHeight: "1.4",
 							marginTop: "2px",
@@ -121,7 +121,7 @@ function StoreCard({
 							className="text-black"
 							style={{
 								fontFamily: "Excon, sans-serif",
-								fontSize: "25px",
+								fontSize: "var(--fs-25)",
 								fontWeight: 400,
 							}}
 						>
@@ -192,15 +192,15 @@ export default function NosStores() {
 	};
 
 	return (
-		<section id="nos-stores" style={{ backgroundColor: "#FDF3E6", padding: "80px 80px" }}>
-			<div className="flex items-end justify-between" style={{ marginBottom: "40px" }}>
+		<section id="nos-stores" style={{ backgroundColor: "#FDF3E6", padding: "clamp(40px, 6vw, 80px) var(--gutter)" }}>
+			<div className="flex items-end justify-between" style={{ marginBottom: "clamp(20px, 3vw, 40px)" }}>
 				<div>
 					<h2
 						ref={titleRef as React.RefObject<HTMLHeadingElement>}
 						className="anim-fade-up text-black"
 						style={{
 							fontFamily: "LemonMilk, sans-serif",
-							fontSize: "40px",
+							fontSize: "var(--fs-40)",
 							fontWeight: 700,
 							lineHeight: "1",
 							marginBottom: "6px",
@@ -213,7 +213,7 @@ export default function NosStores() {
 						className="anim-fade-up text-black"
 						style={{
 							fontFamily: "Excon, sans-serif",
-							fontSize: "30px",
+							fontSize: "var(--fs-30)",
 							fontWeight: 400,
 						}}
 					>

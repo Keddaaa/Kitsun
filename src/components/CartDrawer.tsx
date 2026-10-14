@@ -33,18 +33,19 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
           width: 'min(520px, 100vw)', backgroundColor: '#FDF3E6',
           zIndex: 101, display: 'flex', flexDirection: 'column',
           transform: open ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.35s cubic-bezier(0.22,1,0.36,1)',
-          boxShadow: '-4px 0 40px rgba(0,0,0,0.12)',
+          visibility: open ? 'visible' : 'hidden',
+          transition: `transform 0.35s cubic-bezier(0.22,1,0.36,1), visibility 0s linear ${open ? '0s' : '0.35s'}`,
+          boxShadow: open ? '-4px 0 40px rgba(0,0,0,0.12)' : 'none',
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between" style={{ padding: '32px 32px 24px', borderBottom: '1px solid #e5e5e5' }}>
+        <div className="flex items-center justify-between" style={{ padding: 'clamp(20px, 4vw, 32px) clamp(16px, 4vw, 32px) clamp(16px, 3vw, 24px)', borderBottom: '1px solid #e5e5e5' }}>
           <div className="flex items-center gap-4">
-            <span style={{ fontFamily: 'LemonMilk, sans-serif', fontSize: '28px', fontWeight: 800, color: '#000' }}>
+            <span style={{ fontFamily: 'LemonMilk, sans-serif', fontSize: 'clamp(1.25rem, 5vw, 28px)', fontWeight: 800, color: '#000' }}>
               MON PANIER
             </span>
             <div style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1.5px solid #000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '20px', color: '#000', fontWeight: 500 }}>{count}</span>
+              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-20)", color: '#000', fontWeight: 500 }}>{count}</span>
             </div>
           </div>
           <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#000' }}>
@@ -53,10 +54,10 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
         </div>
 
         {/* Items */}
-        <div style={{ flex: 1, overflowY: 'auto', padding: '0 32px' }}>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '0 clamp(16px, 4vw, 32px)' }}>
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center" style={{ height: '100%', gap: '16px' }}>
-              <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '22px', color: '#000', opacity: 0.4 }}>
+              <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", color: '#000', opacity: 0.4 }}>
                 Ton panier est vide.
               </p>
               <button
@@ -80,10 +81,10 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
 
         {/* Footer */}
         {items.length > 0 && (
-          <div style={{ padding: '24px 32px', borderTop: '1px solid #e5e5e5' }}>
+          <div style={{ padding: '24px clamp(16px, 4vw, 32px)', borderTop: '1px solid #e5e5e5' }}>
             <div className="flex justify-between items-center" style={{ marginBottom: '20px' }}>
-              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '22px', fontWeight: 500, color: '#000' }}>Total</span>
-              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: '32px', fontWeight: 500, color: '#000' }}>
+              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", fontWeight: 500, color: '#000' }}>Total</span>
+              <span style={{ fontFamily: 'Excon, sans-serif', fontSize: 'clamp(1.375rem, 5vw, 32px)', fontWeight: 500, color: '#000' }}>
                 {formatPrice(total)}
               </span>
             </div>
@@ -121,7 +122,7 @@ function CartItem({ item, onRemove, onUpdate }: {
     <div className="flex items-center gap-4" style={{ paddingTop: '24px', paddingBottom: '24px', borderBottom: '1px solid #e5e5e5' }}>
       {/* Thumb */}
       <div
-        style={{ width: '110px', height: '130px', flexShrink: 0, overflow: 'hidden' }}
+        style={{ width: 'clamp(80px, 22vw, 110px)', height: 'clamp(96px, 26vw, 130px)', flexShrink: 0, overflow: 'hidden' }}
         onMouseEnter={() => ref.current?.play()}
         onMouseLeave={() => { if (ref.current) { ref.current.pause(); ref.current.currentTime = 0; } }}
       >
@@ -130,9 +131,9 @@ function CartItem({ item, onRemove, onUpdate }: {
 
       {/* Info */}
       <div className="flex flex-col" style={{ flex: 1, gap: '4px' }}>
-        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '22px', fontWeight: 700, color: '#000', lineHeight: 1 }}>{item.name}</p>
+        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-22)", fontWeight: 700, color: '#000', lineHeight: 1 }}>{item.name}</p>
         <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '16px', color: '#000', opacity: 0.5 }}>{item.size}</p>
-        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: '20px', fontWeight: 500, color: '#000', marginTop: '4px' }}>{formatPrice(getCartItemTotal(item))}</p>
+        <p style={{ fontFamily: 'Excon, sans-serif', fontSize: "var(--fs-20)", fontWeight: 500, color: '#000', marginTop: '4px' }}>{formatPrice(getCartItemTotal(item))}</p>
 
         {/* Qty */}
         <div className="flex items-center" style={{ marginTop: '8px', border: '1.5px solid #000', width: '130px', height: '44px' }}>

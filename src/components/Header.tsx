@@ -43,7 +43,7 @@ export default function Header({ light = false, staticPos = false }: { light?: b
         className={staticPos ? 'w-full z-50' : 'fixed top-0 left-0 right-0 z-50 transition-transform duration-300'}
         style={staticPos ? {} : { transform: hidden ? 'translateY(-100%)' : 'translateY(0)' }}
       >
-        <nav className="flex items-center justify-between px-5 py-4">
+        <nav className="flex items-center justify-between py-4" style={{ paddingLeft: 'clamp(12px, 2vw, 28px)', paddingRight: 'clamp(16px, 2.5vw, 36px)' }}>
           {/* Logo */}
           <Link href="/" className="flex items-center select-none ml-2">
             <Image
@@ -51,19 +51,19 @@ export default function Header({ light = false, staticPos = false }: { light?: b
               alt="Kitsun"
               width={160}
               height={52}
-              className="md:w-[232px] md:h-[74px]"
+              className="w-[140px] h-auto sm:w-[170px] lg:w-[clamp(170px,16vw,232px)]"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center" style={{ gap: 'clamp(16px, 2.2vw, 32px)' }}>
             {navLinks.map(({ label, href }) => (
               <li key={label}>
                 <Link
                   href={href}
                   className={`${linkClass} transition-colors duration-200`}
-                  style={{ fontFamily: 'Excon, sans-serif', fontSize: '1.875rem', fontWeight: 500 }}
+                  style={{ fontFamily: 'Excon, sans-serif', fontSize: 'clamp(1rem, 1.9vw, 1.875rem)', fontWeight: 500, whiteSpace: 'nowrap' }}
                 >
                   {label}
                 </Link>
@@ -95,10 +95,10 @@ export default function Header({ light = false, staticPos = false }: { light?: b
             </button>
 
             {/* Heart + Account — hidden on mobile */}
-            <button aria-label="Favoris" className={`${hoverClass} transition-colors hidden md:flex`} style={{ color, background: 'none', border: 'none', cursor: 'pointer' }}>
+            <button aria-label="Favoris" className={`${hoverClass} transition-colors hidden lg:flex`} style={{ color, background: 'none', border: 'none', cursor: 'pointer' }}>
               <Heart size={28} strokeWidth={1.6} />
             </button>
-            <button aria-label="Mon compte" className={`${hoverClass} transition-colors hidden md:flex`} style={{ color, background: 'none', border: 'none', cursor: 'pointer' }}>
+            <button aria-label="Mon compte" className={`${hoverClass} transition-colors hidden lg:flex`} style={{ color, background: 'none', border: 'none', cursor: 'pointer' }}>
               <UserRound size={28} strokeWidth={1.6} />
             </button>
 
@@ -106,7 +106,7 @@ export default function Header({ light = false, staticPos = false }: { light?: b
             <button
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Menu"
-              className="flex md:hidden"
+              className="flex lg:hidden"
               style={{ color, background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}
             >
               {menuOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
