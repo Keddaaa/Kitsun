@@ -7,7 +7,7 @@ export type Lang = 'fr' | 'en' | 'de' | 'es';
 const translations = {
   fr: {
     tickers: { ceSoir: 'APRÈS MINUIT, C’EST FINI', produit: 'TON KITSUN, TES RÈGLES', panier: 'TON PANIER' },
-    nav: ['Carte', 'Personnalisation', 'Nos stores', 'About'],
+    nav: ['Carte', 'Personnaliser', 'Nos stores', 'About'],
     ceSoir: {
       title: 'CE SOIR SEULEMENT',
       subtitle: 'Les bons plans disparaissent à minuit.',
