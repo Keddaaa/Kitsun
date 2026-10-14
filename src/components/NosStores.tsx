@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useInView } from "@/hooks/useInView";
@@ -75,6 +75,7 @@ function StoreCard({
 				<img
 					src={image}
 					alt={district}
+					draggable={false}
 					style={{
 						width: "100%",
 						height: "100%",
@@ -145,17 +146,25 @@ export default function NosStores() {
 		scrollRef.current?.scrollBy({ left: 480, behavior: "smooth" });
 	};
 
-	const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+	// Native non-passive listener: React's onWheel is passive, so preventDefault() would be ignored
+	useEffect(() => {
 		const container = scrollRef.current;
-		if (!container || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+		if (!container) return;
 
-		const atStart = container.scrollLeft <= 0;
-		const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
-		if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
+		const handleWheel = (event: WheelEvent) => {
+			if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
 
-		event.preventDefault();
-		container.scrollLeft += event.deltaY;
-	};
+			const atStart = container.scrollLeft <= 0;
+			const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+			if ((event.deltaY < 0 && atStart) || (event.deltaY > 0 && atEnd)) return;
+
+			event.preventDefault();
+			container.scrollLeft += event.deltaY;
+		};
+
+		container.addEventListener("wheel", handleWheel, { passive: false });
+		return () => container.removeEventListener("wheel", handleWheel);
+	}, []);
 
 	const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
 		if (event.pointerType !== "mouse" || event.button !== 0) return;
@@ -245,7 +254,6 @@ export default function NosStores() {
 				className="flex gap-6 overflow-x-auto"
 				tabIndex={0}
 				aria-label="Liste des stores"
-				onWheel={handleWheel}
 				onPointerDown={handlePointerDown}
 				onPointerMove={handlePointerMove}
 				onPointerUp={stopDragging}
